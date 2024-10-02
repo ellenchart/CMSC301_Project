@@ -73,6 +73,26 @@ int main(int argc, char *argv[])
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
             write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32), inst_outfile);
         }
+        else if (inst_type == "sub")
+        {
+            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34);
+            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34), inst_outfile);
+        }
+        else if (inst_type == "addi")
+        {
+            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], registers[terms[3]]);
+            write_binary(encode_Itype(8, registers[terms[1]], registers[terms[2]], registers[terms[3]]), inst_outfile);
+        }
+        else if (inst_type == "mult")
+        {
+            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34);
+            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34), inst_outfile);
+        }
+        else if (inst_type == "div")
+        {
+            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34);
+            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34), inst_outfile);
+        }
     }
 }
 
