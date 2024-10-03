@@ -66,20 +66,20 @@ void write_binary(int value, std::ofstream &outfile)
 // Utility function for encoding an arithmetic "R" type function
 int encode_Rtype(int opcode, int rs, int rt, int rd, int shftamt, int funccode)
 {
-    return (opcode << 26) + (rs << 21) + (rt << 16) + (rd << 11) + (shftamt << 6) + funccode;
+    return (opcode << 26) + (rs << 21) + (rt << 16) + (rd << 11) + (shftamt << 6) + funccode; // 6, 5, 5, 5, 5, 6
 }
 // Hint: What other instruction types need to be encoded?
 
 // Utility function for encoding an arithmetic "I" type function
 int encode_Itype(int opcode, int rs, int rt, int imm)
 {
-    return (opcode << 26) + (rs << 21) + (rt << 16) + imm;
+    return (opcode << 26) + (rs << 21) + (rt << 16) + imm; // 6, 5, 5, 16
 }
 
 // Utility function for encoding an arithmetic "J" type function
 int encode_Jtype(int opcode, int target)
 {
-    return (opcode << 26) + target;
+    return (opcode << 26) + target; // 6, 26
 }
 
 /**
