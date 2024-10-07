@@ -103,68 +103,69 @@ int main(int argc, char *argv[])
             int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], registers[terms[3]]);
             write_binary(encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile);
         }
-        else if(inst_type =="lw")
+        else if (inst_type == "lw")
         {
             // unsure of how if where these terms are is correct
             int result = encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
             write_binary(encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
         }
-        else if(inst_type =="sw")
+        else if (inst_type == "sw")
         {
             // unsure of how if where these terms are is correct
             int result = encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
             write_binary(encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
         }
-        else if(inst_type =="slt")
+        else if (inst_type == "slt")
         {
-            
+
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
             write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32), inst_outfile);
         }
-        else if(inst_type =="slt")
+        else if (inst_type == "slt")
         {
-            
+
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
             write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32), inst_outfile);
         }
-        else if(inst_type =="beq")
+        else if (inst_type == "beq")
         {
             // issue with offset
             // are terms in correct order?
-            int result = encode_Itype(4, registers[terms[1]], registers[terms[2]], stoi(terms[3])); // get offset instead of just terms[3]
+            int result = encode_Itype(4, registers[terms[1]], registers[terms[2]], stoi(terms[3]));                // get offset instead of just terms[3]
             write_binary(encode_Itype(4, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile); // get offset instead of just terms[3]
         }
-        else if(inst_type =="bne")
+        else if (inst_type == "bne")
         {
             // issue with offset
-            int result = encode_Itype(5, stoi(terms[1]), stoi(terms[2]), stoi(terms[3])); // get offset instead of just terms[3]
+            int result = encode_Itype(5, stoi(terms[1]), stoi(terms[2]), stoi(terms[3]));                // get offset instead of just terms[3]
             write_binary(encode_Itype(5, stoi(terms[1]), stoi(terms[2]), stoi(terms[3])), inst_outfile); // get offset instead of just terms[3]
         }
-        else if(inst_type =="j")
+        else if (inst_type == "j")
         {
             // Same as 'jal'
             int result = encode_Jtype(2, stoi(terms[1]));
             write_binary(encode_Jtype(2, stoi(terms[1])), inst_outfile);
         }
-        else if(inst_type =="jal")
+        else if (inst_type == "jal")
         {
             // Is terms[1] just the name of the label, or does it hold what we want here?
             int result = encode_Jtype(3, stoi(terms[1]));
             write_binary(encode_Jtype(3, stoi(terms[1])), inst_outfile);
         }
-        else if(inst_type =="jr")
+        else if (inst_type == "jr")
         {
             // 6, 5, 15, 6 form
             // we do not have an encode function for something like that yet
         }
-        else if(inst_type =="jalr")
+        else if (inst_type == "jalr")
         {
             int result = encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9);
             write_binary(encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9), inst_outfile);
         }
-        else if(inst_type == "syscall")
+        else if (inst_type == "syscall")
         {
-            // not sure
+            int result = encode_Rtype(0, 0, 0, 0, 0, 12);
+            write_binary(encode_Rtype(0, 0, 0, 0, 0, 12), inst_outfile);
         }
     }
 }
