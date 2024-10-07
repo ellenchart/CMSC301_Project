@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "addi")
         {
-            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], registers[terms[3]]);
+            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3]));
             write_binary(encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile);
         }
         else if (inst_type == "mult")
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "sll")
         {
-            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], registers[terms[3]]);
+            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3]));
             write_binary(encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile);
         }
         else if (inst_type == "srl")
