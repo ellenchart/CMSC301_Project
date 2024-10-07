@@ -53,6 +53,11 @@ int main(int argc, char *argv[])
             { // Ignore empty lines
                 continue;
             }
+            else if (str[0] == '.')
+            {
+                // ignore directives
+                continue;
+            }
             else if (str.find(':') != std::string::npos) // if it can't find ':' then output npos (no position)
             {
                 std::string stringTemp = str.substr(0, str.find(':'));
@@ -66,6 +71,11 @@ int main(int argc, char *argv[])
 
             instructions.push_back(str); // TODO This will need to change for labels
         }
+
+        // for (const auto &elem : map)
+        // {
+        //     std::cout << elem.first << " " << elem.second << "\n";
+        // }
         infile.close();
     }
 
