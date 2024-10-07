@@ -96,50 +96,89 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "addi")
         {
-            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3]));
-            write_binary(encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile);
+
+            int tempImm = std::stoi(terms[3]);
+
+            // // std::cout << terms[3].at(0);
+
+            // if (terms[3].at(0) == '-')
+            // {
+            //     tempImm = tempImm * -1;
+            //     std::cout << tempImm;
+            // }
+
+            int result = encode_Itype(8, registers[terms[2]], registers[terms[1]], stoi(terms[3]));
+            write_binary(encode_Itype(8, registers[terms[2]], registers[terms[1]], stoi(terms[3])), inst_outfile);
+            // std::cout << registers[terms[2]];
+            // std::cout << registers[terms[1]];
+            // std::cout << stoi(terms[3]);
+
+            // break;
         }
         else if (inst_type == "mult")
         {
-            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34);
-            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34), inst_outfile);
+            int result = encode_Rtype(0, registers[terms[1]], registers[terms[2]], 0, 0, 24);
+            write_binary(encode_Rtype(0, registers[terms[1]], registers[terms[2]], 0, 0, 24), inst_outfile);
         }
         else if (inst_type == "div")
         {
-            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34);
-            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 34), inst_outfile);
+            int result = encode_Rtype(0, registers[terms[1]], registers[terms[2]], 0, 0, 26);
+            write_binary(encode_Rtype(0, registers[terms[1]], registers[terms[2]], 0, 0, 26), inst_outfile);
         }
         else if (inst_type == "sll")
         {
-            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3]));
-            write_binary(encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile);
+            // int tempImm = stoi(terms[3]);
+
+            // if (terms[3].at(0) == '-')
+            // {
+            //     tempImm = tempImm * -1;
+            // }
+
+            int result = encode_Rtype(0, 0, registers[terms[2]], registers[terms[1]], stoi(terms[3]), 0);
+            write_binary(encode_Rtype(0, 0, registers[terms[2]], registers[terms[1]], stoi(terms[3]), 0), inst_outfile);
         }
         else if (inst_type == "srl")
         {
-            int result = encode_Itype(8, registers[terms[1]], registers[terms[2]], registers[terms[3]]);
-            write_binary(encode_Itype(8, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile);
+            // int tempImm = stoi(terms[3]);
+
+            // if (terms[3].at(0) == '-')
+            // {
+            //     tempImm = tempImm * -1;
+            // }
+
+            int result = encode_Rtype(0, 0, registers[terms[2]], registers[terms[1]], stoi(terms[3]), 2);
+            write_binary(encode_Rtype(0, 0, registers[terms[2]], registers[terms[1]], stoi(terms[3]), 2), inst_outfile);
         }
         else if (inst_type == "lw")
         {
+            // int tempImm = stoi(terms[2]);
+
+            // if (terms[2].at(0) == '-')
+            // {
+            //     tempImm = tempImm * -1;
+            // }
+
+            // ask which register the offset is in
             int result = encode_Itype(35, registers[terms[1]], registers[terms[3]], stoi(terms[2]));
             write_binary(encode_Itype(35, registers[terms[1]], registers[terms[3]], stoi(terms[2])), inst_outfile);
         }
         else if (inst_type == "sw")
         {
+            // int tempImm = stoi(terms[2]);
+
+            // if (terms[2].at(0) == '-')
+            // {
+            //     tempImm = tempImm * -1;
+            // }
+
             // ask which register the offset is in
             int result = encode_Itype(43, registers[terms[1]], registers[terms[3]], stoi(terms[2]));
             write_binary(encode_Itype(43, registers[terms[1]], registers[terms[3]], stoi(terms[2])), inst_outfile);
         }
         else if (inst_type == "slt")
         {
-            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
-            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32), inst_outfile);
-        }
-        else if (inst_type == "slt")
-        {
-
-            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
-            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32), inst_outfile);
+            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 42);
+            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 42), inst_outfile);
         }
         else if (inst_type == "beq")
         {
@@ -177,8 +216,9 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "syscall")
         {
-            int result = encode_Rtype(0, 0, 0, 0, 0, 12);
-            write_binary(encode_Rtype(0, 0, 0, 0, 0, 12), inst_outfile);
+            // this is syscall exit code
+            int result = encode_Rtype(0, 0, 0, 26, 0, 12);
+            write_binary(encode_Rtype(0, 0, 0, 26, 0, 12), inst_outfile);
         }
         else if (inst_type == "mflo")
         {
@@ -190,6 +230,10 @@ int main(int argc, char *argv[])
             int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16);
             write_binary(encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16), inst_outfile);
         }
+
+        // std::cout << registers[terms[2]];
+        // std::cout << registers[terms[1]];
+        // std::cout << stoi(terms[3]);
         count = count + 1;
     }
 }
