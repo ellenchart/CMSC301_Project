@@ -86,10 +86,10 @@ int main(int argc, char *argv[])
 
     std::map<char, int> asciiMap;
     for(int i = 97; i <= 122; i++){
-         asciiMap.insert(std::pair<char, int>(char(i), i));
+        asciiMap.insert(std::pair<char, int>(char(i), i));
     }
     for(int i = 65; i <= 90; i++){
-         asciiMap.insert(std::pair<char, int>(char(i), i));
+        asciiMap.insert(std::pair<char, int>(char(i), i));
     }
 
     std::map<std::string, int> staticMap;
@@ -113,8 +113,25 @@ int main(int argc, char *argv[])
             {
                 break;
             }
-            else
-            {
+            else if (str.find(".word") != std::string::npos) {
+ 
+                bool foundLabel = false;
+                std::string label = "";
+                for(char& c : str) {
+                    if(&c == ":"){
+                        foundLabel = true;
+                    }
+                    if(!foundLabel){
+                        label += c;
+                    }
+                    else{
+                        // look for whitespace and section of by that
+                        // figure out if sections are labels or ints and do work acccordingly
+                    }
+                }
+            }
+            else if (str.find(".asciiz") != std::string::npos) {
+                // handle asciiz
             }
         }
 
