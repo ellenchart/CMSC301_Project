@@ -121,19 +121,17 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "lw")
         {
-            // unsure of how if where these terms are is correct
-            int result = encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
-            write_binary(encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
+            int result = encode_Itype(35, registers[terms[1]], registers[terms[3]], stoi(terms[2]));
+            write_binary(encode_Itype(35, registers[terms[1]], registers[terms[3]], stoi(terms[2])), inst_outfile);
         }
         else if (inst_type == "sw")
         {
-            // unsure of how if where these terms are is correct
-            int result = encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
-            write_binary(encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
+            // ask which register the offset is in
+            int result = encode_Itype(43, registers[terms[1]], registers[terms[3]], stoi(terms[2]));
+            write_binary(encode_Itype(43, registers[terms[1]], registers[terms[3]], stoi(terms[2])), inst_outfile);
         }
         else if (inst_type == "slt")
         {
-
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
             write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32), inst_outfile);
         }
@@ -145,14 +143,14 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "beq")
         {
-            int tempAddress = map.at(terms[3]) - count;
+            int tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
 
             int result = encode_Itype(4, registers[terms[1]], registers[terms[2]], tempAddress);
             write_binary(encode_Itype(4, registers[terms[1]], registers[terms[2]], tempAddress), inst_outfile);
         }
         else if (inst_type == "bne")
         {
-            int tempAddress = map.at(terms[3]) - count;
+            int tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
 
             int result = encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress);
             write_binary(encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress), inst_outfile);
@@ -181,6 +179,16 @@ int main(int argc, char *argv[])
         {
             int result = encode_Rtype(0, 0, 0, 0, 0, 12);
             write_binary(encode_Rtype(0, 0, 0, 0, 0, 12), inst_outfile);
+        }
+        else if (inst_type == "mflo")
+        {
+            int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 18);
+            write_binary(encode_Rtype(0, 0, 0, registers[terms[1]], 0, 18), inst_outfile);
+        }
+        else if (inst_type == "mfhi")
+        {
+            int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16);
+            write_binary(encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16), inst_outfile);
         }
         count = count + 1;
     }
