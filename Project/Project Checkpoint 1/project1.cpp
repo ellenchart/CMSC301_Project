@@ -84,7 +84,13 @@ int main(int argc, char *argv[])
      * TODO: All of this
      */
 
-    std::map<std::string, int> asciiMap;
+    std::map<char, int> asciiMap;
+    for(int i = 97; i <= 122; i++){
+         asciiMap.insert(std::pair<char, int>(char(i), i));
+    }
+    for(int i = 65; i <= 90; i++){
+         asciiMap.insert(std::pair<char, int>(char(i), i));
+    }
 
     std::map<std::string, int> staticMap;
     for (int i = 1; i < argc - 2; i++)
