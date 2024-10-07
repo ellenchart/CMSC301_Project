@@ -85,10 +85,12 @@ int main(int argc, char *argv[])
      */
 
     std::map<char, int> asciiMap;
-    for(int i = 97; i <= 122; i++){
+    for (int i = 97; i <= 122; i++)
+    {
         asciiMap.insert(std::pair<char, int>(char(i), i));
     }
-    for(int i = 65; i <= 90; i++){
+    for (int i = 65; i <= 90; i++)
+    {
         asciiMap.insert(std::pair<char, int>(char(i), i));
     }
 
@@ -113,24 +115,30 @@ int main(int argc, char *argv[])
             {
                 break;
             }
-            else if (str.find(".word") != std::string::npos) {
- 
+            else if (str.find(".word") != std::string::npos)
+            {
+
                 bool foundLabel = false;
                 std::string label = "";
-                for(char& c : str) {
-                    if(&c == ":"){
+                for (char &c : str)
+                {
+                    if (&c == ":")
+                    {
                         foundLabel = true;
                     }
-                    if(!foundLabel){
+                    if (!foundLabel)
+                    {
                         label += c;
                     }
-                    else{
+                    else
+                    {
                         // look for whitespace and section of by that
                         // figure out if sections are labels or ints and do work acccordingly
                     }
                 }
             }
-            else if (str.find(".asciiz") != std::string::npos) {
+            else if (str.find(".asciiz") != std::string::npos)
+            {
                 // handle asciiz
             }
         }
@@ -330,6 +338,29 @@ int main(int argc, char *argv[])
         {
             int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16);
             write_binary(encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16), inst_outfile);
+        }
+        else if (inst_type == "bge")
+        {
+            int tempAddress = 0;
+
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
+            int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16);
+            // Using the register $at (assembler temporary) for storing the result of slt
+            int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
+            write_binary(slt_result, inst_outfile);
+
+            // Branch if equal (if slt_result is zero)
+            int beq_result = encode_Itype(4, 1, 0, tempAddress);
+            // beq $at, $zero, target
+            write_binary(beq_result, inst_outfile);
         }
 
         // std::cout << registers[terms[2]];
