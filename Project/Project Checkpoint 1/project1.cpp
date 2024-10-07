@@ -182,14 +182,37 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "beq")
         {
-            int tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+            int tempAddress = 0;
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
+
+            // std::cout << tempAddress;
+
+            // int tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
 
             int result = encode_Itype(4, registers[terms[1]], registers[terms[2]], tempAddress);
             write_binary(encode_Itype(4, registers[terms[1]], registers[terms[2]], tempAddress), inst_outfile);
         }
         else if (inst_type == "bne")
         {
-            int tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+            int tempAddress = 0;
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
+            // int tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
 
             int result = encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress);
             write_binary(encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress), inst_outfile);
