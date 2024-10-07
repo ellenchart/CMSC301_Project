@@ -244,8 +244,18 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "jalr")
         {
-            int result = encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9);
-            write_binary(encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9), inst_outfile);
+            // need an if statement for how many registers in the argument
+            if (terms.size() == 3)
+            {
+                int result = encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9);
+                write_binary(encode_Rtype(0, registers[terms[1]], 0, registers[terms[2]], 0, 9), inst_outfile);
+            }
+            else
+            {
+                // we choose 31 because it's 11111 in binary
+                int result = encode_Rtype(0, registers[terms[1]], 0, 31, 0, 9);
+                write_binary(encode_Rtype(0, registers[terms[1]], 0, 31, 0, 9), inst_outfile);
+            }
         }
         else if (inst_type == "syscall")
         {
