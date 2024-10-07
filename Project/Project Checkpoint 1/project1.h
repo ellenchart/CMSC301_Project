@@ -73,7 +73,16 @@ int encode_Rtype(int opcode, int rs, int rt, int rd, int shftamt, int funccode)
 // Utility function for encoding an arithmetic "I" type function
 int encode_Itype(int opcode, int rs, int rt, int imm)
 {
-    return (opcode << 26) + (rs << 21) + (rt << 16) + imm; // 6, 5, 5, 16
+    // takes the opcode and shifts it 26 bits leaves trailing 0s
+    if (imm < 0)
+    {
+        // we decided to shift it by 16 1's by 16 bits to negate the problem a negative imm gives us
+        return (opcode << 26) + (rs << 21) + (rt << 16) + imm - (65535 << 16);
+    }
+    else
+    {
+        return (opcode << 26) + (rs << 21) + (rt << 16) + imm; // 6, 5, 5, 16
+    }
 }
 
 // Utility function for encoding an arithmetic "J" type function
