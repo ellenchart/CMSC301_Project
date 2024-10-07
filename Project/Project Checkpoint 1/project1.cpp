@@ -145,16 +145,17 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "beq")
         {
-            // issue with offset
-            // are terms in correct order?
-            int result = encode_Itype(4, registers[terms[1]], registers[terms[2]], stoi(terms[3]));                // get offset instead of just terms[3]
-            write_binary(encode_Itype(4, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile); // get offset instead of just terms[3]
+            int tempAddress = map.at(terms[3]) - count;
+
+            int result = encode_Itype(4, registers[terms[1]], registers[terms[2]], tempAddress);
+            write_binary(encode_Itype(4, registers[terms[1]], registers[terms[2]], tempAddress), inst_outfile);
         }
         else if (inst_type == "bne")
         {
-            // issue with offset
-            int result = encode_Itype(5, stoi(terms[1]), stoi(terms[2]), stoi(terms[3]));                // get offset instead of just terms[3]
-            write_binary(encode_Itype(5, stoi(terms[1]), stoi(terms[2]), stoi(terms[3])), inst_outfile); // get offset instead of just terms[3]
+            int tempAddress = map.at(terms[3]) - count;
+
+            int result = encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress);
+            write_binary(encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress), inst_outfile);
         }
         else if (inst_type == "j")
         {
@@ -181,6 +182,7 @@ int main(int argc, char *argv[])
             int result = encode_Rtype(0, 0, 0, 0, 0, 12);
             write_binary(encode_Rtype(0, 0, 0, 0, 0, 12), inst_outfile);
         }
+        count = count + 1;
     }
 }
 #endif
