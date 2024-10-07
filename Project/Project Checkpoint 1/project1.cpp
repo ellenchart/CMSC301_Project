@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
      */
 
     // For each input file:
+    int count = 0;
+    std::map<std::string, int> map;
     for (int i = 1; i < argc - 2; i++)
     {
         std::ifstream infile(argv[i]); //  open the input file for reading
@@ -44,8 +46,6 @@ int main(int argc, char *argv[])
         }
 
         std::string str;
-        int count = 0;
-        std::map<std::string, int> map;
         while (getline(infile, str))
         {                     // Read a line from the file
             str = clean(str); // remove comments, leading and trailing whitespace
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
      * TODO: Almost all of this, it only works for adds
      */
 
-    int count = 0;
+    count = 0;
     for (std::string inst : instructions)
     {
         std::vector<std::string> terms = split(inst, WHITESPACE + ",()");
@@ -158,20 +158,18 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "j")
         {
-            // Same as 'jal'
-            int result = encode_Jtype(2, stoi(terms[1]));
-            write_binary(encode_Jtype(2, stoi(terms[1])), inst_outfile);
+            int result = encode_Jtype(2, map.at(terms[1]));
+            write_binary(encode_Jtype(2, map.at(terms[1])), inst_outfile);
         }
         else if (inst_type == "jal")
         {
-            // Is terms[1] just the name of the label, or does it hold what we want here?
-            int result = encode_Jtype(3, stoi(terms[1]));
-            write_binary(encode_Jtype(3, stoi(terms[1])), inst_outfile);
+            int result = encode_Jtype(3, map.at(terms[1]));
+            write_binary(encode_Jtype(3, map.at(terms[1])), inst_outfile);
         }
         else if (inst_type == "jr")
         {
-            // 6, 5, 15, 6 form
-            // we do not have an encode function for something like that yet
+            int result = encode_Rtype(0, registers[terms[1]], 0, 0, 0, 8);
+            write_binary(encode_Rtype(0, registers[terms[1]], 0, 0, 0, 8), inst_outfile);
         }
         else if (inst_type == "jalr")
         {
