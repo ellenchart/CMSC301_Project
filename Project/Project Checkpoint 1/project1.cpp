@@ -106,14 +106,14 @@ int main(int argc, char *argv[])
         else if(inst_type =="lw")
         {
             // unsure of how if where these terms are is correct
-            int result = encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi[terms[2]]);
-            write_binary(encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi[terms[2]]), inst_outfile);
+            int result = encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
+            write_binary(encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
         }
         else if(inst_type =="sw")
         {
             // unsure of how if where these terms are is correct
-            int result = encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi[terms[2]]);
-            write_binary(encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi[terms[2]]), inst_outfile);
+            int result = encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
+            write_binary(encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
         }
         else if(inst_type =="slt")
         {
@@ -130,8 +130,9 @@ int main(int argc, char *argv[])
         else if(inst_type =="beq")
         {
             // issue with offset
-            int result = encode_Itype(4,  stoi(terms[1]), stoi(terms[2]), stoi(terms[3])); // get offset instead of just terms[3]
-            write_binary(encode_Itype(4, terms[1], terms[2], stoi(terms[3])), inst_outfile); // get offset instead of just terms[3]
+            // are terms in correct order?
+            int result = encode_Itype(4, registers[terms[1]], registers[terms[2]], stoi(terms[3])); // get offset instead of just terms[3]
+            write_binary(encode_Itype(4, registers[terms[1]], registers[terms[2]], stoi(terms[3])), inst_outfile); // get offset instead of just terms[3]
         }
         else if(inst_type =="bne")
         {
@@ -166,5 +167,5 @@ int main(int argc, char *argv[])
             // not sure
         }
     }
-
+}
 #endif
