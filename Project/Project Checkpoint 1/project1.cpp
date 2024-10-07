@@ -84,6 +84,41 @@ int main(int argc, char *argv[])
      * TODO: All of this
      */
 
+    std::map<std::string, int> asciiMap;
+
+    std::map<std::string, int> staticMap;
+    for (int i = 1; i < argc - 2; i++)
+    {
+        std::ifstream infile(argv[i]); //  open the input file for reading
+        if (!infile)
+        { // if file can't be opened, need to let the user know
+            std::cerr << "Error: could not open file: " << argv[i] << std::endl;
+            exit(1);
+        }
+
+        std::string str;
+        while (getline(infile, str))
+        { // Read a line from the file
+            if (str == ".data")
+            {
+                continue;
+            }
+            else if (str == ".text")
+            {
+                break;
+            }
+            else
+            {
+            }
+        }
+
+        // for (const auto &elem : map)
+        // {
+        //     std::cout << elem.first << " " << elem.second << "\n";
+        // }
+        infile.close();
+    }
+
     /** Phase 3
      * Process all instructions, output to instruction memory file
      * TODO: Almost all of this, it only works for adds
