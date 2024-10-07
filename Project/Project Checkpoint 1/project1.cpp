@@ -8,6 +8,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <map>
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
     /**
      * Phase 1:
      * Read all instructions, clean them of comments and whitespace DONE
-     * TODO: Determine the numbers for all static memory labels
+     * TODO: Determine the numbers for all static memory labels NEED TO DO
      * (measured in bytes starting at 0)
      * TODO: Determine the line numbers of all instruction line labels
      * (measured in instructions) starting at 0
@@ -43,6 +44,8 @@ int main(int argc, char *argv[])
         }
 
         std::string str;
+        int count = 0;
+        std::map<std::string, int> map;
         while (getline(infile, str))
         {                     // Read a line from the file
             str = clean(str); // remove comments, leading and trailing whitespace
@@ -50,6 +53,17 @@ int main(int argc, char *argv[])
             { // Ignore empty lines
                 continue;
             }
+            else if (str.find(':') != std::string::npos) // if it can't find ':' then output npos (no position)
+            {
+                std::string stringTemp = str.substr(0, str.find(':'));
+                map.insert(std::pair<std::string, int>(stringTemp, count));
+                continue;
+            }
+            else
+            {
+                count = count + 1;
+            }
+
             instructions.push_back(str); // TODO This will need to change for labels
         }
         infile.close();
@@ -64,6 +78,8 @@ int main(int argc, char *argv[])
      * Process all instructions, output to instruction memory file
      * TODO: Almost all of this, it only works for adds
      */
+
+    int count = 0;
     for (std::string inst : instructions)
     {
         std::vector<std::string> terms = split(inst, WHITESPACE + ",()");
