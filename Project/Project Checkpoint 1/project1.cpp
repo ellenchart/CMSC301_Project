@@ -202,13 +202,13 @@ int main(int argc, char *argv[])
 
                             std::cout << tempString << "first";
 
+                            write_binary(stoi(tempString), static_outfile);
+                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                            addressCount += 4;
                     
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
-                            write_binary(stoi(tempString), static_outfile);
-                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
-                            addressCount += 4;
 
                             std::cout << tempString << "second";
                             
