@@ -572,6 +572,16 @@ int main(int argc, char *argv[])
             int mv_result = encode_Rtype(0, registers[terms[2]], 0, registers[terms[1]], 0, 32);
             write_binary(mv_result, inst_outfile);
         }
+        else if (inst_type == "ld")
+        {
+            // offset + base register
+            int tempImm = std::stoi(terms[3]);
+            int base_register = registers[terms[2]];
+            int dest_register = registers[terms[1]];
+
+            int ld_result = encode_Itype(55, base_register, dest_register, tempImm);
+            write_binary(ld_result, inst_outfile);
+        }
 
         // std::cout << registers[terms[2]];
         // std::cout << registers[terms[1]];
