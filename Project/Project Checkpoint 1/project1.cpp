@@ -146,7 +146,8 @@ int main(int argc, char *argv[])
                 lastWhitespace = str.find(' ', lastWhitespace) + 1;
                 
                 //while(runningString.find(' ') != std::string::npos)
-                do
+                //do
+                while(str.find(' ', lastWhitespace - 1) != std::string::npos);
                 {
                     //std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     //std::cout <<  lastWhitespace << "\n";
@@ -215,7 +216,7 @@ int main(int argc, char *argv[])
                     }
 
                 }
-                while(str.find(' ', lastWhitespace - 1) != std::string::npos);
+                //while(str.find(' ', lastWhitespace - 1) != std::string::npos);
                 
             }
         }
