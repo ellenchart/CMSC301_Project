@@ -147,8 +147,8 @@ int main(int argc, char *argv[])
                 
                 //while(runningString.find(' ') != std::string::npos)
                 //do
-                bool failsafe = false;
-                while(str.find(' ', lastWhitespace - 1) != std::string::npos || failsafe)
+                //bool failsafe = false;
+                while(str.find(' ', lastWhitespace - 1) != std::string::npos)
                 {
                     //std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     //std::cout <<  lastWhitespace << "\n";
@@ -209,6 +209,13 @@ int main(int argc, char *argv[])
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
+                            if(str.find(' ', lastWhitespace - 1) == std::string::npos)
+                            {
+                                write_binary(stoi(tempString), static_outfile);
+                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                            addressCount += 4;
+                            }
+
 
                             std::cout << tempString << "second";
                             
@@ -218,13 +225,13 @@ int main(int argc, char *argv[])
 
                     }
 
-                    if((str.find(' ', lastWhitespace - 1) == std::string::npos) && (failsafe = false))
-                    {
-                        failsafe = true;
-                    }
-                    else{
-                        failsafe = false;
-                    }
+                    // if((str.find(' ', lastWhitespace) == std::string::npos) && (failsafe = false))
+                    // {
+                    //     failsafe = true;
+                    // }
+                    // else{
+                    //     failsafe = false;
+                    // }
 
                     
                     
