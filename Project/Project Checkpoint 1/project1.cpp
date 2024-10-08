@@ -543,15 +543,27 @@ int main(int argc, char *argv[])
             int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
             write_binary(addi_result, inst_outfile);
         }
-        else if(inst_type == "and")
+        else if (inst_type == "and")
         {
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 36);
             write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 36), inst_outfile);
         }
-        else if(inst_type == "or")
+        else if (inst_type == "andi")
+        {
+            int tempImm = std::stoi(terms[3]);
+            int result = encode_Itype(12, registers[terms[2]], registers[terms[1]], tempImm);
+            write_binary(result, inst_outfile);
+        }
+        else if (inst_type == "or")
         {
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 37);
             write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 37), inst_outfile);
+        }
+        else if (inst_type == "ori")
+        {
+            int tempImm = std::stoi(terms[3]);
+            int result = encode_Itype(13, registers[terms[2]], registers[terms[1]], tempImm);
+            write_binary(result, inst_outfile);
         }
 
         // std::cout << registers[terms[2]];
