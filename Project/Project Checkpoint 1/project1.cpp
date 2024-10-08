@@ -134,6 +134,8 @@ int main(int argc, char *argv[])
                 {
                     std::string tempString = str.substr(0, str.find(' '));
 
+                    std::cout << tempString << "\n";
+
                     if(tempString == ".word")
                     {
                         continue;
@@ -144,11 +146,11 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
+                        break;
                         if(isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
-                            std::cout << tempString;
-                            break;
+                            
 
                             int tempAddress = map.at(tempString);
                             tempAddress *= 4;
