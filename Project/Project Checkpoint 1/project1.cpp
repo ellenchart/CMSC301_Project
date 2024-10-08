@@ -138,11 +138,11 @@ int main(int argc, char *argv[])
                 {
                     std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     std::cout <<  lastWhitespace << "\n";
-                    std::string tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace));
+                    tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace));
                     lastWhitespace = str.find(' ', lastWhitespace) + 1;
                     //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
-                    std::cout << tempString << "\n";
+                    std::cout << tempString << "here" << "\n";
 
                     if(tempString == ".word")
                     {
