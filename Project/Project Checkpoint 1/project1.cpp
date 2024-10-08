@@ -147,7 +147,8 @@ int main(int argc, char *argv[])
                 
                 //while(runningString.find(' ') != std::string::npos)
                 //do
-                while(str.find(' ', lastWhitespace - 1) != std::string::npos);
+                bool failsafe = false;
+                while(str.find(' ', lastWhitespace - 1) != std::string::npos || failsafe)
                 {
                     //std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     //std::cout <<  lastWhitespace << "\n";
@@ -155,7 +156,7 @@ int main(int argc, char *argv[])
                     //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
                     //std::cout << tempString << "here" << "\n";
-
+                    
                     if(tempString == ".word")
                     {
                         std::cout << tempString << "\n";
@@ -213,7 +214,20 @@ int main(int argc, char *argv[])
                             
                         }
 
+                        
+
                     }
+
+                    if((str.find(' ', lastWhitespace - 1) != std::string::npos) && (failsafe = false))
+                    {
+                        failsafe = true;
+                    }
+                    else{
+                        failsafe = false;
+                    }
+
+                    
+                    
 
                 }
                 //while(str.find(' ', lastWhitespace - 1) != std::string::npos);
