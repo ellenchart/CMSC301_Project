@@ -159,6 +159,7 @@ int main(int argc, char *argv[])
                         if(isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
+                            std::cout << tempString << "\n";
                             std::cout << "In first for loop \n";
                             
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
