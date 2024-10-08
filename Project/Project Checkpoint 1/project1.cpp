@@ -179,26 +179,28 @@ int main(int argc, char *argv[])
                             // should numbers be in this map?
                             std::cout << tempString << "\n";
                             std::cout << "In first if of else statement \n";
-                            
-                            tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
-                            lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
                             int tempAddress = map.at(tempString);
                             tempAddress *= 4;
                             write_binary(tempAddress, static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
+                            
+                            tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
+                            lastWhitespace = str.find(' ', lastWhitespace) + 1;
+
+                
 
                         }
                         else
                         {
-                            std::cout << tempString << "\n";
+                            //std::cout << tempString << "\n";
                             std::cout << "In else of else statement \n";
 
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
-                            //std::cout << tempString;
+                            std::cout << tempString;
                             write_binary(stoi(tempString), static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
