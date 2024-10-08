@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
             else if (str.find(".word") != std::string::npos) {
                 
 
-                std::string tempString = str.substr(0, str.find(' '));
+                std::string tempString = str.substr(0, str.find(' ') - 1);
                 //std::string runningString = str.substr(str.find(' '), str.size());
                 
                 staticLabelMap.insert(std::pair<std::string, int>(tempString, addressCount));
