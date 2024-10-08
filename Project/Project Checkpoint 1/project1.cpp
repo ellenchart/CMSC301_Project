@@ -138,14 +138,6 @@ int main(int argc, char *argv[])
                     {
                         if(isalpha(tempString[0]))
                         {
-
-                            write_binary(stoi(tempString), static_outfile);
-                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
-                            addressCount += 4;
-                        }
-                        else
-                        {
-
                             // should numbers be in this map?
 
                             int tempAddress = map.at(tempString);
@@ -153,6 +145,15 @@ int main(int argc, char *argv[])
                             write_binary(tempAddress, static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
+
+                        }
+                        else
+                        {
+
+                            write_binary(stoi(tempString), static_outfile);
+                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                            addressCount += 4;
+                            
                         }
 
                     }
