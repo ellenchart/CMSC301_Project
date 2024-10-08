@@ -543,6 +543,16 @@ int main(int argc, char *argv[])
             int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
             write_binary(addi_result, inst_outfile);
         }
+        else if(inst_type == "and")
+        {
+            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 36);
+            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 36), inst_outfile);
+        }
+        else if(inst_type == "or")
+        {
+            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 37);
+            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 37), inst_outfile);
+        }
 
         // std::cout << registers[terms[2]];
         // std::cout << registers[terms[1]];
