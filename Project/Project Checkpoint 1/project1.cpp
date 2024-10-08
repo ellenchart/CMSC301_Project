@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
                 {
                     std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     std::cout <<  lastWhitespace << "\n";
-                    tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace));
+                    tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                     lastWhitespace = str.find(' ', lastWhitespace) + 1;
                     //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
