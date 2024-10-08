@@ -118,6 +118,8 @@ int main(int argc, char *argv[])
 
             str = clean(str);
 
+            int a = str.find('.');
+
             if (str == ".data")
             {
                 continue;
@@ -126,17 +128,13 @@ int main(int argc, char *argv[])
             {
                 break;
             }
-            else if(lastWhitespace == 0){
-                std::cout << "In whitespace statement \n";
-                            
-                
-                continue;
-            }
             else if (str.find(".word") != std::string::npos) {
+
                             
                 
 
                 std::string tempString = str.substr(0, str.find(' ') - 1);
+
                 //std::string runningString = str.substr(str.find(' '), str.size());
 
                 lastWhitespace = str.find(' ') + 1;
