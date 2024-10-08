@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
                         {
                             // should numbers be in this map?
                             std::cout << tempString << "\n";
-                            std::cout << "In first for loop \n";
+                            std::cout << "In first if statement \n";
                             
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
@@ -177,6 +177,8 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
+                             std::cout << tempString << "\n";
+                            std::cout << "In second if statement \n";
 
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
