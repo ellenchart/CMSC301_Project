@@ -85,10 +85,10 @@ int main(int argc, char *argv[])
      */
 
 
-    for (const auto &elem : map)
-        {
-             std::cout << elem.first << " " << elem.second << "\n";
-        }
+    // for (const auto &elem : map)
+    //     {
+    //          std::cout << elem.first << " " << elem.second << "\n";
+    //     }
 
 
     std::map<char, int> asciiMap;
@@ -128,6 +128,8 @@ int main(int argc, char *argv[])
 
                 std::string tempString = str.substr(0, str.find(' ') - 1);
                 //std::string runningString = str.substr(str.find(' '), str.size());
+
+                lastWhitespace = str.find(' ') + 1;
                 
                 staticLabelMap.insert(std::pair<std::string, int>(tempString, addressCount));
                 
@@ -135,7 +137,7 @@ int main(int argc, char *argv[])
                 while(str.find(' ', lastWhitespace) != std::string::npos)
                 {
                     std::string tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace));
-                    lastWhitespace = str.find(' ', lastWhitespace);
+                    lastWhitespace = str.find(' ', lastWhitespace) + 1;
                     //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
                     std::cout << tempString << "\n";
