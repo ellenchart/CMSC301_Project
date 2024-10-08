@@ -127,10 +127,13 @@ int main(int argc, char *argv[])
                 break;
             }
             else if(lastWhitespace == 0){
+                std::cout << "In whitespace statement \n";
+                            
                 
                 continue;
             }
             else if (str.find(".word") != std::string::npos) {
+                            
                 
 
                 std::string tempString = str.substr(0, str.find(' ') - 1);
