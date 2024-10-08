@@ -138,8 +138,12 @@ int main(int argc, char *argv[])
                 //std::string runningString = str.substr(str.find(' '), str.size());
 
                 lastWhitespace = str.find(' ') + 1;
+
                 
                 staticLabelMap.insert(std::pair<std::string, int>(tempString, addressCount));
+
+                tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
+                lastWhitespace = str.find(' ', lastWhitespace) + 1;
                 
                 //while(runningString.find(' ') != std::string::npos)
                 do
