@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
                 break;
             }
             else if (str.find(".word") != std::string::npos) {
-                break;
+                
 
                 std::string tempString = str.substr(0, str.find(' '));
                 std::string runningString = str.substr(str.find(' '), str.size());
@@ -147,6 +147,8 @@ int main(int argc, char *argv[])
                         if(isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
+                            std::cout << tempString;
+                            break;
 
                             int tempAddress = map.at(tempString);
                             tempAddress *= 4;
