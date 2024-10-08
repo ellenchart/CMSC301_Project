@@ -85,16 +85,15 @@ int main(int argc, char *argv[])
      */
 
     std::map<char, int> asciiMap;
-    for (int i = 97; i <= 122; i++)
-    {
+    for(int i = 97; i <= 122; i++){
         asciiMap.insert(std::pair<char, int>(char(i), i));
     }
-    for (int i = 65; i <= 90; i++)
-    {
+    for(int i = 65; i <= 90; i++){
         asciiMap.insert(std::pair<char, int>(char(i), i));
     }
 
-    std::map<std::string, int> staticMap;
+    std::map<std::string, int> staticLabelMap;
+    std::map<std::string, int> staticAddressMap;
     for (int i = 1; i < argc - 2; i++)
     {
         std::ifstream infile(argv[i]); //  open the input file for reading
@@ -105,6 +104,7 @@ int main(int argc, char *argv[])
         }
 
         std::string str;
+        int addressCount = 0;
         while (getline(infile, str))
         { // Read a line from the file
             if (str == ".data")
@@ -115,31 +115,49 @@ int main(int argc, char *argv[])
             {
                 break;
             }
-            else if (str.find(".word") != std::string::npos)
-            {
+            else if (str.find(".word") != std::string::npos) {
 
-                bool foundLabel = false;
-                std::string label = "";
-                for (char &c : str)
+                std::string tempString = str.substr(0, str.find(' '));
+                std::string runningString = str.substr(str.find(' '), str.size());
+                
+                staticLabelMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                
+                while(runningString.find(' ') != std::string::npos)
                 {
-                    if (&c == ":")
+                    std::string tempString = str.substr(0, str.find(' '));
+
+                    if(tempString == ".word")
                     {
-                        foundLabel = true;
+                        continue;
                     }
-                    if (!foundLabel)
+                    else if (str.find(".asciiz") != std::string::npos)
                     {
-                        label += c;
+                        // handle asciiz
                     }
                     else
                     {
-                        // look for whitespace and section of by that
-                        // figure out if sections are labels or ints and do work acccordingly
+                        if(isalpha(tempString[0]))
+                        {
+
+                            write_binary(stoi(tempString), static_outfile);
+                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                            addressCount += 4;
+                        }
+                        else
+                        {
+
+                            // should numbers be in this map?
+
+                            int tempAddress = map.at(tempString);
+                            tempAddress *= 4;
+                            write_binary(tempAddress, static_outfile);
+                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                            addressCount += 4;
+                        }
+
                     }
                 }
-            }
-            else if (str.find(".asciiz") != std::string::npos)
-            {
-                // handle asciiz
+                
             }
         }
 
