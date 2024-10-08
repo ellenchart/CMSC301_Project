@@ -214,7 +214,7 @@ int main(int argc, char *argv[])
                     }
 
                 }
-                while(str.find(' ', lastWhitespace) != std::string::npos);
+                while(str.find(' ', lastWhitespace - 1) != std::string::npos);
                 
             }
         }
