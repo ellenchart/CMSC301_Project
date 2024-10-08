@@ -115,6 +115,9 @@ int main(int argc, char *argv[])
         int lastWhitespace = 0;
         while (getline(infile, str))
         { // Read a line from the file
+
+             str = clean(str);
+
             if (str == ".data")
             {
                 continue;
