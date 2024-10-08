@@ -84,6 +84,13 @@ int main(int argc, char *argv[])
      * TODO: All of this
      */
 
+
+    for (const auto &elem : map)
+        {
+             std::cout << elem.first << " " << elem.second << "\n";
+        }
+
+
     std::map<char, int> asciiMap;
     for(int i = 97; i <= 122; i++){
         asciiMap.insert(std::pair<char, int>(char(i), i));
@@ -116,6 +123,7 @@ int main(int argc, char *argv[])
                 break;
             }
             else if (str.find(".word") != std::string::npos) {
+                break;
 
                 std::string tempString = str.substr(0, str.find(' '));
                 std::string runningString = str.substr(str.find(' '), str.size());
