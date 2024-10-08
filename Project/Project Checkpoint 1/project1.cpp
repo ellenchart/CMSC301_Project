@@ -136,13 +136,13 @@ int main(int argc, char *argv[])
                 //while(runningString.find(' ') != std::string::npos)
                 do
                 {
-                    std::cout <<  str.find(' ', lastWhitespace) << "\n";
-                    std::cout <<  lastWhitespace << "\n";
+                    //std::cout <<  str.find(' ', lastWhitespace) << "\n";
+                    //std::cout <<  lastWhitespace << "\n";
                     tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                     lastWhitespace = str.find(' ', lastWhitespace) + 1;
                     //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
-                    std::cout << tempString << "here" << "\n";
+                    //std::cout << tempString << "here" << "\n";
 
                     if(tempString == ".word")
                     {
@@ -168,8 +168,8 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-
-                            write_binary(stoi(tempString), static_outfile);
+                            std::cout << tempString;
+                            //write_binary(stoi(tempString), static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
                             
