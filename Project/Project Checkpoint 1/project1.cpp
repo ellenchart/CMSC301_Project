@@ -132,7 +132,7 @@ int main(int argc, char *argv[])
                 
                 while(runningString.find(' ') != std::string::npos)
                 {
-                    std::string tempString = str.substr(0, str.find(' '));
+                    std::string tempString = runningString.substr(0, str.find(' '));
 
                     std::cout << tempString << "\n";
 
