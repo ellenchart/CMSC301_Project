@@ -134,7 +134,8 @@ int main(int argc, char *argv[])
                 staticLabelMap.insert(std::pair<std::string, int>(tempString, addressCount));
                 
                 //while(runningString.find(' ') != std::string::npos)
-                while(str.find(' ', lastWhitespace - 1) != std::string::npos)
+                //while(str.find(' ', lastWhitespace - 1) != std::string::npos)
+                while(str.size() > lastWhitespace)
                 {
                     std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     std::cout <<  lastWhitespace << "\n";
