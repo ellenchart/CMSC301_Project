@@ -158,7 +158,10 @@ int main(int argc, char *argv[])
                     if(tempString == ".word")
                     {
                         std::cout << tempString << "\n";
-                            std::cout << "In .word if statement \n";
+                        std::cout << "In .word if statement \n";
+
+                        tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
+                        lastWhitespace = str.find(' ', lastWhitespace) + 1;
                             
                         continue;
                     }
