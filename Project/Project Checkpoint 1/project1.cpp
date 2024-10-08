@@ -70,6 +70,7 @@ int main(int argc, char *argv[])
             }
 
             instructions.push_back(str); // TODO This will need to change for labels
+            // if bge pushes back more than one instruction
         }
 
         // for (const auto &elem : map)
@@ -564,6 +565,12 @@ int main(int argc, char *argv[])
             int tempImm = std::stoi(terms[3]);
             int result = encode_Itype(13, registers[terms[2]], registers[terms[1]], tempImm);
             write_binary(result, inst_outfile);
+        }
+        else if (inst_type == "mv")
+        {
+            // the destination is 0
+            int mv_result = encode_Rtype(0, registers[terms[2]], 0, registers[terms[1]], 0, 32);
+            write_binary(mv_result, inst_outfile);
         }
 
         // std::cout << registers[terms[2]];
