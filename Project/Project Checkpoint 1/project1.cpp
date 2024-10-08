@@ -530,6 +530,18 @@ int main(int argc, char *argv[])
             // bne $at, $zero, target
             write_binary(bne_result, inst_outfile);
         }
+        else if(inst_type == "la"){
+
+            // implement la as an addi $r, address, 0
+            
+            int address = staticLabelMap.at(terms[2]);
+            
+
+            int result = encode_Itype(8, registers[terms[1]], address, 0);
+            write_binary(encode_Itype(8, registers[terms[1]], address, 0), inst_outfile);
+           
+
+        }
 
         // std::cout << registers[terms[2]];
         // std::cout << registers[terms[1]];
