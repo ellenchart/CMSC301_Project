@@ -352,7 +352,7 @@ int main(int argc, char *argv[])
             {
                 tempAddress = map.at(terms[3]) - count - 1;
             }
-            int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16);
+
             // Using the register $at (assembler temporary) for storing the result of slt
             int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
             write_binary(slt_result, inst_outfile);
@@ -375,7 +375,7 @@ int main(int argc, char *argv[])
             {
                 tempAddress = map.at(terms[3]) - count - 1;
             }
-            int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16);
+
             // Using the register $at (assembler temporary) for storing the result of slt
             int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
             write_binary(slt_result, inst_outfile);
@@ -384,6 +384,29 @@ int main(int argc, char *argv[])
             int bne_result = encode_Itype(5, 1, 0, tempAddress);
             // bne $at, $zero, target
             write_binary(bne_result, inst_outfile);
+        }
+        else if (inst_type == "ble")
+        {
+            int tempAddress = 0;
+
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
+
+            // Using the register $at (assembler temporary) for storing the result of slt
+            int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
+            write_binary(slt_result, inst_outfile);
+
+            // Branch if equal (if slt_result is zero)
+            int beq_result = encode_Itype(4, 1, 0, tempAddress);
+            // beq $at, $zero, target
+            write_binary(beq_result, inst_outfile);
         }
 
         // std::cout << registers[terms[2]];
