@@ -533,6 +533,16 @@ int main(int argc, char *argv[])
             int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
             write_binary(addi_result, inst_outfile);
         }
+        else if (inst_type == "sle")
+        {
+            // slt $1, $9, $8  (check if rt < rs)
+            int slt_result = encode_Rtype(0, registers[terms[3]], registers[terms[2]], registers[terms[1]], 0, 42); // slt $1, $9, $8
+            write_binary(slt_result, inst_outfile);
+
+            // $1, $1, 1 (invert the result of slt)
+            int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
+            write_binary(addi_result, inst_outfile);
+        }
 
         // std::cout << registers[terms[2]];
         // std::cout << registers[terms[1]];
