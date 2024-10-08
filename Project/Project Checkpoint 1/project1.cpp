@@ -154,7 +154,6 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
-                        break;
                         if(isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
