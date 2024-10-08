@@ -84,18 +84,18 @@ int main(int argc, char *argv[])
      * TODO: All of this
      */
 
-
     // for (const auto &elem : map)
     //     {
     //          std::cout << elem.first << " " << elem.second << "\n";
     //     }
 
-
     std::map<char, int> asciiMap;
-    for(int i = 97; i <= 122; i++){
+    for (int i = 97; i <= 122; i++)
+    {
         asciiMap.insert(std::pair<char, int>(char(i), i));
     }
-    for(int i = 65; i <= 90; i++){
+    for (int i = 65; i <= 90; i++)
+    {
         asciiMap.insert(std::pair<char, int>(char(i), i));
     }
 
@@ -128,61 +128,57 @@ int main(int argc, char *argv[])
             {
                 break;
             }
-            else if (str.find(".word") != std::string::npos) {
-
-                            
-                
+            else if (str.find(".word") != std::string::npos)
+            {
 
                 std::string tempString = str.substr(0, str.find(' ') - 1);
 
-                //std::string runningString = str.substr(str.find(' '), str.size());
+                // std::string runningString = str.substr(str.find(' '), str.size());
 
                 lastWhitespace = str.find(' ') + 1;
 
-                
                 staticLabelMap.insert(std::pair<std::string, int>(tempString, addressCount));
 
                 tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                 lastWhitespace = str.find(' ', lastWhitespace) + 1;
-                
-                //while(runningString.find(' ') != std::string::npos)
-                //do
-                //bool failsafe = false;
-                while(str.find(' ', lastWhitespace - 1) != std::string::npos)
-                {
-                    //std::cout <<  str.find(' ', lastWhitespace) << "\n";
-                    //std::cout <<  lastWhitespace << "\n";
-                    
-                    //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
-                    //std::cout << tempString << "here" << "\n";
-                    
-                    if(tempString == ".word")
+                // while(runningString.find(' ') != std::string::npos)
+                // do
+                // bool failsafe = false;
+                while (str.find(' ', lastWhitespace - 1) != std::string::npos)
+                {
+                    // std::cout <<  str.find(' ', lastWhitespace) << "\n";
+                    // std::cout <<  lastWhitespace << "\n";
+
+                    // runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
+
+                    // std::cout << tempString << "here" << "\n";
+
+                    if (tempString == ".word")
                     {
                         std::cout << tempString << "\n";
                         std::cout << "In .word if statement \n";
 
                         tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                         lastWhitespace = str.find(' ', lastWhitespace) + 1;
-                            
+
                         continue;
                     }
                     else if (str.find(".asciiz") != std::string::npos)
                     {
                         std::cout << tempString << "\n";
-                            std::cout << "In asciiz if statement \n";
-                            
+                        std::cout << "In asciiz if statement \n";
+
                         // handle asciiz
                     }
                     else
                     {
-                        if(isalpha(tempString[0]))
+                        if (isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
                             std::cout << tempString << "\n";
                             std::cout << "In first if of else statement \n";
 
-                            
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
@@ -191,13 +187,10 @@ int main(int argc, char *argv[])
                             write_binary(tempAddress, static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
-
-                
-
                         }
                         else
                         {
-                            //std::cout << tempString << "\n";
+                            // std::cout << tempString << "\n";
                             std::cout << "In else of else statement \n";
 
                             std::cout << tempString << "first";
@@ -205,24 +198,19 @@ int main(int argc, char *argv[])
                             write_binary(stoi(tempString), static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
-                    
+
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
-                            if(str.find(' ', lastWhitespace - 1) == std::string::npos)
+                            if (str.find(' ', lastWhitespace - 1) == std::string::npos)
                             {
                                 write_binary(stoi(tempString), static_outfile);
-                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
-                            addressCount += 4;
+                                staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                                addressCount += 4;
                             }
 
-
                             std::cout << tempString << "second";
-                            
                         }
-
-                        
-
                     }
 
                     // if((str.find(' ', lastWhitespace) == std::string::npos) && (failsafe = false))
@@ -232,13 +220,8 @@ int main(int argc, char *argv[])
                     // else{
                     //     failsafe = false;
                     // }
-
-                    
-                    
-
                 }
-                //while(str.find(' ', lastWhitespace - 1) != std::string::npos);
-                
+                // while(str.find(' ', lastWhitespace - 1) != std::string::npos);
             }
         }
 
@@ -530,17 +513,25 @@ int main(int argc, char *argv[])
             // bne $at, $zero, target
             write_binary(bne_result, inst_outfile);
         }
-        else if(inst_type == "la"){
+        else if (inst_type == "la")
+        {
 
             // implement la as an addi $r, address, 0
-            
+
             int address = staticLabelMap.at(terms[2]);
-            
 
             int result = encode_Itype(8, registers[terms[1]], address, 0);
             write_binary(encode_Itype(8, registers[terms[1]], address, 0), inst_outfile);
-           
+        }
+        else if (inst_type == "sge")
+        {
+            // slt $1, $9, $8  (check if rt < rs)
+            int slt_result = encode_Rtype(0, registers[terms[3]], registers[terms[2]], registers[terms[1]], 0, 42); // slt $1, $9, $8
+            write_binary(slt_result, inst_outfile);
 
+            // $1, $1, 1 (invert the result of slt)
+            int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
+            write_binary(addi_result, inst_outfile);
         }
 
         // std::cout << registers[terms[2]];
