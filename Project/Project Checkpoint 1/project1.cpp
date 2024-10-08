@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
         while (getline(infile, str))
         { // Read a line from the file
 
-             str = clean(str);
+            str = clean(str);
 
             if (str == ".data")
             {
@@ -125,6 +125,9 @@ int main(int argc, char *argv[])
             else if (str == ".text")
             {
                 break;
+            }
+            else if(lastWhitespace == 0){
+                continue;
             }
             else if (str.find(".word") != std::string::npos) {
                 
