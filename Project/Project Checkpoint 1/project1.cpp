@@ -218,7 +218,7 @@ int main(int argc, char *argv[])
 
                     }
 
-                    if((str.find(' ', lastWhitespace - 1) != std::string::npos) && (failsafe = false))
+                    if((str.find(' ', lastWhitespace - 1) == std::string::npos) && (failsafe = false))
                     {
                         failsafe = true;
                     }
