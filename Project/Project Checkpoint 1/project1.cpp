@@ -198,8 +198,9 @@ int main(int argc, char *argv[])
                             //std::cout << tempString << "\n";
                             std::cout << "In else of else statement \n";
 
-                            
+                            std::cout << tempString << "first";
 
+                    
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
@@ -207,7 +208,7 @@ int main(int argc, char *argv[])
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
 
-                            std::cout << tempString;
+                            std::cout << tempString << "second";
                             
                         }
 
