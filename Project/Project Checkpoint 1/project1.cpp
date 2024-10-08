@@ -408,6 +408,29 @@ int main(int argc, char *argv[])
             // beq $at, $zero, target
             write_binary(beq_result, inst_outfile);
         }
+        else if (inst_type == "blt")
+        {
+            int tempAddress = 0;
+
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
+
+            // Using the register $at (assembler temporary) for storing the result of slt
+            int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
+            write_binary(slt_result, inst_outfile);
+
+            // If r1 > r2, branch to label
+            int bne_result = encode_Itype(5, 1, 0, tempAddress);
+            // bne $at, $zero, target
+            write_binary(bne_result, inst_outfile);
+        }
 
         // std::cout << registers[terms[2]];
         // std::cout << registers[terms[1]];
