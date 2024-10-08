@@ -141,8 +141,7 @@ int main(int argc, char *argv[])
                 {
                     //std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     //std::cout <<  lastWhitespace << "\n";
-                    tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
-                    lastWhitespace = str.find(' ', lastWhitespace) + 1;
+                    
                     //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
                     //std::cout << tempString << "here" << "\n";
@@ -161,6 +160,8 @@ int main(int argc, char *argv[])
                         {
                             // should numbers be in this map?
                             
+                            tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
+                            lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
                             int tempAddress = map.at(tempString);
                             tempAddress *= 4;
@@ -171,8 +172,12 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
+
+                            tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
+                            lastWhitespace = str.find(' ', lastWhitespace) + 1;
+
                             std::cout << tempString;
-                            //write_binary(stoi(tempString), static_outfile);
+                            write_binary(stoi(tempString), static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
                             
