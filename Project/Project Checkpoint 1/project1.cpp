@@ -192,13 +192,13 @@ int main(int argc, char *argv[])
                         }
                         else
                         {
-                             std::cout << tempString << "\n";
+                            std::cout << tempString << "\n";
                             std::cout << "In else of else statement \n";
 
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
-                            std::cout << tempString;
+                            //std::cout << tempString;
                             write_binary(stoi(tempString), static_outfile);
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
