@@ -112,6 +112,7 @@ int main(int argc, char *argv[])
 
         std::string str;
         int addressCount = 0;
+        int lastWhitespace = 0;
         while (getline(infile, str))
         { // Read a line from the file
             if (str == ".data")
@@ -126,16 +127,18 @@ int main(int argc, char *argv[])
                 
 
                 std::string tempString = str.substr(0, str.find(' '));
-                std::string runningString = str.substr(str.find(' '), str.size());
+                //std::string runningString = str.substr(str.find(' '), str.size());
                 
                 staticLabelMap.insert(std::pair<std::string, int>(tempString, addressCount));
                 
-                while(runningString.find(' ') != std::string::npos)
+                //while(runningString.find(' ') != std::string::npos)
+                while(str.find(' ', lastWhitespace) != std::string::npos)
                 {
-                    std::string tempString = runningString.substr(0, str.find(' '));
-                    runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
+                    std::string tempString = str.substr(lastWhitespace + 1, str.find(' ', lastWhitespace));
+                    lastWhitespace = str.find(' ', lastWhitespace);
+                    //runningString = runningString.substr(runningString.find(' ') + 1, runningString.size());
 
-                    std::cout << tempString << "\n";
+                    std::cout << tempString << "endLine" << "\n";
 
                     if(tempString == ".word")
                     {
