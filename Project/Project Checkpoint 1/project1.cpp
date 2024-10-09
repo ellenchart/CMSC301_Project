@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
                 {
                     instructionCountIncrement = 2; // Each pseudoinstruction expands into 2 real instructions
                 }
-                else if (inst_type == "move" || inst_type == "la") // Example pseudoinstructions that expand into 1 instruction
+                else if (inst_type == "la") // Example pseudoinstructions that expand into 1 instruction
                 {
                     instructionCountIncrement = 1;
                 }
@@ -532,16 +532,16 @@ int main(int argc, char *argv[])
             // bne $at, $zero, target
             write_binary(bne_result, inst_outfile);
         }
-        else if (inst_type == "la")
-        {
+        // else if (inst_type == "la")
+        // {
 
-            // implement la as an addi $r, address, 0
+        //     // implement la as an addi $r, address, 0
 
-            int address = staticLabelMap.at(terms[2]);
+        //     int address = staticLabelMap.at(terms[2]);
 
-            int result = encode_Itype(8, registers[terms[1]], address, 0);
-            write_binary(encode_Itype(8, registers[terms[1]], address, 0), inst_outfile);
-        }
+        //     int result = encode_Itype(8, registers[terms[1]], address, 0);
+        //     write_binary(encode_Itype(8, registers[terms[1]], address, 0), inst_outfile);
+        // }
         // else if (inst_type == "sge")
         // {
         //     // slt $1, $9, $8  (check if rt < rs)
