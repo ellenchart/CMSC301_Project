@@ -66,25 +66,19 @@ int main(int argc, char *argv[])
             }
             else
             {
-                // Check for pseudoinstructions and adjust count accordingly
+                // Detect and count pseudoinstructions
                 std::vector<std::string> terms = split(str, WHITESPACE + ",()");
                 std::string inst_type = terms[0];
 
-                // Default increment is 1 instruction for most instructions
+                // Default increment is 1, increase if pseudoinstruction
                 int instructionCountIncrement = 1;
-
-                // Handle pseudoinstructions that expand into multiple real instructions
-                if (inst_type == "bge" || inst_type == "bgt" || inst_type == "ble" || inst_type == "sge")
+                if (inst_type == "bge" || inst_type == "bgt" || inst_type == "sge")
                 {
-                    instructionCountIncrement = 2; // Each pseudoinstruction expands into 2 real instructions
-                }
-                else if (inst_type == "la") // Example pseudoinstructions that expand into 1 instruction
-                {
-                    instructionCountIncrement = 1;
+                    instructionCountIncrement = 2; // These pseudoinstructions expand to 2 real instructions
                 }
 
-                count += instructionCountIncrement; // Update instruction count by the correct amount
-                instructions.push_back(str);        // Add the cleaned instruction string to the vector
+                count += instructionCountIncrement;
+                instructions.push_back(str); // Add the cleaned instruction to a list for processing in Phase 3
             }
 
             // instructions.push_back(str); // TODO This will need to change for labels
@@ -440,75 +434,75 @@ int main(int argc, char *argv[])
             int result = encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16);
             write_binary(encode_Rtype(0, 0, 0, registers[terms[1]], 0, 16), inst_outfile);
         }
-        // else if (inst_type == "bge")
-        // {
-        //     int tempAddress = 0;
+        else if (inst_type == "bge")
+        {
+            int tempAddress = 0;
 
-        //     if (map.at(terms[3]) < count)
-        //     {
-        //         tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
-        //         // std::cout << "here";
-        //     }
-        //     else
-        //     {
-        //         tempAddress = map.at(terms[3]) - count - 1;
-        //     }
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
 
-        //     // Using the register $at (assembler temporary) for storing the result of slt
-        //     int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
-        //     write_binary(slt_result, inst_outfile);
+            // Using the register $at (assembler temporary) for storing the result of slt
+            int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
+            write_binary(slt_result, inst_outfile);
 
-        //     // Branch if equal (if slt_result is zero)
-        //     int beq_result = encode_Itype(4, 1, 0, tempAddress);
-        //     // beq $at, $zero, target
-        //     write_binary(beq_result, inst_outfile);
-        // }
-        // else if (inst_type == "bgt")
-        // {
-        //     int tempAddress = 0;
+            // Branch if equal (if slt_result is zero)
+            int beq_result = encode_Itype(4, 1, 0, tempAddress);
+            // beq $at, $zero, target
+            write_binary(beq_result, inst_outfile);
+        }
+        else if (inst_type == "bgt")
+        {
+            int tempAddress = 0;
 
-        //     if (map.at(terms[3]) < count)
-        //     {
-        //         tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
-        //         // std::cout << "here";
-        //     }
-        //     else
-        //     {
-        //         tempAddress = map.at(terms[3]) - count - 1;
-        //     }
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
 
-        //     // Using the register $at (assembler temporary) for storing the result of slt
-        //     int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
-        //     write_binary(slt_result, inst_outfile);
+            // Using the register $at (assembler temporary) for storing the result of slt
+            int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
+            write_binary(slt_result, inst_outfile);
 
-        //     // If r1 > r2, branch to label
-        //     int bne_result = encode_Itype(5, 1, 0, tempAddress);
-        //     // bne $at, $zero, target
-        //     write_binary(bne_result, inst_outfile);
-        // }
-        // else if (inst_type == "ble")
-        // {
-        //     int tempAddress = 0;
+            // If r1 > r2, branch to label
+            int bne_result = encode_Itype(5, 1, 0, tempAddress);
+            // bne $at, $zero, target
+            write_binary(bne_result, inst_outfile);
+        }
+        else if (inst_type == "ble")
+        {
+            int tempAddress = 0;
 
-        //     if (map.at(terms[3]) < count)
-        //     {
-        //         tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
-        //         // std::cout << "here";
-        //     }
-        //     else
-        //     {
-        //         tempAddress = map.at(terms[3]) - count - 1;
-        //     }
+            if (map.at(terms[3]) < count)
+            {
+                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                // std::cout << "here";
+            }
+            else
+            {
+                tempAddress = map.at(terms[3]) - count - 1;
+            }
 
-        //     // Using the register $at (assembler temporary) for storing the result of slt
-        //     int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
-        //     write_binary(slt_result, inst_outfile);
+            // Using the register $at (assembler temporary) for storing the result of slt
+            int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
+            write_binary(slt_result, inst_outfile);
 
-        //     // Branch if equal (if slt_result is zero)
-        //     int beq_result = encode_Itype(4, 1, 0, tempAddress);
-        //     // beq $at, $zero, target
-        //     write_binary(beq_result, inst_outfile);
-        // }
+            // Branch if equal (if slt_result is zero)
+            int beq_result = encode_Itype(4, 1, 0, tempAddress);
+            // beq $at, $zero, target
+            write_binary(beq_result, inst_outfile);
+        }
         else if (inst_type == "blt")
         {
             int tempAddress = 0;
@@ -532,27 +526,17 @@ int main(int argc, char *argv[])
             // bne $at, $zero, target
             write_binary(bne_result, inst_outfile);
         }
-        // else if (inst_type == "la")
-        // {
+        else if (inst_type == "la")
+        {
 
-        //     // implement la as an addi $r, address, 0
+            // implement la as an addi $r, address, 0
 
-        //     int address = staticLabelMap.at(terms[2]);
+            int address = staticLabelMap.at(terms[2]);
 
-        //     int result = encode_Itype(8, registers[terms[1]], address, 0);
-        //     write_binary(encode_Itype(8, registers[terms[1]], address, 0), inst_outfile);
-        // }
-        // else if (inst_type == "sge")
-        // {
-        //     // slt $1, $9, $8  (check if rt < rs)
-        //     int slt_result = encode_Rtype(0, registers[terms[3]], registers[terms[2]], registers[terms[1]], 0, 42); // slt $1, $9, $8
-        //     write_binary(slt_result, inst_outfile);
-
-        //     // $1, $1, 1 (invert the result of slt)
-        //     int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
-        //     write_binary(addi_result, inst_outfile);
-        // }
-        else if (inst_type == "sle")
+            int result = encode_Itype(8, registers[terms[1]], address, 0);
+            write_binary(encode_Itype(8, registers[terms[1]], address, 0), inst_outfile);
+        }
+        else if (inst_type == "sge")
         {
             // slt $1, $9, $8  (check if rt < rs)
             int slt_result = encode_Rtype(0, registers[terms[3]], registers[terms[2]], registers[terms[1]], 0, 42); // slt $1, $9, $8
@@ -562,10 +546,15 @@ int main(int argc, char *argv[])
             int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
             write_binary(addi_result, inst_outfile);
         }
-        else if (inst_type == "and")
+        else if (inst_type == "sle")
         {
-            int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 36);
-            write_binary(encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 36), inst_outfile);
+            // slt $1, $9, $8  (check if rt < rs)
+            int slt_result = encode_Rtype(0, registers[terms[3]], registers[terms[2]], registers[terms[1]], 0, 42); // slt $1, $9, $8
+            write_binary(slt_result, inst_outfile);
+
+            // $1, $1, 1 (invert the result of slt)
+            int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
+            write_binary(addi_result, inst_outfile);
         }
         else if (inst_type == "andi")
         {
