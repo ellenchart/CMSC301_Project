@@ -12,10 +12,10 @@ main:
     andi $t0, $s0, 5
 
     # Print the result
-    li $v0, 1
+    addi $v0, $0, 1
     move $a0, $t0
     syscall  # Should print 4
 
     # Exit
-    li $v0, 10
+    addi $v0, $0, 10
     syscall

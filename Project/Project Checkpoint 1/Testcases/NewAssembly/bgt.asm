@@ -22,10 +22,10 @@ BranchTaken:
 
 End:
     # Print the result
-    li $v0, 1
+    addi $v0, $0, 1
     move $a0, $s2
     syscall  # Should print 1 if branch was taken, 0 otherwise
 
     # Exit
-    li $v0, 10
+    addi $v0, $0, 10
     syscall
