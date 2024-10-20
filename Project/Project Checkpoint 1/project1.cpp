@@ -169,8 +169,8 @@ int main(int argc, char *argv[])
 
                     if (tempString == ".word")
                     {
-                        std::cout << tempString << "\n";
-                        std::cout << "In .word if statement \n";
+                        //std::cout << tempString << "\n";
+                        //std::cout << "In .word if statement \n";
 
                         tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                         lastWhitespace = str.find(' ', lastWhitespace) + 1;
@@ -179,8 +179,8 @@ int main(int argc, char *argv[])
                     }
                     else if (str.find(".asciiz") != std::string::npos)
                     {
-                        std::cout << tempString << "\n";
-                        std::cout << "In asciiz if statement \n";
+                        //std::cout << tempString << "\n";
+                        //std::cout << "In asciiz if statement \n";
 
                         // handle asciiz
                     }
@@ -189,8 +189,8 @@ int main(int argc, char *argv[])
                         if (isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
-                            std::cout << tempString << "\n";
-                            std::cout << "In first if of else statement \n";
+                            //std::cout << tempString << "\n";
+                            //std::cout << "In first if of else statement \n";
 
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
@@ -204,11 +204,16 @@ int main(int argc, char *argv[])
                         else
                         {
                             // std::cout << tempString << "\n";
-                            std::cout << "In else of else statement \n";
+                            //std::cout << "In else of else statement \n";
 
-                            std::cout << tempString << "first";
+                            //std::cout << tempString << "first";
 
+                            if(isdigit(tempString[0])){
                             write_binary(stoi(tempString), static_outfile);
+                            }
+                            else{
+                               write_binary(int(tempString[0]), static_outfile); 
+                            }
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
 
@@ -217,12 +222,17 @@ int main(int argc, char *argv[])
 
                             if (str.find(' ', lastWhitespace - 1) == std::string::npos)
                             {
-                                write_binary(stoi(tempString), static_outfile);
+                                if(isdigit(tempString[0])){
+                                    write_binary(stoi(tempString), static_outfile);
+                                }
+                                else{
+                                    write_binary(int(tempString[0]), static_outfile); 
+                                }
                                 staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                                 addressCount += 4;
                             }
 
-                            std::cout << tempString << "second";
+                            //std::cout << tempString << "second";
                         }
                     }
 
