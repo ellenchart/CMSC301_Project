@@ -340,8 +340,8 @@ int main(int argc, char *argv[])
             // }
 
             // ask which register the offset is in
-            int result = encode_Itype(35, registers[terms[1]], registers[terms[3]], stoi(terms[2]));
-            write_binary(encode_Itype(35, registers[terms[1]], registers[terms[3]], stoi(terms[2])), inst_outfile);
+            int result = encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
+            write_binary(encode_Itype(35, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
         }
         else if (inst_type == "sw")
         {
@@ -353,8 +353,8 @@ int main(int argc, char *argv[])
             // }
 
             // ask which register the offset is in
-            int result = encode_Itype(43, registers[terms[1]], registers[terms[3]], stoi(terms[2]));
-            write_binary(encode_Itype(43, registers[terms[1]], registers[terms[3]], stoi(terms[2])), inst_outfile);
+            int result = encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2]));
+            write_binary(encode_Itype(43, registers[terms[3]], registers[terms[1]], stoi(terms[2])), inst_outfile);
         }
         else if (inst_type == "slt")
         {
