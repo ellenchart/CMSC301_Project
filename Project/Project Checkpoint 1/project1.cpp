@@ -102,15 +102,16 @@ int main(int argc, char *argv[])
     //          std::cout << elem.first << " " << elem.second << "\n";
     //     }
 
-    std::map<char, int> asciiMap;
-    for (int i = 97; i <= 122; i++)
-    {
-        asciiMap.insert(std::pair<char, int>(char(i), i));
-    }
-    for (int i = 65; i <= 90; i++)
-    {
-        asciiMap.insert(std::pair<char, int>(char(i), i));
-    }
+    // std::map<char, int> asciiMap;
+    // for (int i = 97; i <= 122; i++)
+    // {
+    //     asciiMap.insert(std::pair<char, int>(char(i), i));
+    // }
+    // for (int i = 65; i <= 90; i++)
+    // {
+    //     asciiMap.insert(std::pair<char, int>(char(i), i));
+    // }
+
 
     std::map<std::string, int> staticLabelMap;
     std::map<std::string, int> staticAddressMap;
@@ -133,6 +134,8 @@ int main(int argc, char *argv[])
 
             int a = str.find('.');
 
+            std::cout << "aa" << str << "aa" << "\n";
+
             if (str == ".data")
             {
                 continue;
@@ -145,6 +148,8 @@ int main(int argc, char *argv[])
             {
 
                 std::string tempString = str.substr(0, str.find(' ') - 1);
+
+                //std::cout << "bb" << tempString << "bb" << "\n";
 
                 // std::string runningString = str.substr(str.find(' '), str.size());
 
@@ -186,6 +191,7 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
+                        std::cout << "__" << tempString << "__" << "\n";
                         if (isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
@@ -194,6 +200,8 @@ int main(int argc, char *argv[])
 
                             tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
+
+                            //std::cout << tempString<< " top";
 
                             int tempAddress = map.at(tempString);
                             tempAddress *= 4;
@@ -208,25 +216,32 @@ int main(int argc, char *argv[])
 
                             //std::cout << tempString << "first";
 
-                            if(isdigit(tempString[0])){
+                            //std::cout << tempString << " bottom";
+
+                            if(isdigit(tempString[0]))
+                            {
                             write_binary(stoi(tempString), static_outfile);
                             }
-                            else{
-                               write_binary(int(tempString[0]), static_outfile); 
+                            else
+                            {
+                               write_binary(map.at(tempString) * 4, static_outfile); 
                             }
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
 
-                            tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace - 1);
+                            tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                             lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
                             if (str.find(' ', lastWhitespace - 1) == std::string::npos)
                             {
+
+                                std::cout << "__" << tempString << "__" << "\n";
+
                                 if(isdigit(tempString[0])){
                                     write_binary(stoi(tempString), static_outfile);
                                 }
                                 else{
-                                    write_binary(int(tempString[0]), static_outfile); 
+                                    write_binary(map.at(tempString) * 4, static_outfile); 
                                 }
                                 staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                                 addressCount += 4;
