@@ -540,11 +540,15 @@ int main(int argc, char *argv[])
         {
 
             // implement la as an addi $r, address, 0
+            // la $s0, address = addi $s0, address, 0
 
             int address = staticLabelMap.at(terms[2]);
 
-            int result = encode_Itype(8, registers[terms[1]], address, 0);
-            write_binary(encode_Itype(8, registers[terms[1]], address, 0), inst_outfile);
+            int result = encode_Itype(8, 0, registers[terms[1]], address);
+            write_binary(encode_Itype(8, 0, registers[terms[1]], address), inst_outfile);
+
+            // std::cout << registers[terms[2]];
+
         }
         else if (inst_type == "sge")
         {
