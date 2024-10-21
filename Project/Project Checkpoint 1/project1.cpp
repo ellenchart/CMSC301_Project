@@ -366,7 +366,7 @@ int main(int argc, char *argv[])
             int tempAddress = 0;
             if (map.at(terms[3]) < count)
             {
-                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
                 // std::cout << "here";
             }
             else
@@ -386,7 +386,7 @@ int main(int argc, char *argv[])
             int tempAddress = 0;
             if (map.at(terms[3]) < count)
             {
-                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+                tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
                 // std::cout << "here";
             }
             else
