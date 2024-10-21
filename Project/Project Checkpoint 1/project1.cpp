@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
 
             int a = str.find('.');
 
-            std::cout << "aa" << str << "aa" << "\n";
+            //std::cout << "aa" << str << "aa" << "\n";
 
             if (str == ".data")
             {
@@ -142,10 +142,14 @@ int main(int argc, char *argv[])
             }
             else if (str == ".text")
             {
+                //std::cout << "enters .text";
                 break;
             }
             else if (str.find(".word") != std::string::npos)
             {
+                // if(str == ".text"){
+                //     std::cout << "Something is Wrong";
+                // }
 
                 std::string tempString = str.substr(0, str.find(' ') - 1);
 
@@ -191,7 +195,7 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
-                        std::cout << "__" << tempString << "__" << "\n";
+                        //std::cout << "__" << tempString << "__" << "\n";
                         if (isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
@@ -235,7 +239,7 @@ int main(int argc, char *argv[])
                             if (str.find(' ', lastWhitespace - 1) == std::string::npos)
                             {
 
-                                std::cout << "__" << tempString << "__" << "\n";
+                                //std::cout << "__" << tempString << "__" << "\n";
 
                                 if(isdigit(tempString[0])){
                                     write_binary(stoi(tempString), static_outfile);
@@ -270,16 +274,23 @@ int main(int argc, char *argv[])
         infile.close();
     }
 
+    //  for (const auto &elem : map)
+    //     {
+    //         std::cout << elem.first << " " << elem.second << "\n";
+    //     }
+
     /** Phase 3
      * Process all instructions, output to instruction memory file
      * TODO: Almost all of this, it only works for adds
      */
 
     count = 0;
+    //std::cout << "Past Phase 2";
     for (std::string inst : instructions)
     {
         std::vector<std::string> terms = split(inst, WHITESPACE + ",()");
         std::string inst_type = terms[0];
+        //std::cout << inst_type << "\n";
         if (inst_type == "add")
         {
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
