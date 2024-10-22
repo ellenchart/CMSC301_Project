@@ -114,6 +114,7 @@ int main(int argc, char *argv[])
 
     std::map<std::string, int> staticLabelMap;
     std::map<std::string, int> staticAddressMap;
+    int addressCount = 0;
     for (int i = 1; i < argc - 2; i++)
     {
         std::ifstream infile(argv[i]); //  open the input file for reading
@@ -124,7 +125,7 @@ int main(int argc, char *argv[])
         }
 
         std::string str;
-        int addressCount = 0;
+        
         int lastWhitespace = 0;
         while (getline(infile, str))
         { // Read a line from the file
