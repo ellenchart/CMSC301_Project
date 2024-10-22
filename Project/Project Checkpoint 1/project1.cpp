@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
 
     std::map<std::string, int> staticLabelMap;
     std::map<std::string, int> staticAddressMap;
-    int addressCount = 0;
+    int addressCount = 0; // addressCount should be counted per assemble, not per file
     for (int i = 1; i < argc - 2; i++)
     {
         std::ifstream infile(argv[i]); //  open the input file for reading
