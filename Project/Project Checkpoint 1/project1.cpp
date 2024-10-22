@@ -98,9 +98,9 @@ int main(int argc, char *argv[])
      */
 
     for (const auto &elem : map)
-        {
-             std::cout << elem.first << " " << elem.second << "\n";
-        }
+    {
+        std::cout << elem.first << " " << elem.second << "\n";
+    }
 
     // std::map<char, int> asciiMap;
     // for (int i = 97; i <= 122; i++)
@@ -111,7 +111,6 @@ int main(int argc, char *argv[])
     // {
     //     asciiMap.insert(std::pair<char, int>(char(i), i));
     // }
-
 
     std::map<std::string, int> staticLabelMap;
     std::map<std::string, int> staticAddressMap;
@@ -134,7 +133,7 @@ int main(int argc, char *argv[])
 
             int a = str.find('.');
 
-            //std::cout << "aa" << str << "aa" << "\n";
+            // std::cout << "aa" << str << "aa" << "\n";
 
             if (str == ".data")
             {
@@ -142,7 +141,7 @@ int main(int argc, char *argv[])
             }
             else if (str == ".text")
             {
-                //std::cout << "enters .text";
+                // std::cout << "enters .text";
                 break;
             }
             else if (str.find(".word") != std::string::npos)
@@ -151,11 +150,9 @@ int main(int argc, char *argv[])
                 //     std::cout << "Something is Wrong";
                 // }
 
-                
-
                 std::string tempString = str.substr(0, str.find(' ') - 1);
 
-                //std::cout << "bb" << tempString << "bb" << "\n";
+                // std::cout << "bb" << tempString << "bb" << "\n";
 
                 // std::string runningString = str.substr(str.find(' '), str.size());
 
@@ -180,8 +177,8 @@ int main(int argc, char *argv[])
 
                     if (tempString == ".word")
                     {
-                        //std::cout << tempString << "\n";
-                        //std::cout << "In .word if statement \n";
+                        // std::cout << tempString << "\n";
+                        // std::cout << "In .word if statement \n";
 
                         tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
                         lastWhitespace = str.find(' ', lastWhitespace) + 1;
@@ -190,17 +187,17 @@ int main(int argc, char *argv[])
                     }
                     else
                     {
-                        //std::cout << "__" << tempString << "__" << "\n";
+                        // std::cout << "__" << tempString << "__" << "\n";
                         if (isalpha(tempString[0]))
                         {
                             // should numbers be in this map?
-                            //std::cout << tempString << "\n";
-                            //std::cout << "In first if of else statement \n";
+                            // std::cout << tempString << "\n";
+                            // std::cout << "In first if of else statement \n";
 
-                            //tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
-                            //lastWhitespace = str.find(' ', lastWhitespace) + 1;
+                            // tempString = str.substr(lastWhitespace, str.find(' ', lastWhitespace) - lastWhitespace);
+                            // lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
-                            //std::cout << tempString<< " top";
+                            // std::cout << tempString<< " top";
 
                             std::cout << "First\n";
                             std::cout << tempString << "\n";
@@ -221,16 +218,18 @@ int main(int argc, char *argv[])
                             if (str.find(' ', lastWhitespace - 1) == std::string::npos)
                             {
 
-                                //std::cout << "__" << tempString << "__" << "\n";
+                                // std::cout << "__" << tempString << "__" << "\n";
 
-                                if(isdigit(tempString[0])){
+                                if (isdigit(tempString[0]))
+                                {
                                     std::cout << "In Here Top 1-1";
-                                    
+
                                     write_binary(stoi(tempString), static_outfile);
                                 }
-                                else{
+                                else
+                                {
                                     std::cout << "In Here Top1-1";
-                                    write_binary(map.at(tempString) * 4, static_outfile); 
+                                    write_binary(map.at(tempString) * 4, static_outfile);
                                 }
                                 staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                                 addressCount += 4;
@@ -239,21 +238,21 @@ int main(int argc, char *argv[])
                         else
                         {
                             // std::cout << tempString << "\n";
-                            //std::cout << "In else of else statement \n";
+                            // std::cout << "In else of else statement \n";
 
-                            //std::cout << tempString << "first";
+                            // std::cout << tempString << "first";
 
-                            //std::cout << tempString << " bottom";
+                            // std::cout << tempString << " bottom";
 
-                            if(isdigit(tempString[0]))
+                            if (isdigit(tempString[0]))
                             {
-                            std::cout << "In Here Bottom 1";
-                            write_binary(stoi(tempString), static_outfile);
+                                std::cout << "In Here Bottom 1";
+                                write_binary(stoi(tempString), static_outfile);
                             }
                             else
                             {
                                 std::cout << "In Here Bottom 1-1";
-                               write_binary(map.at(tempString) * 4, static_outfile); 
+                                write_binary(map.at(tempString) * 4, static_outfile);
                             }
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                             addressCount += 4;
@@ -264,21 +263,23 @@ int main(int argc, char *argv[])
                             if (str.find(' ', lastWhitespace - 1) == std::string::npos)
                             {
 
-                                //std::cout << "__" << tempString << "__" << "\n";
+                                // std::cout << "__" << tempString << "__" << "\n";
 
-                                if(isdigit(tempString[0])){
+                                if (isdigit(tempString[0]))
+                                {
                                     std::cout << "In Here Bottom 2-1";
                                     write_binary(stoi(tempString), static_outfile);
                                 }
-                                else{
+                                else
+                                {
                                     std::cout << "In Here Bottom 2-2";
-                                    write_binary(map.at(tempString) * 4, static_outfile); 
+                                    write_binary(map.at(tempString) * 4, static_outfile);
                                 }
                                 staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
                                 addressCount += 4;
                             }
 
-                            //std::cout << tempString << "second";
+                            // std::cout << tempString << "second";
                         }
                     }
 
@@ -312,12 +313,12 @@ int main(int argc, char *argv[])
      */
 
     count = 0;
-    //std::cout << "Past Phase 2";
+    // std::cout << "Past Phase 2";
     for (std::string inst : instructions)
     {
         std::vector<std::string> terms = split(inst, WHITESPACE + ",()");
         std::string inst_type = terms[0];
-        //std::cout << inst_type << "\n";
+        // std::cout << inst_type << "\n";
         if (inst_type == "add")
         {
             int result = encode_Rtype(0, registers[terms[2]], registers[terms[3]], registers[terms[1]], 0, 32);
@@ -519,6 +520,7 @@ int main(int argc, char *argv[])
             int beq_result = encode_Itype(4, 1, 0, tempAddress);
             // beq $at, $zero, target
             write_binary(beq_result, inst_outfile);
+            count++;
         }
         else if (inst_type == "bgt")
         {
@@ -542,6 +544,7 @@ int main(int argc, char *argv[])
             int bne_result = encode_Itype(5, 1, 0, tempAddress);
             // bne $at, $zero, target
             write_binary(bne_result, inst_outfile);
+            count++;
         }
         else if (inst_type == "ble")
         {
@@ -565,6 +568,7 @@ int main(int argc, char *argv[])
             int beq_result = encode_Itype(4, 1, 0, tempAddress);
             // beq $at, $zero, target
             write_binary(beq_result, inst_outfile);
+            count++;
         }
         else if (inst_type == "blt")
         {
@@ -588,6 +592,7 @@ int main(int argc, char *argv[])
             int bne_result = encode_Itype(5, 1, 0, tempAddress);
             // bne $at, $zero, target
             write_binary(bne_result, inst_outfile);
+            count++;
         }
         else if (inst_type == "la")
         {
@@ -601,7 +606,6 @@ int main(int argc, char *argv[])
             write_binary(encode_Itype(8, 0, registers[terms[1]], address), inst_outfile);
 
             // std::cout << registers[terms[2]];
-
         }
         else if (inst_type == "sge")
         {
@@ -612,6 +616,7 @@ int main(int argc, char *argv[])
             // $1, $1, 1 (invert the result of slt)
             int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
             write_binary(addi_result, inst_outfile);
+            count++;
         }
         else if (inst_type == "sle")
         {
@@ -622,6 +627,7 @@ int main(int argc, char *argv[])
             // $1, $1, 1 (invert the result of slt)
             int addi_result = encode_Itype(0, registers[terms[1]], registers[terms[1]], 1); // $1, $1, 1
             write_binary(addi_result, inst_outfile);
+            count++;
         }
         else if (inst_type == "andi")
         {
