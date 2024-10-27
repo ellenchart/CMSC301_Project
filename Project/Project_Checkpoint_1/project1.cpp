@@ -445,16 +445,17 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "beq")
         {
-            int tempAddress = 0;
-            if (map.at(terms[3]) < count)
-            {
-                tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
-                // std::cout << "here";
-            }
-            else
-            {
-                tempAddress = map.at(terms[3]) - count - 1;
-            }
+            //int tempAddress = 0;
+            // if (map.at(terms[3]) < count)
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
+            //     // std::cout << "here";
+            // }
+            // else
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1;
+            // }
+            int tempAddress = map.at(terms[3]) - count - 1;
 
             // std::cout << tempAddress;
 
@@ -465,17 +466,18 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "bne")
         {
-            int tempAddress = 0;
-            if (map.at(terms[3]) < count)
-            {
-                tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
-                // std::cout << "here";
-            }
-            else
-            {
-                tempAddress = map.at(terms[3]) - count - 1;
-            }
+            // int tempAddress = 0;
+            // if (map.at(terms[3]) < count)
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
+            //     // std::cout << "here";
+            // }
+            // else
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1;
+            // }
             // int tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+            int tempAddress = map.at(terms[3]) - count - 1;
 
             int result = encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress);
             write_binary(encode_Itype(5, registers[terms[1]], registers[terms[2]], tempAddress), inst_outfile);
@@ -528,17 +530,17 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "bge")
         {
-            int tempAddress = 0;
-
-            if (map.at(terms[3]) < count)
-            {
-                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
-                // std::cout << "here";
-            }
-            else
-            {
-                tempAddress = map.at(terms[3]) - count - 1;
-            }
+            // int tempAddress = 0;
+            // if (map.at(terms[3]) < count)
+            // {
+            //     tempAddress = map.at(terms[3]) - count -1; // subtracting absolute address - where we are now
+            //     // std::cout << "here";
+            // }
+            // else
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1;
+            // }
+            int tempAddress = map.at(terms[3]) - count - 1;
 
             // Using the register $at (assembler temporary) for storing the result of slt
             int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
@@ -552,17 +554,17 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "bgt")
         {
-            int tempAddress = 0;
-
-            if (map.at(terms[3]) < count)
-            {
-                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
-                // std::cout << "here";
-            }
-            else
-            {
-                tempAddress = map.at(terms[3]) - count - 1;
-            }
+            // int tempAddress = 0;
+            // if (map.at(terms[3]) < count)
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
+            //     // std::cout << "here";
+            // }
+            // else
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1;
+            // }
+            int tempAddress = map.at(terms[3]) - count - 1;
 
             // Using the register $at (assembler temporary) for storing the result of slt
             int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
@@ -576,17 +578,17 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "ble")
         {
-            int tempAddress = 0;
-
-            if (map.at(terms[3]) < count)
-            {
-                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
-                // std::cout << "here";
-            }
-            else
-            {
-                tempAddress = map.at(terms[3]) - count - 1;
-            }
+            // int tempAddress = 0;
+            // if (map.at(terms[3]) < count)
+            // {
+            //     tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+            //     // std::cout << "here";
+            // }
+            // else
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1;
+            // }
+            int tempAddress = map.at(terms[3]) - count - 1;
 
             // Using the register $at (assembler temporary) for storing the result of slt
             int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
@@ -600,17 +602,17 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "blt")
         {
-            int tempAddress = 0;
-
-            if (map.at(terms[3]) < count)
-            {
-                tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
-                // std::cout << "here";
-            }
-            else
-            {
-                tempAddress = map.at(terms[3]) - count - 1;
-            }
+            // int tempAddress = 0;
+            // if (map.at(terms[3]) < count)
+            // {
+            //     tempAddress = map.at(terms[3]) - count; // subtracting absolute address - where we are now
+            //     // std::cout << "here";
+            // }
+            // else
+            // {
+            //     tempAddress = map.at(terms[3]) - count - 1;
+            // }
+            int tempAddress = map.at(terms[3]) - count - 1;
 
             // Using the register $at (assembler temporary) for storing the result of slt
             int slt_result = encode_Rtype(0, registers[terms[2]], registers[terms[1]], 1, 0, 42); // slt $at, $rt, $rs
