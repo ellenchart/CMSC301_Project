@@ -83,9 +83,50 @@
     <a name="circuit" val="CPUmain"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp loc="(1380,970)" name="regfile"/>
-    <comp loc="(1610,500)" name="Control"/>
-    <comp loc="(1970,990)" name="ALU"/>
+    <comp lib="0" loc="(370,130)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="2" loc="(730,510)" name="Multiplexer"/>
+    <comp loc="(330,470)" name="regfile"/>
+    <comp loc="(620,130)" name="Control"/>
+    <comp loc="(880,490)" name="ALU"/>
+    <wire from="(140,490)" to="(140,560)"/>
+    <wire from="(140,490)" to="(170,490)"/>
+    <wire from="(140,560)" to="(900,560)"/>
+    <wire from="(190,370)" to="(190,430)"/>
+    <wire from="(190,370)" to="(650,370)"/>
+    <wire from="(210,290)" to="(210,430)"/>
+    <wire from="(210,290)" to="(690,290)"/>
+    <wire from="(290,310)" to="(290,430)"/>
+    <wire from="(290,310)" to="(710,310)"/>
+    <wire from="(310,340)" to="(310,430)"/>
+    <wire from="(310,340)" to="(700,340)"/>
+    <wire from="(330,470)" to="(750,470)"/>
+    <wire from="(330,500)" to="(330,510)"/>
+    <wire from="(330,500)" to="(700,500)"/>
+    <wire from="(370,130)" to="(400,130)"/>
+    <wire from="(620,130)" to="(710,130)"/>
+    <wire from="(620,150)" to="(700,150)"/>
+    <wire from="(620,170)" to="(690,170)"/>
+    <wire from="(620,190)" to="(670,190)"/>
+    <wire from="(620,210)" to="(650,210)"/>
+    <wire from="(620,230)" to="(640,230)"/>
+    <wire from="(620,250)" to="(820,250)"/>
+    <wire from="(640,230)" to="(640,540)"/>
+    <wire from="(640,540)" to="(710,540)"/>
+    <wire from="(650,210)" to="(650,370)"/>
+    <wire from="(670,190)" to="(670,520)"/>
+    <wire from="(670,520)" to="(700,520)"/>
+    <wire from="(690,170)" to="(690,290)"/>
+    <wire from="(700,150)" to="(700,340)"/>
+    <wire from="(710,130)" to="(710,310)"/>
+    <wire from="(710,530)" to="(710,540)"/>
+    <wire from="(730,510)" to="(750,510)"/>
+    <wire from="(820,250)" to="(820,430)"/>
+    <wire from="(820,430)" to="(820,440)"/>
+    <wire from="(880,490)" to="(900,490)"/>
+    <wire from="(900,490)" to="(900,560)"/>
   </circuit>
   <circuit name="regfile">
     <a name="appearance" val="custom"/>
