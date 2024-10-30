@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.9.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.9.0(https://github.com/logisim-evolution/).
+<project source="3.8.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -1310,133 +1310,133 @@
       <a name="inputs" val="32"/>
       <a name="width" val="5"/>
     </comp>
-    <comp lib="8" loc="(770,2008)" name="Text">
+    <comp lib="8" loc="(770,2005)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="nor Here"/>
     </comp>
-    <comp lib="8" loc="(782,1794)" name="Text">
+    <comp lib="8" loc="(780,1790)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="or Here"/>
     </comp>
-    <comp lib="8" loc="(788,1703)" name="Text">
+    <comp lib="8" loc="(785,1700)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="and Here"/>
     </comp>
-    <comp lib="8" loc="(793,1877)" name="Text">
+    <comp lib="8" loc="(790,1875)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="xor Here"/>
     </comp>
-    <comp lib="8" loc="(844,1903)" name="Text">
+    <comp lib="8" loc="(840,1900)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="red_write_e"/>
     </comp>
-    <comp lib="8" loc="(846,1918)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="imm_sel"/>
-    </comp>
-    <comp lib="8" loc="(847,1893)" name="Text">
+    <comp lib="8" loc="(845,1890)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="imm"/>
     </comp>
-    <comp lib="8" loc="(847,1928)" name="Text">
+    <comp lib="8" loc="(845,1915)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="imm_sel"/>
+    </comp>
+    <comp lib="8" loc="(845,1925)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="ALU_code"/>
     </comp>
-    <comp lib="8" loc="(850,1883)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rs"/>
-    </comp>
-    <comp lib="8" loc="(851,1863)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rd"/>
-    </comp>
-    <comp lib="8" loc="(851,1874)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rt"/>
-    </comp>
-    <comp lib="8" loc="(851,1985)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rt"/>
-    </comp>
-    <comp lib="8" loc="(852,1974)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rd"/>
-    </comp>
-    <comp lib="8" loc="(853,1807)" name="Text">
+    <comp lib="8" loc="(850,1805)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="red_write_e"/>
     </comp>
-    <comp lib="8" loc="(853,1994)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rs"/>
-    </comp>
-    <comp lib="8" loc="(853,2012)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="red_write_e"/>
-    </comp>
-    <comp lib="8" loc="(854,2021)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="imm_sel"/>
-    </comp>
-    <comp lib="8" loc="(855,1817)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="imm_sel"/>
-    </comp>
-    <comp lib="8" loc="(856,2003)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="imm"/>
-    </comp>
-    <comp lib="8" loc="(856,2034)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="ALU_code"/>
-    </comp>
-    <comp lib="8" loc="(857,1833)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="ALU_code"/>
-    </comp>
-    <comp lib="8" loc="(858,1795)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="imm"/>
-    </comp>
-    <comp lib="8" loc="(859,1775)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rt"/>
-    </comp>
-    <comp lib="8" loc="(860,1763)" name="Text">
+    <comp lib="8" loc="(850,1860)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="rd"/>
     </comp>
-    <comp lib="8" loc="(860,1784)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rs"/>
-    </comp>
-    <comp lib="8" loc="(861,1704)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="red_write_e"/>
-    </comp>
-    <comp lib="8" loc="(863,1714)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="imm_sel"/>
-    </comp>
-    <comp lib="8" loc="(864,1695)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="imm"/>
-    </comp>
-    <comp lib="8" loc="(865,1727)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="ALU_code"/>
-    </comp>
-    <comp lib="8" loc="(866,1684)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="rs"/>
-    </comp>
-    <comp lib="8" loc="(867,1671)" name="Text">
+    <comp lib="8" loc="(850,1870)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="rt"/>
     </comp>
-    <comp lib="8" loc="(868,1655)" name="Text">
+    <comp lib="8" loc="(850,1880)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rs"/>
+    </comp>
+    <comp lib="8" loc="(850,1970)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="rd"/>
+    </comp>
+    <comp lib="8" loc="(850,1985)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rt"/>
+    </comp>
+    <comp lib="8" loc="(850,1990)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rs"/>
+    </comp>
+    <comp lib="8" loc="(850,2010)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="red_write_e"/>
+    </comp>
+    <comp lib="8" loc="(850,2020)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="imm_sel"/>
+    </comp>
+    <comp lib="8" loc="(855,1775)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rt"/>
+    </comp>
+    <comp lib="8" loc="(855,1795)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="imm"/>
+    </comp>
+    <comp lib="8" loc="(855,1815)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="imm_sel"/>
+    </comp>
+    <comp lib="8" loc="(855,1830)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="ALU_code"/>
+    </comp>
+    <comp lib="8" loc="(855,2000)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="imm"/>
+    </comp>
+    <comp lib="8" loc="(855,2030)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="ALU_code"/>
+    </comp>
+    <comp lib="8" loc="(860,1695)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="imm"/>
+    </comp>
+    <comp lib="8" loc="(860,1700)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="red_write_e"/>
+    </comp>
+    <comp lib="8" loc="(860,1710)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="imm_sel"/>
+    </comp>
+    <comp lib="8" loc="(860,1760)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rd"/>
+    </comp>
+    <comp lib="8" loc="(860,1780)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rs"/>
+    </comp>
+    <comp lib="8" loc="(865,1655)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rd"/>
+    </comp>
+    <comp lib="8" loc="(865,1670)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rt"/>
+    </comp>
+    <comp lib="8" loc="(865,1680)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="rs"/>
+    </comp>
+    <comp lib="8" loc="(865,1725)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="ALU_code"/>
     </comp>
     <comp loc="(530,420)" name="sixBitDemultiplexor"/>
     <comp loc="(890,1120)" name="sllControl"/>
@@ -2086,39 +2086,39 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="funct code"/>
     </comp>
-    <comp lib="8" loc="(242,1224)" name="Text">
+    <comp lib="8" loc="(240,1220)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="order of demultiplexors"/>
     </comp>
-    <comp lib="8" loc="(267,1239)" name="Text">
+    <comp lib="8" loc="(265,1235)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="000"/>
     </comp>
-    <comp lib="8" loc="(267,1254)" name="Text">
+    <comp lib="8" loc="(265,1250)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="001"/>
     </comp>
-    <comp lib="8" loc="(267,1269)" name="Text">
+    <comp lib="8" loc="(265,1265)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="010"/>
     </comp>
-    <comp lib="8" loc="(267,1284)" name="Text">
+    <comp lib="8" loc="(265,1280)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="011"/>
     </comp>
-    <comp lib="8" loc="(267,1299)" name="Text">
+    <comp lib="8" loc="(265,1295)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="100"/>
     </comp>
-    <comp lib="8" loc="(267,1309)" name="Text">
+    <comp lib="8" loc="(265,1305)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="101"/>
     </comp>
-    <comp lib="8" loc="(267,1324)" name="Text">
+    <comp lib="8" loc="(265,1320)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="110"/>
     </comp>
-    <comp lib="8" loc="(267,1334)" name="Text">
+    <comp lib="8" loc="(265,1330)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="111"/>
     </comp>
@@ -3234,6 +3234,131 @@
     <wire from="(510,60)" to="(570,60)"/>
     <wire from="(760,370)" to="(760,420)"/>
   </circuit>
+  <circuit name="addiSubcircuit">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="addiSubcircuit"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(240,310)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(330,310)" name="Splitter">
+      <a name="bit1" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+      <a name="bit14" val="0"/>
+      <a name="bit15" val="0"/>
+      <a name="bit16" val="1"/>
+      <a name="bit17" val="1"/>
+      <a name="bit18" val="1"/>
+      <a name="bit19" val="1"/>
+      <a name="bit2" val="0"/>
+      <a name="bit20" val="1"/>
+      <a name="bit21" val="2"/>
+      <a name="bit22" val="2"/>
+      <a name="bit23" val="2"/>
+      <a name="bit24" val="2"/>
+      <a name="bit25" val="2"/>
+      <a name="bit26" val="3"/>
+      <a name="bit27" val="3"/>
+      <a name="bit28" val="3"/>
+      <a name="bit29" val="3"/>
+      <a name="bit3" val="0"/>
+      <a name="bit30" val="3"/>
+      <a name="bit31" val="3"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(690,240)" name="Bit Extender">
+      <a name="in_width" val="16"/>
+      <a name="out_width" val="32"/>
+      <a name="type" val="zero"/>
+    </comp>
+    <comp lib="0" loc="(790,420)" name="Constant"/>
+    <comp lib="0" loc="(800,590)" name="Constant">
+      <a name="value" val="0x3"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(810,510)" name="Constant"/>
+    <comp lib="0" loc="(830,140)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rs"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(830,260)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rd"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(830,330)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="imm"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(830,420)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="reg_write_e"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(830,510)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="imm_sel"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(830,590)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="ALU_code"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(860,190)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(930,190)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rt"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <wire from="(240,310)" to="(330,310)"/>
+    <wire from="(350,270)" to="(400,270)"/>
+    <wire from="(350,280)" to="(770,280)"/>
+    <wire from="(350,290)" to="(790,290)"/>
+    <wire from="(400,240)" to="(400,270)"/>
+    <wire from="(400,240)" to="(650,240)"/>
+    <wire from="(690,240)" to="(730,240)"/>
+    <wire from="(730,240)" to="(730,330)"/>
+    <wire from="(730,330)" to="(830,330)"/>
+    <wire from="(770,260)" to="(770,280)"/>
+    <wire from="(770,260)" to="(830,260)"/>
+    <wire from="(790,140)" to="(790,290)"/>
+    <wire from="(790,140)" to="(830,140)"/>
+    <wire from="(790,420)" to="(830,420)"/>
+    <wire from="(800,590)" to="(830,590)"/>
+    <wire from="(810,510)" to="(830,510)"/>
+    <wire from="(860,190)" to="(930,190)"/>
+  </circuit>
   <circuit name="sllControl">
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="sllControl"/>
@@ -3384,131 +3509,6 @@
     <wire from="(510,60)" to="(570,60)"/>
     <wire from="(760,370)" to="(760,420)"/>
   </circuit>
-  <circuit name="addiSubcircuit">
-    <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="addiSubcircuit"/>
-    <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(240,310)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(330,310)" name="Splitter">
-      <a name="bit1" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
-      <a name="bit14" val="0"/>
-      <a name="bit15" val="0"/>
-      <a name="bit16" val="1"/>
-      <a name="bit17" val="1"/>
-      <a name="bit18" val="1"/>
-      <a name="bit19" val="1"/>
-      <a name="bit2" val="0"/>
-      <a name="bit20" val="1"/>
-      <a name="bit21" val="2"/>
-      <a name="bit22" val="2"/>
-      <a name="bit23" val="2"/>
-      <a name="bit24" val="2"/>
-      <a name="bit25" val="2"/>
-      <a name="bit26" val="3"/>
-      <a name="bit27" val="3"/>
-      <a name="bit28" val="3"/>
-      <a name="bit29" val="3"/>
-      <a name="bit3" val="0"/>
-      <a name="bit30" val="3"/>
-      <a name="bit31" val="3"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="0"/>
-      <a name="bit9" val="0"/>
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="32"/>
-    </comp>
-    <comp lib="0" loc="(690,240)" name="Bit Extender">
-      <a name="in_width" val="16"/>
-      <a name="out_width" val="32"/>
-      <a name="type" val="zero"/>
-    </comp>
-    <comp lib="0" loc="(790,420)" name="Constant"/>
-    <comp lib="0" loc="(800,590)" name="Constant">
-      <a name="value" val="0x3"/>
-      <a name="width" val="4"/>
-    </comp>
-    <comp lib="0" loc="(810,510)" name="Constant"/>
-    <comp lib="0" loc="(830,140)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="rs"/>
-      <a name="output" val="true"/>
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(830,260)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="rd"/>
-      <a name="output" val="true"/>
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(830,330)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="imm"/>
-      <a name="output" val="true"/>
-      <a name="radix" val="16"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(830,420)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="reg_write_e"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(830,510)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="imm_sel"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(830,590)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="ALU_code"/>
-      <a name="output" val="true"/>
-      <a name="width" val="4"/>
-    </comp>
-    <comp lib="0" loc="(860,190)" name="Constant">
-      <a name="value" val="0x0"/>
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(930,190)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="rt"/>
-      <a name="output" val="true"/>
-      <a name="width" val="5"/>
-    </comp>
-    <wire from="(240,310)" to="(330,310)"/>
-    <wire from="(350,270)" to="(400,270)"/>
-    <wire from="(350,280)" to="(770,280)"/>
-    <wire from="(350,290)" to="(790,290)"/>
-    <wire from="(400,240)" to="(400,270)"/>
-    <wire from="(400,240)" to="(650,240)"/>
-    <wire from="(690,240)" to="(730,240)"/>
-    <wire from="(730,240)" to="(730,330)"/>
-    <wire from="(730,330)" to="(830,330)"/>
-    <wire from="(770,260)" to="(770,280)"/>
-    <wire from="(770,260)" to="(830,260)"/>
-    <wire from="(790,140)" to="(790,290)"/>
-    <wire from="(790,140)" to="(830,140)"/>
-    <wire from="(790,420)" to="(830,420)"/>
-    <wire from="(800,590)" to="(830,590)"/>
-    <wire from="(810,510)" to="(830,510)"/>
-    <wire from="(860,190)" to="(930,190)"/>
-  </circuit>
   <circuit name="mfhiSubcircuit">
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="mfhiSubcircuit"/>
@@ -3629,6 +3629,267 @@
     <wire from="(490,470)" to="(510,470)"/>
     <wire from="(490,560)" to="(510,560)"/>
     <wire from="(500,620)" to="(530,620)"/>
+  </circuit>
+  <circuit name="orControl">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="orControl"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1180,30)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rd"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(1180,430)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(1180,430)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="imm"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(1180,520)" name="Constant"/>
+    <comp lib="0" loc="(1180,520)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="reg_write_e"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(1180,610)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(1180,610)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="imm_sel"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(1180,760)" name="Constant">
+      <a name="value" val="0x14"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(1180,760)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="ALU_code"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(1190,120)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rt"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(1190,200)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rs"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(580,340)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="data"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(760,340)" name="Splitter">
+      <a name="fanout" val="32"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(930,170)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+    </comp>
+    <comp lib="0" loc="(930,250)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+    </comp>
+    <comp lib="0" loc="(940,30)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+    </comp>
+    <wire from="(1190,200)" to="(1190,250)"/>
+    <wire from="(580,340)" to="(760,340)"/>
+    <wire from="(780,130)" to="(820,130)"/>
+    <wire from="(780,140)" to="(830,140)"/>
+    <wire from="(780,150)" to="(840,150)"/>
+    <wire from="(780,160)" to="(850,160)"/>
+    <wire from="(780,170)" to="(860,170)"/>
+    <wire from="(780,180)" to="(910,180)"/>
+    <wire from="(780,190)" to="(910,190)"/>
+    <wire from="(780,200)" to="(910,200)"/>
+    <wire from="(780,210)" to="(910,210)"/>
+    <wire from="(780,220)" to="(910,220)"/>
+    <wire from="(780,230)" to="(910,230)"/>
+    <wire from="(780,240)" to="(900,240)"/>
+    <wire from="(780,250)" to="(890,250)"/>
+    <wire from="(780,260)" to="(880,260)"/>
+    <wire from="(780,270)" to="(870,270)"/>
+    <wire from="(820,40)" to="(820,130)"/>
+    <wire from="(820,40)" to="(920,40)"/>
+    <wire from="(830,50)" to="(830,140)"/>
+    <wire from="(830,50)" to="(920,50)"/>
+    <wire from="(840,60)" to="(840,150)"/>
+    <wire from="(840,60)" to="(920,60)"/>
+    <wire from="(850,70)" to="(850,160)"/>
+    <wire from="(850,70)" to="(920,70)"/>
+    <wire from="(860,80)" to="(860,170)"/>
+    <wire from="(860,80)" to="(920,80)"/>
+    <wire from="(870,270)" to="(870,300)"/>
+    <wire from="(870,300)" to="(910,300)"/>
+    <wire from="(880,260)" to="(880,290)"/>
+    <wire from="(880,290)" to="(910,290)"/>
+    <wire from="(890,250)" to="(890,280)"/>
+    <wire from="(890,280)" to="(910,280)"/>
+    <wire from="(900,240)" to="(900,270)"/>
+    <wire from="(900,270)" to="(910,270)"/>
+    <wire from="(910,230)" to="(910,260)"/>
+    <wire from="(930,120)" to="(1190,120)"/>
+    <wire from="(930,120)" to="(930,170)"/>
+    <wire from="(930,250)" to="(1190,250)"/>
+    <wire from="(940,30)" to="(1180,30)"/>
+  </circuit>
+  <circuit name="andControl">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="andControl"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(170,470)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="data"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(350,470)" name="Splitter">
+      <a name="fanout" val="32"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="0" loc="(520,300)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+    </comp>
+    <comp lib="0" loc="(520,380)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+    </comp>
+    <comp lib="0" loc="(530,160)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+    </comp>
+    <comp lib="0" loc="(720,930)" name="Constant">
+      <a name="value" val="0x13"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(770,160)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rd"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(770,560)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(770,560)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="imm"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(770,650)" name="Constant"/>
+    <comp lib="0" loc="(770,650)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="reg_write_e"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(770,740)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(770,740)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="imm_sel"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(780,250)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rt"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(780,330)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rs"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(780,930)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="ALU_code"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
+    <wire from="(170,470)" to="(350,470)"/>
+    <wire from="(370,260)" to="(410,260)"/>
+    <wire from="(370,270)" to="(420,270)"/>
+    <wire from="(370,280)" to="(430,280)"/>
+    <wire from="(370,290)" to="(440,290)"/>
+    <wire from="(370,300)" to="(450,300)"/>
+    <wire from="(370,310)" to="(500,310)"/>
+    <wire from="(370,320)" to="(500,320)"/>
+    <wire from="(370,330)" to="(500,330)"/>
+    <wire from="(370,340)" to="(500,340)"/>
+    <wire from="(370,350)" to="(500,350)"/>
+    <wire from="(370,360)" to="(500,360)"/>
+    <wire from="(370,370)" to="(490,370)"/>
+    <wire from="(370,380)" to="(480,380)"/>
+    <wire from="(370,390)" to="(470,390)"/>
+    <wire from="(370,400)" to="(460,400)"/>
+    <wire from="(410,170)" to="(410,260)"/>
+    <wire from="(410,170)" to="(510,170)"/>
+    <wire from="(420,180)" to="(420,270)"/>
+    <wire from="(420,180)" to="(510,180)"/>
+    <wire from="(430,190)" to="(430,280)"/>
+    <wire from="(430,190)" to="(510,190)"/>
+    <wire from="(440,200)" to="(440,290)"/>
+    <wire from="(440,200)" to="(510,200)"/>
+    <wire from="(450,210)" to="(450,300)"/>
+    <wire from="(450,210)" to="(510,210)"/>
+    <wire from="(460,400)" to="(460,430)"/>
+    <wire from="(460,430)" to="(500,430)"/>
+    <wire from="(470,390)" to="(470,420)"/>
+    <wire from="(470,420)" to="(500,420)"/>
+    <wire from="(480,380)" to="(480,410)"/>
+    <wire from="(480,410)" to="(500,410)"/>
+    <wire from="(490,370)" to="(490,400)"/>
+    <wire from="(490,400)" to="(500,400)"/>
+    <wire from="(500,360)" to="(500,390)"/>
+    <wire from="(520,250)" to="(520,300)"/>
+    <wire from="(520,250)" to="(780,250)"/>
+    <wire from="(520,380)" to="(780,380)"/>
+    <wire from="(530,160)" to="(770,160)"/>
+    <wire from="(720,930)" to="(780,930)"/>
+    <wire from="(780,330)" to="(780,380)"/>
   </circuit>
   <circuit name="sltControl">
     <a name="appearance" val="logisim_evolution"/>
