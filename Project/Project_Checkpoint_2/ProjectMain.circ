@@ -1712,7 +1712,7 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="rd"/>
     </comp>
-    <comp loc="(530,420)" name="sixBitDemultiplexor"/>
+    <comp loc="(530,420)" name="sixBitDemultiplexer"/>
     <comp loc="(890,1120)" name="sllControl"/>
     <comp loc="(890,1300)" name="srlControl"/>
     <comp loc="(890,1480)" name="sltControl"/>
@@ -2115,9 +2115,9 @@
     <wire from="(990,480)" to="(990,500)"/>
     <wire from="(990,500)" to="(1360,500)"/>
   </circuit>
-  <circuit name="sixBitDemultiplexor">
+  <circuit name="sixBitDemultiplexer">
     <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="sixBitDemultiplexor"/>
+    <a name="circuit" val="sixBitDemultiplexer"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
     <comp lib="0" loc="(1250,1120)" name="Pin">
@@ -2455,7 +2455,7 @@
     </comp>
     <comp lib="8" loc="(240,1220)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="order of demultiplexors"/>
+      <a name="text" val="order of demultiplexers"/>
     </comp>
     <comp lib="8" loc="(265,1235)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
@@ -2503,7 +2503,7 @@
     </comp>
     <comp lib="8" loc="(815,310)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="order of demultiplexors"/>
+      <a name="text" val="order of demultiplexers"/>
     </comp>
     <comp lib="8" loc="(825,385)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
