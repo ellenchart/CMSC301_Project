@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
+<project source="3.9.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.9.0(https://github.com/logisim-evolution/).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -96,17 +96,11 @@
       <polyline fill="none" points="50,140 60,140" stroke="#000000"/>
       <polyline fill="none" points="180,120 170,120" stroke="#000000"/>
       <circ-anchor facing="east" x="180" y="120"/>
-      <circ-port dir="in" pin="1000,360" x="120" y="60"/>
       <circ-port dir="in" pin="200,200" x="50" y="100"/>
       <circ-port dir="in" pin="200,340" x="50" y="140"/>
+      <circ-port dir="in" pin="970,440" x="120" y="60"/>
       <circ-port dir="out" pin="1550,230" x="180" y="120"/>
     </appear>
-    <comp lib="0" loc="(1000,360)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
-      <a name="label" val="ALU_CODE"/>
-      <a name="width" val="4"/>
-    </comp>
     <comp lib="0" loc="(1550,230)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -137,15 +131,20 @@
     </comp>
     <comp lib="0" loc="(820,760)" name="Constant">
       <a name="value" val="0x4"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(830,700)" name="Constant">
       <a name="value" val="0x3"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(970,440)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="ALU_CODE"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="1" loc="(1020,710)" name="OR Gate"/>
     <comp lib="2" loc="(1020,230)" name="Multiplexer">
-      <a name="select" val="4"/>
+      <a name="select" val="5"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="2" loc="(660,820)" name="Multiplexer">
@@ -174,10 +173,10 @@
       <a name="width" val="32"/>
     </comp>
     <comp lib="3" loc="(870,690)" name="Comparator">
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="3" loc="(870,750)" name="Comparator">
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="4" loc="(1150,590)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
@@ -189,7 +188,7 @@
       <a name="label" val="LO"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="8" loc="(226,54)" name="Text">
+    <comp lib="8" loc="(225,50)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="OP1"/>
     </comp>
@@ -197,12 +196,12 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="OP2"/>
     </comp>
-    <comp lib="8" loc="(665,797)" name="Text">
+    <comp lib="8" loc="(665,795)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="hi"/>
     </comp>
-    <wire from="(1000,310)" to="(1000,340)"/>
-    <wire from="(1000,340)" to="(1000,360)"/>
+    <wire from="(1000,390)" to="(1000,440)"/>
+    <wire from="(1000,440)" to="(1000,640)"/>
     <wire from="(1000,790)" to="(1000,820)"/>
     <wire from="(1000,790)" to="(1090,790)"/>
     <wire from="(1020,230)" to="(1550,230)"/>
@@ -287,8 +286,8 @@
     <wire from="(790,640)" to="(790,740)"/>
     <wire from="(790,640)" to="(810,640)"/>
     <wire from="(790,740)" to="(830,740)"/>
+    <wire from="(810,640)" to="(1000,640)"/>
     <wire from="(810,640)" to="(810,680)"/>
-    <wire from="(810,640)" to="(910,640)"/>
     <wire from="(810,680)" to="(830,680)"/>
     <wire from="(820,760)" to="(830,760)"/>
     <wire from="(840,200)" to="(840,520)"/>
@@ -303,10 +302,9 @@
     <wire from="(870,750)" to="(890,750)"/>
     <wire from="(890,750)" to="(890,870)"/>
     <wire from="(890,750)" to="(930,750)"/>
-    <wire from="(910,340)" to="(1000,340)"/>
-    <wire from="(910,340)" to="(910,640)"/>
     <wire from="(930,750)" to="(930,960)"/>
     <wire from="(930,750)" to="(970,750)"/>
+    <wire from="(970,440)" to="(1000,440)"/>
     <wire from="(970,730)" to="(970,750)"/>
   </circuit>
   <circuit name="CPUmain">
@@ -2529,6 +2527,10 @@
     <a name="circuit" val="addControl"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1090,510)" name="Constant"/>
+    <comp lib="0" loc="(1090,530)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
     <comp lib="0" loc="(1180,30)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -2548,7 +2550,6 @@
       <a name="radix" val="16"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(1180,520)" name="Constant"/>
     <comp lib="0" loc="(1180,520)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -2566,14 +2567,14 @@
     </comp>
     <comp lib="0" loc="(1180,760)" name="Constant">
       <a name="value" val="0x0"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(1180,760)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(1190,120)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -2592,6 +2593,10 @@
     <comp lib="0" loc="(580,340)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="data"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(620,470)" name="Constant">
+      <a name="value" val="0x0"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(760,340)" name="Splitter">
@@ -2613,8 +2618,22 @@
       <a name="fanout" val="5"/>
       <a name="incoming" val="5"/>
     </comp>
+    <comp lib="2" loc="(1150,520)" name="Multiplexer"/>
+    <comp lib="3" loc="(690,460)" name="Comparator">
+      <a name="mode" val="unsigned"/>
+      <a name="width" val="32"/>
+    </comp>
+    <wire from="(1090,510)" to="(1120,510)"/>
+    <wire from="(1090,530)" to="(1120,530)"/>
+    <wire from="(1130,540)" to="(1130,570)"/>
+    <wire from="(1150,520)" to="(1180,520)"/>
     <wire from="(1190,200)" to="(1190,250)"/>
-    <wire from="(580,340)" to="(760,340)"/>
+    <wire from="(580,340)" to="(590,340)"/>
+    <wire from="(590,340)" to="(590,450)"/>
+    <wire from="(590,340)" to="(760,340)"/>
+    <wire from="(590,450)" to="(650,450)"/>
+    <wire from="(620,470)" to="(650,470)"/>
+    <wire from="(690,450)" to="(940,450)"/>
     <wire from="(780,130)" to="(820,130)"/>
     <wire from="(780,140)" to="(830,140)"/>
     <wire from="(780,150)" to="(840,150)"/>
@@ -2653,6 +2672,8 @@
     <wire from="(930,120)" to="(930,170)"/>
     <wire from="(930,250)" to="(1190,250)"/>
     <wire from="(940,30)" to="(1180,30)"/>
+    <wire from="(940,450)" to="(940,570)"/>
+    <wire from="(940,570)" to="(1130,570)"/>
   </circuit>
   <circuit name="subControl">
     <a name="appearance" val="logisim_evolution"/>
@@ -2850,14 +2871,14 @@
     </comp>
     <comp lib="0" loc="(840,910)" name="Constant">
       <a name="value" val="0x3"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(840,910)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(850,270)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -2965,14 +2986,14 @@
     </comp>
     <comp lib="0" loc="(840,910)" name="Constant">
       <a name="value" val="0x4"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(840,910)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(850,270)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3013,96 +3034,23 @@
     <wire from="(590,400)" to="(850,400)"/>
     <wire from="(850,350)" to="(850,400)"/>
   </circuit>
-  <circuit name="addiControl">
-    <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="addiControl"/>
-    <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(240,310)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(330,310)" name="Splitter">
-      <a name="bit1" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
-      <a name="bit14" val="0"/>
-      <a name="bit15" val="0"/>
-      <a name="bit16" val="1"/>
-      <a name="bit17" val="1"/>
-      <a name="bit18" val="1"/>
-      <a name="bit19" val="1"/>
-      <a name="bit2" val="0"/>
-      <a name="bit20" val="1"/>
-      <a name="bit21" val="2"/>
-      <a name="bit22" val="2"/>
-      <a name="bit23" val="2"/>
-      <a name="bit24" val="2"/>
-      <a name="bit25" val="2"/>
-      <a name="bit26" val="3"/>
-      <a name="bit27" val="3"/>
-      <a name="bit28" val="3"/>
-      <a name="bit29" val="3"/>
-      <a name="bit3" val="0"/>
-      <a name="bit30" val="3"/>
-      <a name="bit31" val="3"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="0"/>
-      <a name="bit9" val="0"/>
-      <a name="fanout" val="4"/>
-      <a name="incoming" val="32"/>
-    </comp>
-    <comp lib="0" loc="(620,190)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="Immediate"/>
-      <a name="output" val="true"/>
-      <a name="radix" val="16"/>
-      <a name="width" val="16"/>
-    </comp>
-    <comp lib="0" loc="(630,280)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="rd"/>
-      <a name="output" val="true"/>
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(630,320)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="rs"/>
-      <a name="output" val="true"/>
-      <a name="width" val="5"/>
-    </comp>
-    <comp lib="0" loc="(630,380)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="opcode"/>
-      <a name="output" val="true"/>
-      <a name="width" val="6"/>
-    </comp>
-    <wire from="(240,310)" to="(330,310)"/>
-    <wire from="(350,270)" to="(400,270)"/>
-    <wire from="(350,280)" to="(630,280)"/>
-    <wire from="(350,290)" to="(570,290)"/>
-    <wire from="(350,300)" to="(400,300)"/>
-    <wire from="(400,190)" to="(400,270)"/>
-    <wire from="(400,190)" to="(620,190)"/>
-    <wire from="(400,300)" to="(400,380)"/>
-    <wire from="(400,380)" to="(630,380)"/>
-    <wire from="(570,290)" to="(570,320)"/>
-    <wire from="(570,320)" to="(630,320)"/>
-  </circuit>
   <circuit name="mfloControl">
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="mfloControl"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1070,520)" name="Constant"/>
+    <comp lib="0" loc="(1070,540)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(1080,750)" name="Constant">
+      <a name="value" val="0x5"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(1080,770)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="5"/>
+    </comp>
     <comp lib="0" loc="(1180,30)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -3122,7 +3070,6 @@
       <a name="radix" val="16"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(1180,520)" name="Constant"/>
     <comp lib="0" loc="(1180,520)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -3138,16 +3085,12 @@
       <a name="label" val="imm_sel"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(1180,760)" name="Constant">
-      <a name="value" val="0x5"/>
-      <a name="width" val="4"/>
-    </comp>
     <comp lib="0" loc="(1180,760)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(1190,120)" name="Constant">
       <a name="value" val="0x0"/>
@@ -3176,6 +3119,10 @@
       <a name="label" val="data"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="0" loc="(600,480)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="0" loc="(760,340)" name="Splitter">
       <a name="fanout" val="32"/>
       <a name="incoming" val="32"/>
@@ -3185,7 +3132,34 @@
       <a name="fanout" val="5"/>
       <a name="incoming" val="5"/>
     </comp>
-    <wire from="(580,340)" to="(760,340)"/>
+    <comp lib="2" loc="(1130,530)" name="Multiplexer"/>
+    <comp lib="2" loc="(1130,760)" name="Multiplexer">
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="3" loc="(670,470)" name="Comparator">
+      <a name="mode" val="unsigned"/>
+      <a name="width" val="32"/>
+    </comp>
+    <wire from="(1030,580)" to="(1030,810)"/>
+    <wire from="(1030,580)" to="(1110,580)"/>
+    <wire from="(1030,810)" to="(1110,810)"/>
+    <wire from="(1070,520)" to="(1100,520)"/>
+    <wire from="(1070,540)" to="(1100,540)"/>
+    <wire from="(1080,750)" to="(1100,750)"/>
+    <wire from="(1080,770)" to="(1100,770)"/>
+    <wire from="(1110,550)" to="(1110,580)"/>
+    <wire from="(1110,780)" to="(1110,810)"/>
+    <wire from="(1130,530)" to="(1150,530)"/>
+    <wire from="(1130,760)" to="(1180,760)"/>
+    <wire from="(1150,520)" to="(1150,530)"/>
+    <wire from="(1150,520)" to="(1180,520)"/>
+    <wire from="(570,460)" to="(590,460)"/>
+    <wire from="(580,340)" to="(590,340)"/>
+    <wire from="(590,340)" to="(590,460)"/>
+    <wire from="(590,340)" to="(760,340)"/>
+    <wire from="(590,460)" to="(630,460)"/>
+    <wire from="(600,480)" to="(630,480)"/>
+    <wire from="(670,460)" to="(920,460)"/>
     <wire from="(780,130)" to="(820,130)"/>
     <wire from="(780,140)" to="(830,140)"/>
     <wire from="(780,150)" to="(840,150)"/>
@@ -3201,6 +3175,8 @@
     <wire from="(850,70)" to="(920,70)"/>
     <wire from="(860,80)" to="(860,170)"/>
     <wire from="(860,80)" to="(920,80)"/>
+    <wire from="(920,460)" to="(920,580)"/>
+    <wire from="(920,580)" to="(1030,580)"/>
     <wire from="(940,30)" to="(1180,30)"/>
   </circuit>
   <circuit name="srlControl">
@@ -3272,14 +3248,14 @@
     </comp>
     <comp lib="0" loc="(750,930)" name="Constant">
       <a name="value" val="0x7"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(750,930)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(760,290)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3405,7 +3381,7 @@
     <comp lib="0" loc="(790,420)" name="Constant"/>
     <comp lib="0" loc="(800,590)" name="Constant">
       <a name="value" val="0x3"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(810,510)" name="Constant"/>
     <comp lib="0" loc="(830,140)" name="Pin">
@@ -3447,7 +3423,7 @@
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(860,190)" name="Constant">
       <a name="value" val="0x0"/>
@@ -3547,14 +3523,14 @@
     </comp>
     <comp lib="0" loc="(750,930)" name="Constant">
       <a name="value" val="0x7"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(750,930)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(760,290)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3690,7 +3666,7 @@
     </comp>
     <comp lib="0" loc="(500,620)" name="Constant">
       <a name="value" val="0x6"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(510,190)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -3738,7 +3714,7 @@
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp loc="(970,190)" name="srlControl"/>
     <wire from="(150,340)" to="(200,340)"/>
@@ -4179,8 +4155,8 @@
       <a name="value" val="0x0"/>
     </comp>
     <comp lib="0" loc="(840,910)" name="Constant">
-      <a name="value" val="0x9"/>
-      <a name="width" val="4"/>
+      <a name="value" val="0x19"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(850,270)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -4201,7 +4177,7 @@
       <a name="facing" val="west"/>
       <a name="label" val="ALU_code"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(910,760)" name="Pin">
       <a name="appearance" val="NewPins"/>
