@@ -2973,6 +2973,10 @@
     <a name="circuit" val="divControl"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(210,910)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="0" loc="(240,490)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="data"/>
@@ -2991,6 +2995,14 @@
       <a name="facing" val="west"/>
       <a name="fanout" val="5"/>
       <a name="incoming" val="5"/>
+    </comp>
+    <comp lib="0" loc="(680,950)" name="Constant">
+      <a name="value" val="0x4"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(680,970)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(840,180)" name="Constant">
       <a name="value" val="0x0"/>
@@ -3033,10 +3045,6 @@
       <a name="label" val="imm_sel"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(840,910)" name="Constant">
-      <a name="value" val="0x4"/>
-      <a name="width" val="5"/>
-    </comp>
     <comp lib="0" loc="(840,910)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -3058,7 +3066,21 @@
       <a name="output" val="true"/>
       <a name="width" val="5"/>
     </comp>
-    <wire from="(240,490)" to="(420,490)"/>
+    <comp lib="2" loc="(740,960)" name="Multiplexer">
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="3" loc="(280,900)" name="Comparator">
+      <a name="mode" val="unsigned"/>
+      <a name="width" val="32"/>
+    </comp>
+    <wire from="(210,540)" to="(210,890)"/>
+    <wire from="(210,540)" to="(270,540)"/>
+    <wire from="(210,890)" to="(240,890)"/>
+    <wire from="(210,910)" to="(240,910)"/>
+    <wire from="(240,490)" to="(270,490)"/>
+    <wire from="(270,490)" to="(270,540)"/>
+    <wire from="(270,490)" to="(420,490)"/>
+    <wire from="(280,890)" to="(530,890)"/>
     <wire from="(440,330)" to="(570,330)"/>
     <wire from="(440,340)" to="(570,340)"/>
     <wire from="(440,350)" to="(570,350)"/>
@@ -3069,8 +3091,10 @@
     <wire from="(440,400)" to="(550,400)"/>
     <wire from="(440,410)" to="(540,410)"/>
     <wire from="(440,420)" to="(530,420)"/>
+    <wire from="(530,1010)" to="(720,1010)"/>
     <wire from="(530,420)" to="(530,450)"/>
     <wire from="(530,450)" to="(570,450)"/>
+    <wire from="(530,890)" to="(530,1010)"/>
     <wire from="(540,410)" to="(540,440)"/>
     <wire from="(540,440)" to="(570,440)"/>
     <wire from="(550,400)" to="(550,430)"/>
@@ -3081,6 +3105,12 @@
     <wire from="(590,270)" to="(590,320)"/>
     <wire from="(590,270)" to="(850,270)"/>
     <wire from="(590,400)" to="(850,400)"/>
+    <wire from="(680,950)" to="(710,950)"/>
+    <wire from="(680,970)" to="(710,970)"/>
+    <wire from="(720,980)" to="(720,1010)"/>
+    <wire from="(740,960)" to="(800,960)"/>
+    <wire from="(800,910)" to="(800,960)"/>
+    <wire from="(800,910)" to="(840,910)"/>
     <wire from="(850,350)" to="(850,400)"/>
   </circuit>
   <circuit name="mfloControl">
