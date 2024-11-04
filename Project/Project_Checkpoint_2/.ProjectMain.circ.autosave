@@ -84,7 +84,7 @@
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
     <comp lib="0" loc="(370,130)" name="Constant">
-      <a name="value" val="0x12a4025"/>
+      <a name="value" val="0x1096025"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="2" loc="(730,510)" name="Multiplexer">
@@ -448,6 +448,7 @@
     <wire from="(580,150)" to="(1100,150)"/>
     <wire from="(580,150)" to="(580,240)"/>
     <wire from="(580,250)" to="(580,680)"/>
+    <wire from="(580,250)" to="(590,250)"/>
     <wire from="(590,160)" to="(1100,160)"/>
     <wire from="(590,160)" to="(590,250)"/>
     <wire from="(590,260)" to="(590,760)"/>
@@ -1726,7 +1727,7 @@
     <comp loc="(890,1120)" name="sllControl"/>
     <comp loc="(890,1300)" name="srlControl"/>
     <comp loc="(890,1480)" name="sltControl"/>
-    <comp loc="(890,1660)" name="addControl"/>
+    <comp loc="(890,1660)" name="andControl"/>
     <comp loc="(890,1840)" name="orControl"/>
     <comp loc="(890,2020)" name="xorControl"/>
     <comp loc="(890,220)" name="subControl"/>
@@ -4304,10 +4305,9 @@
       <a name="value" val="0x0"/>
       <a name="width" val="5"/>
     </comp>
-    <comp lib="0" loc="(640,720)" name="Constant">
+    <comp lib="0" loc="(670,730)" name="Constant">
       <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(640,740)" name="Constant"/>
     <comp lib="0" loc="(710,730)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -4368,7 +4368,6 @@
       <a name="width" val="5"/>
     </comp>
     <comp lib="2" loc="(620,640)" name="Multiplexer"/>
-    <comp lib="2" loc="(670,730)" name="Multiplexer"/>
     <comp lib="3" loc="(160,710)" name="Comparator">
       <a name="mode" val="unsigned"/>
       <a name="width" val="32"/>
@@ -4425,12 +4424,9 @@
     <wire from="(570,1010)" to="(590,1010)"/>
     <wire from="(570,990)" to="(590,990)"/>
     <wire from="(600,1020)" to="(600,1050)"/>
-    <wire from="(600,660)" to="(600,780)"/>
-    <wire from="(600,780)" to="(600,820)"/>
-    <wire from="(600,780)" to="(650,780)"/>
+    <wire from="(600,660)" to="(600,820)"/>
     <wire from="(620,1000)" to="(680,1000)"/>
     <wire from="(620,640)" to="(730,640)"/>
-    <wire from="(650,750)" to="(650,780)"/>
     <wire from="(670,730)" to="(710,730)"/>
     <wire from="(680,930)" to="(680,1000)"/>
     <wire from="(680,930)" to="(780,930)"/>
