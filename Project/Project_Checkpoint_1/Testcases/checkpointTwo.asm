@@ -33,10 +33,4 @@ main:
     # Comparison
     slt $t6, $s0, $s2
 
-    # Logical Operations
-    addi $t1, $zero, 78
-    addi $t2, $zero, 29
-    and $t0, $t1, $t2 # $t0 = $t1 AND $t2
-    or $t0, $t1, $t2 # $t0 = $t1 OR $t2
-    xor $t0, $t1, $t2 # $t0 = $t1 XOR $t2
-    nor $t0, $t1, $t2 # $t0 = NOT($t1 OR $t2)
+    # Logical Operation
