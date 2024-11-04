@@ -12,8 +12,8 @@ main:
     sub $t3, $t4, $t5 # $t3 = $t4 - $t5
 
     # Multiplication and Division
-    addi $s3, $zero, 281938
-    addi $s4, $zero, 283497
+    addi $s3, $zero, 2819
+    addi $s4, $zero, 2834
     mult $s3, $s4 # Multiply $s3 by 
     $s4, result in LO and HI
     mflo $s5 # Move LO to $s5
