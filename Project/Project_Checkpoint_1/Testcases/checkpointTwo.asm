@@ -4,8 +4,8 @@
 
 main:
     # Arithmetic operations
-    add $t0, $t1, $t2 # $t0 = $t1 + $t2
     addi $t1, $t2, -5 # $t1 = $t2 + (-5)
+    add $t0, $t1, $t2 # $t0 = $t1 + $t2
     sub $t3, $t4, $t5 # $t3 = $t4 - $t5
 
     # Multiplication and Division
