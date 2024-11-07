@@ -6962,6 +6962,14 @@
       <a name="in_width" val="26"/>
       <a name="out_width" val="32"/>
     </comp>
+    <comp lib="0" loc="(840,370)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(840,390)" name="Constant">
+      <a name="value" val="0x1f"/>
+      <a name="width" val="5"/>
+    </comp>
     <comp lib="0" loc="(850,450)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -6982,11 +6990,21 @@
       <a name="label" val="is_jal_or_jalr"/>
       <a name="output" val="true"/>
     </comp>
+    <comp lib="0" loc="(940,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="rd"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+    </comp>
     <comp lib="2" loc="(720,310)" name="Multiplexer">
       <a name="width" val="26"/>
     </comp>
     <comp lib="2" loc="(730,450)" name="Multiplexer"/>
     <comp lib="2" loc="(800,530)" name="Multiplexer"/>
+    <comp lib="2" loc="(890,380)" name="Multiplexer">
+      <a name="width" val="5"/>
+    </comp>
     <comp lib="3" loc="(450,480)" name="Comparator">
       <a name="mode" val="unsigned"/>
       <a name="width" val="32"/>
@@ -6998,8 +7016,10 @@
     <wire from="(380,350)" to="(670,350)"/>
     <wire from="(380,490)" to="(410,490)"/>
     <wire from="(450,470)" to="(580,470)"/>
-    <wire from="(580,390)" to="(580,470)"/>
+    <wire from="(580,390)" to="(580,410)"/>
     <wire from="(580,390)" to="(700,390)"/>
+    <wire from="(580,410)" to="(580,470)"/>
+    <wire from="(580,410)" to="(870,410)"/>
     <wire from="(580,470)" to="(580,490)"/>
     <wire from="(580,490)" to="(580,540)"/>
     <wire from="(580,490)" to="(710,490)"/>
@@ -7023,6 +7043,11 @@
     <wire from="(780,550)" to="(780,570)"/>
     <wire from="(800,530)" to="(920,530)"/>
     <wire from="(830,310)" to="(900,310)"/>
+    <wire from="(840,370)" to="(860,370)"/>
+    <wire from="(840,390)" to="(860,390)"/>
+    <wire from="(860,380)" to="(870,380)"/>
+    <wire from="(870,400)" to="(870,410)"/>
+    <wire from="(890,380)" to="(940,380)"/>
   </circuit>
   <circuit name="jalrControl">
     <a name="appearance" val="logisim_evolution"/>
@@ -7446,9 +7471,9 @@
     <wire from="(520,1180)" to="(520,1460)"/>
     <wire from="(520,1180)" to="(600,1180)"/>
     <wire from="(520,1460)" to="(620,1460)"/>
+    <wire from="(520,380)" to="(600,380)"/>
     <wire from="(520,820)" to="(520,1050)"/>
     <wire from="(520,820)" to="(600,820)"/>
-    <wire from="(530,160)" to="(600,160)"/>
     <wire from="(560,630)" to="(590,630)"/>
     <wire from="(560,650)" to="(590,650)"/>
     <wire from="(570,1010)" to="(590,1010)"/>
@@ -7459,7 +7484,7 @@
     <wire from="(590,1420)" to="(610,1420)"/>
     <wire from="(600,1020)" to="(600,1050)"/>
     <wire from="(600,1150)" to="(600,1180)"/>
-    <wire from="(600,160)" to="(600,330)"/>
+    <wire from="(600,330)" to="(600,380)"/>
     <wire from="(600,330)" to="(780,330)"/>
     <wire from="(600,660)" to="(600,820)"/>
     <wire from="(620,1000)" to="(680,1000)"/>

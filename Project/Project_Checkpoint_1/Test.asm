@@ -30,7 +30,8 @@ j while2
 bneWorks:
 jal jalWorks
 
-jalr jalrWorks
+addi $s0, $zero, 76
+jalr $s0
 
 jalWorks:
 addi $s0, $0, 0
