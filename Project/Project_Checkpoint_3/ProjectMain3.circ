@@ -105,8 +105,8 @@
       <circ-port dir="in" pin="290,1410" x="40" y="100"/>
       <circ-port dir="in" pin="320,1600" x="80" y="40"/>
       <circ-port dir="in" pin="340,3360" x="60" y="40"/>
-      <circ-port dir="in" pin="4170,1600" x="180" y="40"/>
       <circ-port dir="in" pin="4170,1630" x="160" y="40"/>
+      <circ-port dir="in" pin="4430,1580" x="180" y="40"/>
       <circ-port dir="out" pin="4320,1490" x="200" y="80"/>
       <circ-port dir="out" pin="4830,1500" x="200" y="120"/>
     </appear>
@@ -221,11 +221,6 @@
     <comp lib="0" loc="(3940,3020)" name="Clock">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="0" loc="(4170,1600)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="label" val="rt"/>
-      <a name="width" val="5"/>
-    </comp>
     <comp lib="0" loc="(4170,1630)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="rs"/>
@@ -238,6 +233,11 @@
       <a name="output" val="true"/>
       <a name="radix" val="16"/>
       <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(4430,1580)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="rt"/>
+      <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(4830,1500)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -904,11 +904,10 @@
     <wire from="(4150,1430)" to="(4150,1540)"/>
     <wire from="(4150,1540)" to="(4180,1540)"/>
     <wire from="(4170,1270)" to="(4180,1270)"/>
-    <wire from="(4170,1600)" to="(4180,1600)"/>
-    <wire from="(4170,1630)" to="(4660,1630)"/>
+    <wire from="(4170,1630)" to="(4180,1630)"/>
     <wire from="(4180,1270)" to="(4180,1490)"/>
     <wire from="(4180,1490)" to="(4320,1490)"/>
-    <wire from="(4180,1540)" to="(4180,1600)"/>
+    <wire from="(4180,1540)" to="(4180,1630)"/>
     <wire from="(4190,1060)" to="(4190,1420)"/>
     <wire from="(4190,1420)" to="(4640,1420)"/>
     <wire from="(4200,1050)" to="(4200,1410)"/>
@@ -989,6 +988,7 @@
     <wire from="(4420,1190)" to="(4640,1190)"/>
     <wire from="(4420,830)" to="(4420,1190)"/>
     <wire from="(4430,1180)" to="(4640,1180)"/>
+    <wire from="(4430,1580)" to="(4660,1580)"/>
     <wire from="(4430,820)" to="(4430,1180)"/>
     <wire from="(4440,1170)" to="(4640,1170)"/>
     <wire from="(4440,810)" to="(4440,1170)"/>
@@ -1006,7 +1006,7 @@
     <wire from="(4500,750)" to="(4500,1110)"/>
     <wire from="(460,1560)" to="(460,3140)"/>
     <wire from="(460,3140)" to="(3910,3140)"/>
-    <wire from="(4660,1430)" to="(4660,1630)"/>
+    <wire from="(4660,1430)" to="(4660,1580)"/>
     <wire from="(4680,1270)" to="(4760,1270)"/>
     <wire from="(470,1550)" to="(470,3130)"/>
     <wire from="(470,3130)" to="(3800,3130)"/>
@@ -1548,7 +1548,7 @@
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 16 32
-0
+20080003 20090006 1095022 1285822
 </a>
       <a name="dataWidth" val="32"/>
     </comp>
@@ -1576,7 +1576,7 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="attach to data in"/>
     </comp>
-    <comp lib="8" loc="(1584,568)" name="Text">
+    <comp lib="8" loc="(1580,565)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="attach to is_jal_OR_jal"/>
     </comp>
@@ -1584,7 +1584,7 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="attach to is_beq"/>
     </comp>
-    <comp lib="8" loc="(1864,889)" name="Text">
+    <comp lib="8" loc="(1860,885)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="attach to ALU_memselect"/>
     </comp>
@@ -1600,11 +1600,11 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="attach to is_j"/>
     </comp>
-    <comp lib="8" loc="(2384,1105)" name="Text">
+    <comp lib="8" loc="(2380,1105)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="connect to equal"/>
     </comp>
-    <comp lib="8" loc="(2463,560)" name="Text">
+    <comp lib="8" loc="(2476,558)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="attach to we_mem"/>
     </comp>
