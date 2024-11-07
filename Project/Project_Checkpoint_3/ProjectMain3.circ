@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.9.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.9.0(https://github.com/logisim-evolution/).
+<project source="3.8.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -1605,7 +1605,7 @@
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="connect to equal"/>
     </comp>
-    <comp lib="8" loc="(2476,558)" name="Text">
+    <comp lib="8" loc="(2475,555)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="attach to we_mem"/>
     </comp>
@@ -7446,9 +7446,9 @@
     <wire from="(520,1180)" to="(520,1460)"/>
     <wire from="(520,1180)" to="(600,1180)"/>
     <wire from="(520,1460)" to="(620,1460)"/>
-    <wire from="(520,380)" to="(780,380)"/>
     <wire from="(520,820)" to="(520,1050)"/>
     <wire from="(520,820)" to="(600,820)"/>
+    <wire from="(530,160)" to="(600,160)"/>
     <wire from="(560,630)" to="(590,630)"/>
     <wire from="(560,650)" to="(590,650)"/>
     <wire from="(570,1010)" to="(590,1010)"/>
@@ -7459,6 +7459,8 @@
     <wire from="(590,1420)" to="(610,1420)"/>
     <wire from="(600,1020)" to="(600,1050)"/>
     <wire from="(600,1150)" to="(600,1180)"/>
+    <wire from="(600,160)" to="(600,330)"/>
+    <wire from="(600,330)" to="(780,330)"/>
     <wire from="(600,660)" to="(600,820)"/>
     <wire from="(620,1000)" to="(680,1000)"/>
     <wire from="(620,1130)" to="(770,1130)"/>
@@ -7472,7 +7474,6 @@
     <wire from="(700,130)" to="(770,130)"/>
     <wire from="(730,640)" to="(730,650)"/>
     <wire from="(730,650)" to="(770,650)"/>
-    <wire from="(780,330)" to="(780,380)"/>
     <wire from="(80,650)" to="(180,650)"/>
     <wire from="(80,650)" to="(80,700)"/>
     <wire from="(80,700)" to="(120,700)"/>
