@@ -3383,10 +3383,12 @@
     <wire from="(2280,3320)" to="(2490,3320)"/>
     <wire from="(2290,3210)" to="(2290,3300)"/>
     <wire from="(2290,3300)" to="(2490,3300)"/>
+    <wire from="(2300,3960)" to="(2300,4050)"/>
+    <wire from="(2300,3960)" to="(2490,3960)"/>
+    <wire from="(2300,4050)" to="(2310,4050)"/>
     <wire from="(2310,2740)" to="(2310,4020)"/>
     <wire from="(2310,4020)" to="(2490,4020)"/>
     <wire from="(2310,4050)" to="(2310,4220)"/>
-    <wire from="(2310,4050)" to="(2490,4050)"/>
     <wire from="(2320,3000)" to="(2320,4030)"/>
     <wire from="(2320,4030)" to="(2490,4030)"/>
     <wire from="(2330,3250)" to="(2330,4040)"/>
@@ -7281,7 +7283,9 @@
     <comp lib="0" loc="(560,630)" name="Constant">
       <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(560,650)" name="Constant"/>
+    <comp lib="0" loc="(560,650)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
     <comp lib="0" loc="(570,1010)" name="Constant">
       <a name="value" val="0x0"/>
       <a name="width" val="5"/>
@@ -7303,7 +7307,7 @@
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(670,140)" name="Constant">
-      <a name="value" val="0x1f"/>
+      <a name="value" val="0x0"/>
       <a name="width" val="5"/>
     </comp>
     <comp lib="0" loc="(670,730)" name="Constant">
