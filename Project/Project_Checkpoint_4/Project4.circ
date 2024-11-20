@@ -8650,10 +8650,10 @@
       <a name="width" val="32"/>
     </comp>
     <comp lib="1" loc="(530,200)" name="NOT Gate"/>
-    <comp lib="1" loc="(670,350)" name="AND Gate">
+    <comp lib="1" loc="(660,350)" name="AND Gate">
       <a name="size" val="30"/>
     </comp>
-    <comp lib="1" loc="(710,220)" name="AND Gate">
+    <comp lib="1" loc="(700,210)" name="AND Gate">
       <a name="size" val="30"/>
     </comp>
     <comp lib="1" loc="(880,180)" name="OR Gate">
@@ -8701,26 +8701,24 @@
     <wire from="(430,420)" to="(710,420)"/>
     <wire from="(430,470)" to="(550,470)"/>
     <wire from="(480,290)" to="(560,290)"/>
-    <wire from="(480,360)" to="(590,360)"/>
+    <wire from="(480,360)" to="(630,360)"/>
     <wire from="(530,200)" to="(600,200)"/>
     <wire from="(550,440)" to="(550,470)"/>
     <wire from="(550,440)" to="(710,440)"/>
-    <wire from="(560,240)" to="(560,290)"/>
-    <wire from="(560,240)" to="(660,240)"/>
-    <wire from="(590,360)" to="(590,370)"/>
-    <wire from="(590,370)" to="(620,370)"/>
-    <wire from="(600,200)" to="(600,330)"/>
-    <wire from="(600,200)" to="(660,200)"/>
-    <wire from="(600,330)" to="(620,330)"/>
-    <wire from="(670,350)" to="(720,350)"/>
-    <wire from="(710,220)" to="(740,220)"/>
+    <wire from="(560,220)" to="(560,290)"/>
+    <wire from="(560,220)" to="(670,220)"/>
+    <wire from="(600,200)" to="(600,340)"/>
+    <wire from="(600,200)" to="(670,200)"/>
+    <wire from="(600,340)" to="(630,340)"/>
+    <wire from="(660,350)" to="(720,350)"/>
+    <wire from="(700,210)" to="(740,210)"/>
     <wire from="(720,350)" to="(720,410)"/>
     <wire from="(720,350)" to="(780,350)"/>
-    <wire from="(740,160)" to="(740,220)"/>
-    <wire from="(740,160)" to="(830,160)"/>
+    <wire from="(740,170)" to="(740,210)"/>
+    <wire from="(740,170)" to="(850,170)"/>
     <wire from="(740,430)" to="(870,430)"/>
-    <wire from="(780,200)" to="(780,350)"/>
-    <wire from="(780,200)" to="(830,200)"/>
+    <wire from="(780,190)" to="(780,350)"/>
+    <wire from="(780,190)" to="(850,190)"/>
     <wire from="(870,240)" to="(870,430)"/>
     <wire from="(870,240)" to="(960,240)"/>
     <wire from="(880,180)" to="(960,180)"/>
