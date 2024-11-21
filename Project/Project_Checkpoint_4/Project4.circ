@@ -8765,11 +8765,7 @@
       <a name="value" val="0x3ffff70"/>
       <a name="width" val="26"/>
     </comp>
-    <comp lib="0" loc="(960,170)" name="Bit Extender">
-      <a name="in_width" val="32"/>
-      <a name="out_width" val="1"/>
-      <a name="type" val="zero"/>
-    </comp>
+    <comp lib="0" loc="(970,170)" name="Constant"/>
     <comp lib="1" loc="(580,210)" name="AND Gate"/>
     <comp lib="3" loc="(420,230)" name="Comparator">
       <a name="mode" val="unsigned"/>
@@ -8791,7 +8787,6 @@
     <wire from="(1000,210)" to="(1000,220)"/>
     <wire from="(1000,210)" to="(1040,210)"/>
     <wire from="(1100,170)" to="(1260,170)"/>
-    <wire from="(240,800)" to="(770,800)"/>
     <wire from="(250,690)" to="(480,690)"/>
     <wire from="(270,240)" to="(380,240)"/>
     <wire from="(350,220)" to="(380,220)"/>
@@ -8799,9 +8794,7 @@
     <wire from="(480,190)" to="(480,690)"/>
     <wire from="(480,190)" to="(530,190)"/>
     <wire from="(580,210)" to="(970,210)"/>
-    <wire from="(770,170)" to="(770,800)"/>
-    <wire from="(770,170)" to="(920,170)"/>
-    <wire from="(960,170)" to="(1040,170)"/>
+    <wire from="(970,170)" to="(1040,170)"/>
     <wire from="(970,190)" to="(1040,190)"/>
     <wire from="(970,190)" to="(970,210)"/>
   </circuit>
