@@ -7787,6 +7787,7 @@
     <comp lib="1" loc="(920,900)" name="Controlled Buffer">
       <a name="width" val="32"/>
     </comp>
+    <comp lib="10" loc="(1390,1670)" name="Buzzer"/>
     <comp lib="4" loc="(280,450)" name="RAM">
       <a name="addrWidth" val="24"/>
       <a name="appearance" val="logisim_evolution"/>
@@ -7816,6 +7817,7 @@
     </comp>
     <comp loc="(1240,1030)" name="RGBController"/>
     <comp loc="(1240,370)" name="TerminalController"/>
+    <comp loc="(1250,1650)" name="SoundController"/>
     <comp loc="(1260,1190)" name="LEDController"/>
     <comp loc="(1280,1370)" name="JoystickController"/>
     <comp loc="(830,480)" name="MemoryControllerTest"/>
@@ -7854,6 +7856,9 @@
     <wire from="(1240,370)" to="(1280,370)"/>
     <wire from="(1240,390)" to="(1260,390)"/>
     <wire from="(1250,1000)" to="(1250,1030)"/>
+    <wire from="(1250,1650)" to="(1390,1650)"/>
+    <wire from="(1250,1670)" to="(1390,1670)"/>
+    <wire from="(1250,1690)" to="(1390,1690)"/>
     <wire from="(1260,1190)" to="(1280,1190)"/>
     <wire from="(1260,1550)" to="(1280,1550)"/>
     <wire from="(1260,1560)" to="(1310,1560)"/>
@@ -7870,6 +7875,8 @@
     <wire from="(1310,1530)" to="(1310,1560)"/>
     <wire from="(1320,1360)" to="(1320,1370)"/>
     <wire from="(1330,1330)" to="(1330,1350)"/>
+    <wire from="(1390,1650)" to="(1390,1660)"/>
+    <wire from="(1390,1680)" to="(1390,1690)"/>
     <wire from="(240,410)" to="(240,540)"/>
     <wire from="(240,410)" to="(880,410)"/>
     <wire from="(240,540)" to="(280,540)"/>
@@ -7938,7 +7945,9 @@
     <wire from="(950,1330)" to="(1330,1330)"/>
     <wire from="(950,1330)" to="(950,1370)"/>
     <wire from="(950,1370)" to="(1060,1370)"/>
-    <wire from="(950,1370)" to="(950,1720)"/>
+    <wire from="(950,1370)" to="(950,1650)"/>
+    <wire from="(950,1650)" to="(1030,1650)"/>
+    <wire from="(950,1650)" to="(950,1990)"/>
     <wire from="(950,330)" to="(950,410)"/>
     <wire from="(950,410)" to="(1020,410)"/>
     <wire from="(950,410)" to="(950,430)"/>
@@ -7951,7 +7960,9 @@
     <wire from="(960,1190)" to="(1040,1190)"/>
     <wire from="(960,1190)" to="(960,1410)"/>
     <wire from="(960,1410)" to="(1060,1410)"/>
-    <wire from="(960,1410)" to="(960,1720)"/>
+    <wire from="(960,1410)" to="(960,1670)"/>
+    <wire from="(960,1670)" to="(1030,1670)"/>
+    <wire from="(960,1670)" to="(960,1990)"/>
     <wire from="(960,310)" to="(960,390)"/>
     <wire from="(960,390)" to="(1020,390)"/>
     <wire from="(960,390)" to="(960,440)"/>
@@ -7963,7 +7974,9 @@
     <wire from="(970,1210)" to="(1040,1210)"/>
     <wire from="(970,1210)" to="(970,1390)"/>
     <wire from="(970,1390)" to="(1060,1390)"/>
-    <wire from="(970,1390)" to="(970,1710)"/>
+    <wire from="(970,1390)" to="(970,1690)"/>
+    <wire from="(970,1690)" to="(1030,1690)"/>
+    <wire from="(970,1690)" to="(970,1990)"/>
     <wire from="(970,280)" to="(970,370)"/>
     <wire from="(970,370)" to="(1020,370)"/>
     <wire from="(970,370)" to="(970,450)"/>
@@ -8835,12 +8848,12 @@
     <comp lib="0" loc="(830,290)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="WriteEnableToBus"/>
+      <a name="label" val="EnableSound"/>
       <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(910,190)" name="Bit Extender">
       <a name="in_width" val="32"/>
-      <a name="out_width" val="7"/>
+      <a name="out_width" val="14"/>
     </comp>
     <comp lib="0" loc="(910,370)" name="Bit Extender">
       <a name="in_width" val="32"/>
@@ -8852,7 +8865,7 @@
       <a name="label" val="Frequency"/>
       <a name="output" val="true"/>
       <a name="radix" val="16"/>
-      <a name="width" val="7"/>
+      <a name="width" val="14"/>
     </comp>
     <comp lib="1" loc="(570,210)" name="AND Gate"/>
     <comp lib="1" loc="(580,290)" name="AND Gate"/>
