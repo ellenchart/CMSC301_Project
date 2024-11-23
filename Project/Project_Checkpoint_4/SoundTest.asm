@@ -2,9 +2,9 @@
 .text
 .globl main
 main:
-    addi $t0, $0, 67108715
-    addi $t1, $0, 67108716
-    addi $t2, $0, 67108717
+    addi $t0, $0, -244
+    addi $t1, $0, -248
+    addi $t2, $0, -252
     addi $t3, $0, 400 # frequency value 400Hz
     sw $t3, 0($t0) # set frequency      
     lw $t4, 0($t0) # do nothing         
