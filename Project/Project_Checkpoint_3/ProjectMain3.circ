@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.8.0" version="1.0">
-  This file is intended to be loaded by Logisim-evolution v3.8.0(https://github.com/logisim-evolution/).
+<project source="3.9.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v3.9.0(https://github.com/logisim-evolution/).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
@@ -3380,11 +3380,11 @@
     <wire from="(2280,2960)" to="(2280,3290)"/>
     <wire from="(2280,3290)" to="(2490,3290)"/>
     <wire from="(2280,3320)" to="(2280,4200)"/>
-    <wire from="(2280,3320)" to="(2490,3320)"/>
+    <wire from="(2280,3320)" to="(2450,3320)"/>
     <wire from="(2290,3210)" to="(2290,3300)"/>
     <wire from="(2290,3300)" to="(2490,3300)"/>
-    <wire from="(2300,3960)" to="(2300,4050)"/>
-    <wire from="(2300,3960)" to="(2490,3960)"/>
+    <wire from="(2300,3350)" to="(2300,4050)"/>
+    <wire from="(2300,3350)" to="(2490,3350)"/>
     <wire from="(2300,4050)" to="(2310,4050)"/>
     <wire from="(2310,2740)" to="(2310,4020)"/>
     <wire from="(2310,4020)" to="(2490,4020)"/>
@@ -3393,6 +3393,8 @@
     <wire from="(2320,4030)" to="(2490,4030)"/>
     <wire from="(2330,3250)" to="(2330,4040)"/>
     <wire from="(2330,4040)" to="(2490,4040)"/>
+    <wire from="(2360,3960)" to="(2360,4240)"/>
+    <wire from="(2360,3960)" to="(2490,3960)"/>
     <wire from="(2370,2590)" to="(2370,3820)"/>
     <wire from="(2370,2590)" to="(2490,2590)"/>
     <wire from="(2390,3150)" to="(2390,3910)"/>
@@ -3401,6 +3403,8 @@
     <wire from="(2430,3650)" to="(2490,3650)"/>
     <wire from="(2440,3230)" to="(2440,3660)"/>
     <wire from="(2440,3660)" to="(2490,3660)"/>
+    <wire from="(2450,320)" to="(2450,3320)"/>
+    <wire from="(2450,320)" to="(2490,320)"/>
     <wire from="(2470,1780)" to="(2470,2240)"/>
     <wire from="(2470,2240)" to="(2490,2240)"/>
     <wire from="(2470,350)" to="(2470,490)"/>
@@ -3664,6 +3668,7 @@
     <wire from="(900,4180)" to="(2010,4180)"/>
     <wire from="(900,4200)" to="(2280,4200)"/>
     <wire from="(900,4220)" to="(2310,4220)"/>
+    <wire from="(900,4240)" to="(2360,4240)"/>
     <wire from="(900,880)" to="(900,920)"/>
     <wire from="(900,920)" to="(1650,920)"/>
     <wire from="(910,1200)" to="(910,1240)"/>

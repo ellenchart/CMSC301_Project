@@ -8293,7 +8293,7 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="value" val="0x3ffff14"/>
       <a name="width" val="26"/>
     </comp>
-    <comp lib="0" loc="(490,560)" name="Constant">
+    <comp lib="0" loc="(500,560)" name="Constant">
       <a name="value" val="0x0"/>
     </comp>
     <comp lib="0" loc="(500,710)" name="Constant">
@@ -8328,7 +8328,9 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="label" val="KeyboardRead"/>
       <a name="output" val="true"/>
     </comp>
+    <comp lib="1" loc="(330,420)" name="NOT Gate"/>
     <comp lib="1" loc="(490,370)" name="AND Gate"/>
+    <comp lib="1" loc="(500,440)" name="AND Gate"/>
     <comp lib="1" loc="(820,410)" name="OR Gate"/>
     <comp lib="2" loc="(550,570)" name="Multiplexer"/>
     <comp lib="2" loc="(560,720)" name="Multiplexer">
@@ -8348,21 +8350,27 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="font" val="SansSerif plain 12"/>
       <a name="text" val="keyboard status address"/>
     </comp>
-    <wire from="(210,390)" to="(440,390)"/>
+    <wire from="(210,390)" to="(260,390)"/>
     <wire from="(230,490)" to="(260,490)"/>
     <wire from="(230,630)" to="(400,630)"/>
     <wire from="(250,670)" to="(500,670)"/>
+    <wire from="(260,390)" to="(260,420)"/>
+    <wire from="(260,390)" to="(440,390)"/>
+    <wire from="(260,420)" to="(300,420)"/>
     <wire from="(260,490)" to="(260,570)"/>
     <wire from="(260,490)" to="(370,490)"/>
     <wire from="(260,570)" to="(370,570)"/>
+    <wire from="(330,420)" to="(450,420)"/>
     <wire from="(350,470)" to="(370,470)"/>
     <wire from="(350,550)" to="(370,550)"/>
     <wire from="(400,630)" to="(400,730)"/>
     <wire from="(400,730)" to="(530,730)"/>
     <wire from="(410,480)" to="(430,480)"/>
     <wire from="(410,560)" to="(470,560)"/>
-    <wire from="(430,350)" to="(430,480)"/>
+    <wire from="(430,350)" to="(430,460)"/>
     <wire from="(430,350)" to="(440,350)"/>
+    <wire from="(430,460)" to="(430,480)"/>
+    <wire from="(430,460)" to="(450,460)"/>
     <wire from="(430,480)" to="(430,620)"/>
     <wire from="(430,480)" to="(620,480)"/>
     <wire from="(430,620)" to="(530,620)"/>
@@ -8371,7 +8379,7 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(470,560)" to="(470,780)"/>
     <wire from="(470,780)" to="(540,780)"/>
     <wire from="(490,370)" to="(590,370)"/>
-    <wire from="(490,560)" to="(520,560)"/>
+    <wire from="(500,560)" to="(520,560)"/>
     <wire from="(500,580)" to="(500,670)"/>
     <wire from="(500,580)" to="(520,580)"/>
     <wire from="(500,710)" to="(530,710)"/>
@@ -8990,5 +8998,165 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(790,370)" to="(870,370)"/>
     <wire from="(910,190)" to="(980,190)"/>
     <wire from="(910,370)" to="(1000,370)"/>
+  </circuit>
+  <circuit name="KeyboardController2">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="KeyboardController2"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="512.0"/>
+    <comp lib="0" loc="(210,270)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="DataFromBus"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(210,390)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="WriteEnableFromBus"/>
+    </comp>
+    <comp lib="0" loc="(230,490)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="AddressFromBus"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="26"/>
+    </comp>
+    <comp lib="0" loc="(230,630)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="KeyboardData"/>
+      <a name="width" val="7"/>
+    </comp>
+    <comp lib="0" loc="(250,670)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="KeyboardStatus"/>
+    </comp>
+    <comp lib="0" loc="(350,470)" name="Constant">
+      <a name="value" val="0x3ffff10"/>
+      <a name="width" val="26"/>
+    </comp>
+    <comp lib="0" loc="(350,550)" name="Constant">
+      <a name="value" val="0x3ffff14"/>
+      <a name="width" val="26"/>
+    </comp>
+    <comp lib="0" loc="(550,560)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(690,630)" name="Constant">
+      <a name="value" val="0x0"/>
+      <a name="width" val="7"/>
+    </comp>
+    <comp lib="0" loc="(740,570)" name="Bit Extender">
+      <a name="in_width" val="1"/>
+      <a name="out_width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(820,640)" name="Bit Extender">
+      <a name="in_width" val="7"/>
+      <a name="out_width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(890,410)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="WriteToBus"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(930,370)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="KeyboardRead"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(980,610)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="DataToBus"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="1" loc="(330,420)" name="NOT Gate"/>
+    <comp lib="1" loc="(490,370)" name="AND Gate"/>
+    <comp lib="1" loc="(500,440)" name="AND Gate"/>
+    <comp lib="1" loc="(600,650)" name="AND Gate"/>
+    <comp lib="1" loc="(820,410)" name="OR Gate"/>
+    <comp lib="1" loc="(920,610)" name="OR Gate">
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="2" loc="(610,570)" name="Multiplexer"/>
+    <comp lib="2" loc="(730,640)" name="Multiplexer">
+      <a name="width" val="7"/>
+    </comp>
+    <comp lib="3" loc="(410,480)" name="Comparator">
+      <a name="width" val="26"/>
+    </comp>
+    <comp lib="3" loc="(410,560)" name="Comparator">
+      <a name="width" val="26"/>
+    </comp>
+    <comp lib="8" loc="(330,590)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="keyboard data address"/>
+    </comp>
+    <comp lib="8" loc="(345,450)" name="Text">
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="text" val="keyboard status address"/>
+    </comp>
+    <wire from="(210,390)" to="(260,390)"/>
+    <wire from="(230,490)" to="(260,490)"/>
+    <wire from="(230,630)" to="(400,630)"/>
+    <wire from="(250,670)" to="(500,670)"/>
+    <wire from="(260,390)" to="(260,420)"/>
+    <wire from="(260,390)" to="(440,390)"/>
+    <wire from="(260,420)" to="(300,420)"/>
+    <wire from="(260,490)" to="(260,570)"/>
+    <wire from="(260,490)" to="(370,490)"/>
+    <wire from="(260,570)" to="(370,570)"/>
+    <wire from="(330,420)" to="(440,420)"/>
+    <wire from="(350,470)" to="(370,470)"/>
+    <wire from="(350,550)" to="(370,550)"/>
+    <wire from="(400,610)" to="(400,630)"/>
+    <wire from="(400,610)" to="(660,610)"/>
+    <wire from="(410,480)" to="(430,480)"/>
+    <wire from="(410,560)" to="(450,560)"/>
+    <wire from="(430,350)" to="(430,460)"/>
+    <wire from="(430,350)" to="(440,350)"/>
+    <wire from="(430,460)" to="(430,480)"/>
+    <wire from="(430,460)" to="(450,460)"/>
+    <wire from="(430,480)" to="(620,480)"/>
+    <wire from="(440,420)" to="(440,630)"/>
+    <wire from="(440,420)" to="(450,420)"/>
+    <wire from="(440,630)" to="(550,630)"/>
+    <wire from="(450,560)" to="(450,690)"/>
+    <wire from="(450,560)" to="(470,560)"/>
+    <wire from="(450,690)" to="(520,690)"/>
+    <wire from="(470,500)" to="(470,560)"/>
+    <wire from="(470,500)" to="(770,500)"/>
+    <wire from="(490,370)" to="(930,370)"/>
+    <wire from="(500,440)" to="(530,440)"/>
+    <wire from="(500,580)" to="(500,670)"/>
+    <wire from="(500,580)" to="(580,580)"/>
+    <wire from="(520,670)" to="(520,690)"/>
+    <wire from="(520,670)" to="(550,670)"/>
+    <wire from="(530,440)" to="(530,600)"/>
+    <wire from="(530,600)" to="(590,600)"/>
+    <wire from="(550,560)" to="(580,560)"/>
+    <wire from="(590,590)" to="(590,600)"/>
+    <wire from="(600,650)" to="(640,650)"/>
+    <wire from="(610,570)" to="(700,570)"/>
+    <wire from="(620,390)" to="(620,480)"/>
+    <wire from="(620,390)" to="(770,390)"/>
+    <wire from="(640,650)" to="(640,680)"/>
+    <wire from="(640,680)" to="(710,680)"/>
+    <wire from="(660,610)" to="(660,650)"/>
+    <wire from="(660,650)" to="(700,650)"/>
+    <wire from="(690,630)" to="(700,630)"/>
+    <wire from="(710,660)" to="(710,680)"/>
+    <wire from="(730,640)" to="(780,640)"/>
+    <wire from="(740,570)" to="(830,570)"/>
+    <wire from="(770,430)" to="(770,500)"/>
+    <wire from="(820,410)" to="(890,410)"/>
+    <wire from="(820,640)" to="(830,640)"/>
+    <wire from="(830,570)" to="(830,590)"/>
+    <wire from="(830,590)" to="(870,590)"/>
+    <wire from="(830,630)" to="(830,640)"/>
+    <wire from="(830,630)" to="(870,630)"/>
+    <wire from="(920,610)" to="(980,610)"/>
   </circuit>
 </project>
