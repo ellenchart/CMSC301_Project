@@ -13,7 +13,7 @@ addi $t2, $zero, 3
 addi $t3, $zero, 3
 
 while:
-beq $t1, $0, $beq beqWorks
+beq $t1, $0, beqWorks
 sub $t1, $t1, $t0   #2->1->0
 j while
 
