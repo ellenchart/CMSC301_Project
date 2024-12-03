@@ -1569,15 +1569,7 @@
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 16 32
-201df000 23bdffd0 200800ff 84a00 85400 200b007f b6200 b6c00
-afaa0000 14cc020 afb80004 149c020 afb80008 1a9c020 afb8000c afa90010
-169c020 afb80014 109c020 afb80018 10cc020 afb8001c afa80020 10dc020
-afb80024 10ac020 afb80028 16ac020 afb8002c 20100000 20110000 20120000
-8c08ff10 11000017 8c08ff14 20090077 15090003 12200012 2231ffff 8000038
-20090061 15090003 1200000d 2210ffff 8000038 20090073 15090004 200a00ff
-122a0007 22310001 8000038 20090064 15090003 200a00ff 120a0001 22100001
-ac00ff10 22520001 2008000c 248001a 9010 124080 11d4020 8d080000
-ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
+8c08ff14 ac00ff10 8c09ff14 ac00ff10 200a0001 8c0aff14
 </a>
       <a name="dataWidth" val="32"/>
     </comp>
@@ -8316,14 +8308,6 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="appearance" val="NewPins"/>
       <a name="label" val="KeyboardStatus"/>
     </comp>
-    <comp lib="0" loc="(350,470)" name="Constant">
-      <a name="value" val="0x3ffff10"/>
-      <a name="width" val="26"/>
-    </comp>
-    <comp lib="0" loc="(350,550)" name="Constant">
-      <a name="value" val="0x3ffff14"/>
-      <a name="width" val="26"/>
-    </comp>
     <comp lib="0" loc="(370,1080)" name="Constant">
       <a name="value" val="0x3ffff10"/>
       <a name="width" val="26"/>
@@ -8332,23 +8316,8 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="value" val="0x3ffff14"/>
       <a name="width" val="26"/>
     </comp>
-    <comp lib="0" loc="(500,560)" name="Constant">
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(500,710)" name="Constant">
-      <a name="value" val="0x0"/>
-      <a name="width" val="7"/>
-    </comp>
     <comp lib="0" loc="(570,1170)" name="Constant">
       <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(660,600)" name="Bit Extender">
-      <a name="in_width" val="1"/>
-      <a name="out_width" val="32"/>
-    </comp>
-    <comp lib="0" loc="(670,720)" name="Bit Extender">
-      <a name="in_width" val="7"/>
-      <a name="out_width" val="32"/>
     </comp>
     <comp lib="0" loc="(710,1240)" name="Constant">
       <a name="value" val="0x0"/>
@@ -8374,45 +8343,23 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="label" val="KeyboardRead"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="1" loc="(330,420)" name="NOT Gate"/>
     <comp lib="1" loc="(350,1030)" name="NOT Gate"/>
-    <comp lib="1" loc="(490,370)" name="AND Gate"/>
-    <comp lib="1" loc="(500,440)" name="AND Gate"/>
     <comp lib="1" loc="(510,980)" name="AND Gate"/>
     <comp lib="1" loc="(520,1050)" name="AND Gate"/>
     <comp lib="1" loc="(620,1260)" name="AND Gate"/>
-    <comp lib="1" loc="(820,410)" name="OR Gate"/>
     <comp lib="1" loc="(840,1020)" name="OR Gate"/>
     <comp lib="1" loc="(940,1220)" name="OR Gate">
       <a name="width" val="32"/>
     </comp>
-    <comp lib="2" loc="(550,570)" name="Multiplexer"/>
-    <comp lib="2" loc="(560,720)" name="Multiplexer">
-      <a name="width" val="7"/>
-    </comp>
     <comp lib="2" loc="(630,1180)" name="Multiplexer"/>
     <comp lib="2" loc="(750,1250)" name="Multiplexer">
       <a name="width" val="7"/>
-    </comp>
-    <comp lib="3" loc="(410,480)" name="Comparator">
-      <a name="width" val="26"/>
-    </comp>
-    <comp lib="3" loc="(410,560)" name="Comparator">
-      <a name="width" val="26"/>
     </comp>
     <comp lib="3" loc="(430,1090)" name="Comparator">
       <a name="width" val="26"/>
     </comp>
     <comp lib="3" loc="(430,1170)" name="Comparator">
       <a name="width" val="26"/>
-    </comp>
-    <comp lib="8" loc="(330,590)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="keyboard data address"/>
-    </comp>
-    <comp lib="8" loc="(345,450)" name="Text">
-      <a name="font" val="SansSerif plain 12"/>
-      <a name="text" val="keyboard status address"/>
     </comp>
     <comp lib="8" loc="(350,1200)" name="Text">
       <a name="font" val="SansSerif plain 12"/>
@@ -8425,12 +8372,6 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(230,1000)" to="(280,1000)"/>
     <wire from="(250,1100)" to="(280,1100)"/>
     <wire from="(250,1240)" to="(420,1240)"/>
-    <wire from="(260,390)" to="(260,420)"/>
-    <wire from="(260,390)" to="(440,390)"/>
-    <wire from="(260,420)" to="(300,420)"/>
-    <wire from="(260,490)" to="(260,570)"/>
-    <wire from="(260,490)" to="(370,490)"/>
-    <wire from="(260,570)" to="(370,570)"/>
     <wire from="(270,1280)" to="(520,1280)"/>
     <wire from="(280,1000)" to="(280,1030)"/>
     <wire from="(280,1000)" to="(460,1000)"/>
@@ -8438,27 +8379,13 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(280,1100)" to="(280,1180)"/>
     <wire from="(280,1100)" to="(390,1100)"/>
     <wire from="(280,1180)" to="(390,1180)"/>
-    <wire from="(330,420)" to="(450,420)"/>
     <wire from="(350,1030)" to="(460,1030)"/>
-    <wire from="(350,470)" to="(370,470)"/>
-    <wire from="(350,550)" to="(370,550)"/>
     <wire from="(370,1080)" to="(390,1080)"/>
     <wire from="(370,1160)" to="(390,1160)"/>
-    <wire from="(400,630)" to="(400,730)"/>
-    <wire from="(400,730)" to="(530,730)"/>
-    <wire from="(410,480)" to="(430,480)"/>
-    <wire from="(410,560)" to="(470,560)"/>
     <wire from="(420,1220)" to="(420,1240)"/>
     <wire from="(420,1220)" to="(680,1220)"/>
     <wire from="(430,1090)" to="(450,1090)"/>
     <wire from="(430,1170)" to="(470,1170)"/>
-    <wire from="(430,350)" to="(430,460)"/>
-    <wire from="(430,350)" to="(440,350)"/>
-    <wire from="(430,460)" to="(430,480)"/>
-    <wire from="(430,460)" to="(450,460)"/>
-    <wire from="(430,480)" to="(430,620)"/>
-    <wire from="(430,480)" to="(620,480)"/>
-    <wire from="(430,620)" to="(530,620)"/>
     <wire from="(450,1070)" to="(450,1090)"/>
     <wire from="(450,1070)" to="(470,1070)"/>
     <wire from="(450,1090)" to="(640,1090)"/>
@@ -8470,53 +8397,31 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(470,1170)" to="(470,1300)"/>
     <wire from="(470,1170)" to="(490,1170)"/>
     <wire from="(470,1300)" to="(540,1300)"/>
-    <wire from="(470,500)" to="(470,560)"/>
-    <wire from="(470,500)" to="(770,500)"/>
-    <wire from="(470,560)" to="(470,780)"/>
-    <wire from="(470,780)" to="(540,780)"/>
     <wire from="(490,1110)" to="(490,1170)"/>
     <wire from="(490,1110)" to="(790,1110)"/>
-    <wire from="(490,370)" to="(590,370)"/>
-    <wire from="(500,560)" to="(520,560)"/>
-    <wire from="(500,580)" to="(500,670)"/>
-    <wire from="(500,580)" to="(520,580)"/>
-    <wire from="(500,710)" to="(530,710)"/>
     <wire from="(510,980)" to="(910,980)"/>
     <wire from="(520,1050)" to="(550,1050)"/>
     <wire from="(520,1190)" to="(520,1280)"/>
     <wire from="(520,1190)" to="(600,1190)"/>
-    <wire from="(530,590)" to="(530,620)"/>
     <wire from="(540,1280)" to="(540,1300)"/>
     <wire from="(540,1280)" to="(570,1280)"/>
-    <wire from="(540,740)" to="(540,780)"/>
     <wire from="(550,1050)" to="(550,1210)"/>
     <wire from="(550,1210)" to="(610,1210)"/>
-    <wire from="(550,570)" to="(590,570)"/>
-    <wire from="(560,720)" to="(630,720)"/>
     <wire from="(570,1170)" to="(600,1170)"/>
-    <wire from="(590,370)" to="(590,550)"/>
-    <wire from="(590,570)" to="(590,600)"/>
-    <wire from="(590,600)" to="(620,600)"/>
     <wire from="(610,1200)" to="(610,1210)"/>
     <wire from="(620,1260)" to="(660,1260)"/>
-    <wire from="(620,390)" to="(620,480)"/>
-    <wire from="(620,390)" to="(770,390)"/>
     <wire from="(630,1180)" to="(720,1180)"/>
     <wire from="(640,1000)" to="(640,1090)"/>
     <wire from="(640,1000)" to="(790,1000)"/>
     <wire from="(660,1260)" to="(660,1290)"/>
     <wire from="(660,1290)" to="(730,1290)"/>
-    <wire from="(660,600)" to="(830,600)"/>
-    <wire from="(670,720)" to="(830,720)"/>
     <wire from="(680,1220)" to="(680,1260)"/>
     <wire from="(680,1260)" to="(720,1260)"/>
     <wire from="(710,1240)" to="(720,1240)"/>
     <wire from="(730,1270)" to="(730,1290)"/>
     <wire from="(750,1250)" to="(800,1250)"/>
     <wire from="(760,1180)" to="(850,1180)"/>
-    <wire from="(770,430)" to="(770,500)"/>
     <wire from="(790,1040)" to="(790,1110)"/>
-    <wire from="(830,600)" to="(830,720)"/>
     <wire from="(840,1020)" to="(910,1020)"/>
     <wire from="(840,1250)" to="(850,1250)"/>
     <wire from="(850,1180)" to="(850,1200)"/>
