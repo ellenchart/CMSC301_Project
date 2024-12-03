@@ -3451,6 +3451,10 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(2440,3660)" to="(2490,3660)"/>
     <wire from="(2450,320)" to="(2450,3330)"/>
     <wire from="(2450,320)" to="(2490,320)"/>
+    <wire from="(2450,3340)" to="(2450,4260)"/>
+    <wire from="(2450,3340)" to="(2460,3340)"/>
+    <wire from="(2460,1720)" to="(2460,3340)"/>
+    <wire from="(2460,1720)" to="(2490,1720)"/>
     <wire from="(2470,1780)" to="(2470,2240)"/>
     <wire from="(2470,2240)" to="(2490,2240)"/>
     <wire from="(2470,350)" to="(2470,490)"/>
@@ -3715,6 +3719,7 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(900,4200)" to="(2280,4200)"/>
     <wire from="(900,4220)" to="(2310,4220)"/>
     <wire from="(900,4240)" to="(2430,4240)"/>
+    <wire from="(900,4260)" to="(2450,4260)"/>
     <wire from="(900,880)" to="(900,920)"/>
     <wire from="(900,920)" to="(1650,920)"/>
     <wire from="(910,1200)" to="(910,1240)"/>
@@ -7021,6 +7026,10 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="value" val="0x1f"/>
       <a name="width" val="5"/>
     </comp>
+    <comp lib="0" loc="(840,620)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(840,640)" name="Constant"/>
     <comp lib="0" loc="(850,450)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -7041,6 +7050,12 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="label" val="is_jal_or_jalr"/>
       <a name="output" val="true"/>
     </comp>
+    <comp lib="0" loc="(930,630)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="reg_write_e"/>
+      <a name="output" val="true"/>
+    </comp>
     <comp lib="0" loc="(940,380)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -7056,6 +7071,7 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <comp lib="2" loc="(890,380)" name="Multiplexer">
       <a name="width" val="5"/>
     </comp>
+    <comp lib="2" loc="(900,630)" name="Multiplexer"/>
     <comp lib="3" loc="(450,480)" name="Comparator">
       <a name="mode" val="unsigned"/>
       <a name="width" val="32"/>
@@ -7085,9 +7101,12 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(700,450)" to="(710,450)"/>
     <wire from="(710,470)" to="(710,490)"/>
     <wire from="(710,540)" to="(710,570)"/>
-    <wire from="(710,570)" to="(780,570)"/>
+    <wire from="(710,570)" to="(740,570)"/>
     <wire from="(720,310)" to="(790,310)"/>
     <wire from="(730,450)" to="(850,450)"/>
+    <wire from="(740,570)" to="(740,680)"/>
+    <wire from="(740,570)" to="(780,570)"/>
+    <wire from="(740,680)" to="(880,680)"/>
     <wire from="(750,520)" to="(770,520)"/>
     <wire from="(750,540)" to="(770,540)"/>
     <wire from="(770,530)" to="(780,530)"/>
@@ -7096,9 +7115,13 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
     <wire from="(830,310)" to="(900,310)"/>
     <wire from="(840,370)" to="(860,370)"/>
     <wire from="(840,390)" to="(860,390)"/>
+    <wire from="(840,620)" to="(870,620)"/>
+    <wire from="(840,640)" to="(870,640)"/>
     <wire from="(860,380)" to="(870,380)"/>
     <wire from="(870,400)" to="(870,410)"/>
+    <wire from="(880,650)" to="(880,680)"/>
     <wire from="(890,380)" to="(940,380)"/>
+    <wire from="(900,630)" to="(930,630)"/>
   </circuit>
   <circuit name="jalrControl">
     <a name="appearance" val="logisim_evolution"/>

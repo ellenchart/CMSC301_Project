@@ -44,7 +44,8 @@ jal jalWorks
 #Order: 
 #jal (goes to jalWorks)
 
-jalr jalrWorks
+addi $t5, $0, 68 # address of jalrWorks
+jalr $t5
 
 jalWorks:
 addi $s0, $0, 0
@@ -63,9 +64,9 @@ jr $ra
 
 
 jalrWorks:
-
 j end
+addi $t6, $0, 5 # skip this one
 
 end:
-    addi $v0, $0, 10
-    syscall
+addi $t6, $0, 10
+ 
