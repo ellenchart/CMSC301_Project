@@ -55,7 +55,15 @@ _syscall11:
 #read character
 _syscall12:
     # read character code goes here
-    jr $k0
+    lw $k1, -240($0) # check keyboard status
+    beq $k1, $0, none # if no char ready go to none 
+    lw $v0, -236($0) # else read char from -236 
+    sw $0, -240($0) # reset keyboard status to 0
+    j done 
+    none:
+    addi $v0, $0, 0 # if no char return 0 
+    done:
+    jr $k0 # return from sys call
 
 #extra challenge syscalls go here?
 
