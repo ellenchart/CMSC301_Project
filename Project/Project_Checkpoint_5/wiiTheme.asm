@@ -30,10 +30,32 @@
         .word 0, 0                 # End 
 .text
 .align 2 
-.globl 
+.globl main
 
-syscall_load_song:
-    la   $t0, song_buffer        # Load buffer address
+main:
+    # Load the song data
+    la   $a0, songData          # Address of song data
+    li   $v0, 0xD              # Syscall 0xD = Syscall 13: Load song
+    syscall
+
+    # Start Song
+    li   $v0, 0xE              # Syscall 0xE = Syscall 14: Start song
+    syscall
+
+    # Wait for playback to complete
+#wait_loop:
+    li   $v0, 0x12              # Syscall 0x12: Check status
+    syscall
+    bne  $v0, $zero, wait_loop  # Wait until playback is done
+
+    end: 
+        li   $v0, 10               
+        syscall
+
+
+
+syscallLoadSong:
+    la   $t0, songBuffer        # Load buffer address
     move $t1, $a0                # Song data address
     li   $t2, 0                  # Initialize index
 

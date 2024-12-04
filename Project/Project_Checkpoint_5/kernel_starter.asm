@@ -6,19 +6,31 @@
 .text
 _syscallStart_:
     beq $v0, $0, _syscall0 #jump to syscall 0
+
     addi $k1, $0, 1
     beq $v0, $k1, _syscall1 #jump to syscall 1
+
     addi $k1, $0, 5
     beq $v0, $k1, _syscall5 #jump to syscall 5
+
     addi $k1, $0, 9
     beq $v0, $k1, _syscall9 #jump to syscall 9
+
     addi $k1, $0, 10
     beq $v0, $k1, _syscall10 #jump to syscall 10
+
     addi $k1, $0, 11
     beq $v0, $k1, _syscall11 #jump to syscall 11
+
     addi $k1, $0, 12
     beq $v0, $k1, _syscall12 #jump to syscall 12
+
     # Add branches to any syscalls required for your stars.
+    addi $k1, $0, 13
+    beq $v0, $k1, _syscall13
+
+    addi $k1, $0, 14
+    beq $v0, $k1, _sycall14
 
     #Error state - this should never happen - treat it like an end program
     j _syscall10
@@ -66,5 +78,15 @@ _syscall12:
     jr $k0 # return from sys call
 
 #extra challenge syscalls go here?
+
+#Load Song 
+_syscall13:
+
+
+#Start Song
+_syscall14:
+
+
+
 
 _syscallEnd_:
