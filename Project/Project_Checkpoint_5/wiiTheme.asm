@@ -1,7 +1,7 @@
 #According to ChatGPT what it recommends to do; I will go through 
 #later and figure out what's going on
 .data
-    songBuffer: .space 100        # Allocate space for song data
+    allocateSpace: .space 100        #space for song data
     songData:
         .word 185, 300             # F#, 300ms
         .word 0, 300               # rest, 300ms
@@ -14,16 +14,16 @@
         .word 147, 300             # D, 300ms
         .word 147, 300             # D, 300ms
         .word 147, 300             # D, 300ms
-        .word 0, 1200               # rest, 1200ms
+        .word 0, 1200              # rest, 1200ms
         .word 277, 300             # C#, 300ms
         .word 147, 600             # D, 300ms
         .word 185, 300             # F#, 300ms
         .word 220, 300             # A, 300ms
         .word 277, 300             # C#, 300ms
         .word 0, 300               # rest, 300ms
-        .word 220, 300               # A, 300ms
+        .word 220, 300             # A, 300ms
         .word 0, 300               # rest, 300ms
-        .word 185, 300               # F#, 300ms
+        .word 185, 300             # F#, 300ms
         .word 165, 900             # E, 900ms
         .word 156, 300             # Eb, 300ms
         .word 147, 300             # D, 300ms
@@ -34,19 +34,24 @@
 
 main:
     # Load the song data
-    la   $a0, songData          # Address of song data
-    li   $v0, 0xD              # Syscall 0xD = Syscall 13: Load song
+    la $t0, allocateSpace
+
+
+    la $a0, songData            # Address of song data
+    la $a1, allocateSpace       # Amount of space to allocate for songData    
+    li $v0, 0xD                 # Syscall 0xD = Syscall 13: Load song
     syscall
 
     # Start Song
-    li   $v0, 0xE              # Syscall 0xE = Syscall 14: Start song
+    li   $v0, 0xE               # Syscall 0xE = Syscall 14: Start song
     syscall
 
-    # Wait for playback to complete
-#wait_loop:
-    li   $v0, 0x12              # Syscall 0x12: Check status
-    syscall
-    bne  $v0, $zero, wait_loop  # Wait until playback is done
+    # Wait for song to complete
+    
+    wait_loop:
+    li   $v0, 0xF               # Syscall 0xF = Syscall 15: Check status
+        syscall
+        bne  $v0, $zero, wait_loop  # Wait until playback is done
 
     end: 
         li   $v0, 10               

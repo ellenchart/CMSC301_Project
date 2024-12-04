@@ -81,7 +81,10 @@ _syscall12:
 
 #Load Song 
 _syscall13:
+    
 
+
+#needs to load song and return it things into V0
 
 #Start Song
 _syscall14:
