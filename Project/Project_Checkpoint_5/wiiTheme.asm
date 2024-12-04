@@ -1,8 +1,36 @@
 #According to ChatGPT what it recommends to do; I will go through 
 #later and figure out what's going on
-#_____________________________________________
+.data
+    songBuffer: .space 100        # Allocate space for song data
+    songData:
+        .word 185, 300             # F#, 300ms
+        .word 0, 300               # rest, 300ms
+        .word 220, 300             # A, 300ms
+        .word 277, 300             # C#, 300ms
+        .word 0, 300               # rest, 300ms
+        .word 220, 300             # A, 300ms
+        .word 0, 300               # rest, 300ms
+        .word 185, 300             # F#, 300ms
+        .word 147, 300             # D, 300ms
+        .word 147, 300             # D, 300ms
+        .word 147, 300             # D, 300ms
+        .word 0, 1200               # rest, 1200ms
+        .word 277, 300             # C#, 300ms
+        .word 147, 600             # D, 300ms
+        .word 185, 300             # F#, 300ms
+        .word 220, 300             # A, 300ms
+        .word 277, 300             # C#, 300ms
+        .word 0, 300               # rest, 300ms
+        .word 220, 300               # A, 300ms
+        .word 0, 300               # rest, 300ms
+        .word 185, 300               # F#, 300ms
+        .word 165, 900             # E, 900ms
+        .word 156, 300             # Eb, 300ms
+        .word 147, 300             # D, 300ms
+        .word 0, 0                 # End 
 .text
-.globl syscall_load_song
+.align 2 
+.globl 
 
 syscall_load_song:
     la   $t0, song_buffer        # Load buffer address
@@ -19,9 +47,6 @@ load_loop:
     bne  $t3, $zero, load_loop   # Continue until end marker (0, 0)
 
     jr   $ra                     # Return
-#______________________________________________
-.text
-.globl syscall_play_song
 
 syscall_play_song:
     la   $t0, song_buffer        # Load buffer address
@@ -89,9 +114,6 @@ song_data:
     .word 880, 600             # A5, 600ms
     .word 0, 0                 # End marker
 #_______________________________________________________________________
-.text
-.globl main
-
 main:
     # Load the song data
     la   $a0, song_data         # Address of song data
