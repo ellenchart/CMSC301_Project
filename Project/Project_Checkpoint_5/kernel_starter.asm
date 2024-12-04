@@ -50,11 +50,6 @@ _syscall10:
 #print character
 _syscall11:
     # print character code goes here
-    jr $k0
-
-#read character
-_syscall12:
-    # read character code goes here
     lw $k1, -240($0) # check keyboard status
     beq $k1, $0, none # if no char ready go to none 
     lw $v0, -236($0) # else read char from -236 
@@ -63,6 +58,11 @@ _syscall12:
     none:
     addi $v0, $0, 0 # if no char return 0 
     done:
+    jr $k0
+
+#read character
+_syscall12:
+    # read character code goes here
     jr $k0 # return from sys call
 
 #extra challenge syscalls go here?
