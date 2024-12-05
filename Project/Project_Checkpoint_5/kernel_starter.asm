@@ -111,6 +111,7 @@ _syscall5:
     addi $s2, $0, 45 # ascii -
     addi $s3, $0, 0 # temp keyboard register 
     addi $s4, $0, 45 # temp negative register 
+    addi $s5, $0, 0 # count of putting inputs on stack
     addi $s6, $0, 10 # base for exponent
     addi $s7, $0, 0 # count for exponent
     addi $v0, $$0, 0 # answer
@@ -118,8 +119,8 @@ _syscall5:
 
 
     # special number to check when keyboard input is done ****************** 
-    addi $s5, $0, 89238
-    sw $s5, 68($sp)
+    #addi $s5, $0, 89238
+    #sw $s5, 68($sp)
 
     # first time through loop check if digit or "-"
     lw $s3, -240($0) # check keyboard status
@@ -157,6 +158,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 0
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitOne:
@@ -164,6 +166,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 1
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
     
     _syscall5DigitTwo:
