@@ -47,6 +47,33 @@ _syscall0:
 #Print Integer
 _syscall1:
     # Print Integer code goes here
+    addi $sp, $sp, -8
+    sw $t0, 0($sp)
+    sw $t1, 4($sp)
+    bge $a0, $0, _PositiveSyscall1
+    addi $t0, $0, 45 #negative int you need to print "-"
+    sw $t0, -256($0)
+    addi $t0, $0, -1 #make positive
+    mult $a0, $t0 
+    mflo $t0 
+
+    _PositiveSyscall1:
+    add $t0, $a0, $0
+    # while $t0 > 0 
+    _WhilePositiveSyscall1:
+    ble $t0, $0, _EndWhilePositiveSyscall1
+    addi $t1, $0, 10
+    div $a0, $t1 
+    # remainder 
+    mfhi $t1
+    sw $t1 -256($0)
+    mflo $t0 # floor division 
+    j _WhilePositiveSyscall1
+
+    _EndWhilePositiveSyscall1:
+    lw $t0, 0($sp)
+    lw $t1, 4($sp)
+    addi $sp, $sp, 8
     jr $k0
 
 #Read Integer
@@ -75,6 +102,8 @@ _syscall10:
 #print character
 _syscall11:
     # print character code goes here
+    sw $a0, -256($0)
+    jr $k0
 
 #read character
 _syscall12:
@@ -83,13 +112,13 @@ _syscall12:
     sw $k0, 0($sp)
     sw $v0, 4($sp)
     lw $k1, -240($0) # check keyboard status
-    beq $k1, $0, none # if no char ready go to none 
+    beq $k1, $0, _syscall12None # if no char ready go to none 
     lw $v0, -236($0) # else read char from -236 
     sw $0, -240($0) # reset keyboard status to 0
-    j done 
-    none:
+    j _syscall12Done
+    _syscall12None:
     addi $v0, $0, 0 # if no char return 0 
-    done:
+    _syscall12Done:
     lw $k0, 0($sp)
     lw $v0, 4($sp)
     addi $sp, $sp, 8 
