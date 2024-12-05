@@ -29,9 +29,6 @@ _syscallStart_:
     addi $k1, $0, 13
     beq $v0, $k1, _syscall13
 
-    addi $k1, $0, 14
-    beq $v0, $k1, _sycall14
-
     #Error state - this should never happen - treat it like an end program
     j _syscall10
 
@@ -40,13 +37,13 @@ _syscall0:
     # Initialization goes here
     # set initial value of the stack pointer -4096
     addi $sp, $0, -4096
-    la $v0,_END_OF_STATIC_MEMORY_ 
+    la $v0, _END_OF_STATIC_MEMORY_ 
     sw $v0, -4092($0)
     j _syscallEnd_
 
 #Print Integer
 _syscall1:
-    # Print Integer code goes here
+    # # Print Integer code goes here
     addi $sp, $sp, -8
     sw $t0, 0($sp)
     sw $t1, 4($sp)
@@ -114,8 +111,8 @@ _syscall5:
     addi $s5, $0, 0 # count of putting inputs on stack
     addi $s6, $0, 10 # base for exponent
     addi $s7, $0, 0 # count for exponent
-    addi $v0, $$0, 0 # answer
-    addi $v1, $$0, 0 # inside math counter 
+    addi $v0, $0, 0 # answer
+    addi $v1, $0, 0 # inside math counter 
 
 
     # special number to check when keyboard input is done ****************** 
@@ -126,7 +123,6 @@ _syscall5:
     lw $s3, -240($0) # check keyboard status
     beq $s3, $0, _syscall5None # if no char ready go to none 
     lw $s3, -236($0) # else read char from -236
-    addi 
     beq $s3, $s2, _syscall5Negative
 
     # any value in keyboard 
@@ -331,14 +327,14 @@ _syscall12:
 #extra challenge syscalls go here?
 #Start Song
 _syscall13:
-    add $t0, $sp, $zero
-    _playLoop:
-        lw   $t1, 0($t0)             # Load frequency
-        lw   $t2, 4($t0)             # Load duration
-        beq  $t1, $zero, _endPlay    # Exit if end marker (0, 0)
-        addi $t0, $t0, 8             # Advance to next note
-        j _playLoop
-    _endPlay:
+    # add $t0, $sp, $zero
+    # _playLoop:
+    #     lw   $t1, 0($t0)             # Load frequency
+    #     lw   $t2, 4($t0)             # Load duration
+    #     beq  $t1, $zero, _endPlay    # Exit if end marker (0, 0)
+    #     addi $t0, $t0, 8             # Advance to next note
+    #     j _playLoop
+    # _endPlay:
         jr   $k0                     # Return
 
 
