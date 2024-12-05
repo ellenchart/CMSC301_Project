@@ -38,6 +38,9 @@ _syscallStart_:
 #Do init stuff
 _syscall0:
     # Initialization goes here
+    # set initial value of the 
+    stack pointer -4096
+    addi $sp, $0, -4096
     j _syscallEnd_
 
 #Print Integer
@@ -53,6 +56,10 @@ _syscall5:
 #Heap allocation
 _syscall9:
     # Heap allocation code goes here
+    # request a number of bytes in register $a0
+    # project 1
+    la $v0,_END_OF_STATIC_MEMORY_ 
+    sw $v0, -4092($0)
     jr $k0
 
 #"End" the program

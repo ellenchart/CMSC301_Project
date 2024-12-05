@@ -125,9 +125,9 @@ int main(int argc, char *argv[])
         }
 
         std::string str;
-        
+
         int lastWhitespace = 0;
-        
+
         while (getline(infile, str))
         { // Read a line from the file
 
@@ -169,10 +169,10 @@ int main(int argc, char *argv[])
                 // do
                 // bool failsafe = false;
                 std::cout << str << "\n";
-                if (str.find(' ', lastWhitespace - 1) == std::string::npos){
+                if (str.find(' ', lastWhitespace - 1) == std::string::npos)
+                {
                     std::cout << "Inside";
                     std::cout << tempString << "\n";
-
                 }
                 while (str.find(' ', lastWhitespace - 1) != std::string::npos)
                 {
@@ -194,24 +194,24 @@ int main(int argc, char *argv[])
                         lastWhitespace = str.find(' ', lastWhitespace) + 1;
 
                         if (str.find(' ', lastWhitespace - 1) == std::string::npos)
+                        {
+
+                            // std::cout << "__" << tempString << "__" << "\n";
+
+                            if (isdigit(tempString[0]))
                             {
+                                // std::cout << "In Here Top 1-1";
 
-                                // std::cout << "__" << tempString << "__" << "\n";
-
-                                if (isdigit(tempString[0]))
-                                {
-                                    //std::cout << "In Here Top 1-1";
-
-                                    write_binary(stoi(tempString), static_outfile);
-                                }
-                                else
-                                {
-                                    //std::cout << "In Here Top1-1";
-                                    write_binary(map.at(tempString) * 4, static_outfile);
-                                }
-                                staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
-                                addressCount += 4;
+                                write_binary(stoi(tempString), static_outfile);
                             }
+                            else
+                            {
+                                // std::cout << "In Here Top1-1";
+                                write_binary(map.at(tempString) * 4, static_outfile);
+                            }
+                            staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
+                            addressCount += 4;
+                        }
                     }
                     else
                     {
@@ -250,13 +250,13 @@ int main(int argc, char *argv[])
 
                                 if (isdigit(tempString[0]))
                                 {
-                                    //std::cout << "In Here Top 1-1";
+                                    // std::cout << "In Here Top 1-1";
 
                                     write_binary(stoi(tempString), static_outfile);
                                 }
                                 else
                                 {
-                                    //std::cout << "In Here Top1-1";
+                                    // std::cout << "In Here Top1-1";
                                     write_binary(map.at(tempString) * 4, static_outfile);
                                 }
                                 staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
@@ -274,12 +274,12 @@ int main(int argc, char *argv[])
 
                             if (isdigit(tempString[0]))
                             {
-                                //std::cout << "In Here Bottom 1";
+                                // std::cout << "In Here Bottom 1";
                                 write_binary(stoi(tempString), static_outfile);
                             }
                             else
                             {
-                                //std::cout << "In Here Bottom 1-1";
+                                // std::cout << "In Here Bottom 1-1";
                                 write_binary(map.at(tempString) * 4, static_outfile);
                             }
                             staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
@@ -295,12 +295,12 @@ int main(int argc, char *argv[])
 
                                 if (isdigit(tempString[0]))
                                 {
-                                    //std::cout << "In Here Bottom 2-1";
+                                    // std::cout << "In Here Bottom 2-1";
                                     write_binary(stoi(tempString), static_outfile);
                                 }
                                 else
                                 {
-                                    //std::cout << "In Here Bottom 2-2";
+                                    // std::cout << "In Here Bottom 2-2";
                                     write_binary(map.at(tempString) * 4, static_outfile);
                                 }
                                 staticAddressMap.insert(std::pair<std::string, int>(tempString, addressCount));
@@ -328,6 +328,8 @@ int main(int argc, char *argv[])
         //     std::cout << elem.first << " " << elem.second << "\n";
         // }
         infile.close();
+
+        staticAddressMap.insert(std::pair<std::string, int>("_END_OF_STATIC_MEMORY_", addressCount));
     }
 
     //  for (const auto &elem : map)
@@ -445,16 +447,16 @@ int main(int argc, char *argv[])
         }
         else if (inst_type == "beq")
         {
-            //int tempAddress = 0;
-            // if (map.at(terms[3]) < count)
-            // {
-            //     tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
-            //     // std::cout << "here";
-            // }
-            // else
-            // {
-            //     tempAddress = map.at(terms[3]) - count - 1;
-            // }
+            // int tempAddress = 0;
+            //  if (map.at(terms[3]) < count)
+            //  {
+            //      tempAddress = map.at(terms[3]) - count - 1; // subtracting absolute address - where we are now
+            //      // std::cout << "here";
+            //  }
+            //  else
+            //  {
+            //      tempAddress = map.at(terms[3]) - count - 1;
+            //  }
             int tempAddress = map.at(terms[3]) - count - 1;
 
             // std::cout << tempAddress;
