@@ -34,14 +34,14 @@
 main:
     # Load the song data
     la $a0, songData
-    jal syscallLoadSong
+    jal loadSong
     #return address of songData into $v0
     add $s0, $v0, $zero             #store songData address into $s0
     
     # Start Song
     addi $v0,$0, 14               # Syscall 14: Start song
     syscall
-    
+
     # Wait for song to complete
     
     wait_loop:
@@ -58,7 +58,7 @@ main:
 
 #a0 = address of songData
 #return $v0 with the address where the song data is stored
-syscallLoadSong:
+loadSong:
     #allocate space:
     add $sp, $sp, -200      
     #-200 because we have 25 words ---> 25 * 4 bits (bc word) * 2 items (duration and frequency)        
