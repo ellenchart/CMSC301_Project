@@ -8923,7 +8923,7 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="radix" val="16"/>
       <a name="width" val="7"/>
     </comp>
-    <comp lib="0" loc="(240,270)" name="Pin">
+    <comp lib="0" loc="(240,260)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="AddressFromBus"/>
       <a name="radix" val="10signed"/>
@@ -9004,14 +9004,13 @@ ac10ff20 ac11ff24 ac08ff28 ac00ff2c 8000020
       <a name="appearance" val="logisim_evolution"/>
       <a name="width" val="1"/>
     </comp>
-    <wire from="(240,270)" to="(280,270)"/>
+    <wire from="(240,260)" to="(280,260)"/>
     <wire from="(260,460)" to="(490,460)"/>
     <wire from="(280,140)" to="(670,140)"/>
     <wire from="(280,180)" to="(280,260)"/>
     <wire from="(280,180)" to="(420,180)"/>
-    <wire from="(280,260)" to="(280,270)"/>
+    <wire from="(280,260)" to="(280,360)"/>
     <wire from="(280,260)" to="(420,260)"/>
-    <wire from="(280,270)" to="(280,360)"/>
     <wire from="(280,360)" to="(420,360)"/>
     <wire from="(360,200)" to="(420,200)"/>
     <wire from="(370,280)" to="(420,280)"/>

@@ -146,6 +146,9 @@ int main(int argc, char *argv[])
                 // std::cout << "enters .text";
                 break;
             }
+            else if (str == ".align"){
+                break;
+            }
             else if (str.find(".word") != std::string::npos)
             {
                 // if(str == ".text"){
