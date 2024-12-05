@@ -331,15 +331,37 @@ _syscall12:
 #extra challenge syscalls go here?
 #Start Song
 _syscall13:
-    add $t0, $sp, $zero
-    _playLoop:
-        lw   $t1, 0($t0)             # Load frequency
-        lw   $t2, 4($t0)             # Load duration
-        beq  $t1, $zero, _endPlay    # Exit if end marker (0, 0)
-        addi $t0, $t0, 8             # Advance to next note
-        j _playLoop
-    _endPlay:
-        jr   $k0                     # Return
+    _savingOGValuesToStack:
+    addi $sp, $sp, -16
+    sw $t0, 0($sp)
+    sw $t1, 4($sp)
+    sw $t2, 8($sp)
+    sw $t3, 12($sp)
 
+    _mainSyscall13:
+    add $t0, $sp, $zero                 # t0 = stackpointer
+    add $t3, $0, 200                    # Volume
+    sw $t3, -252($0)                    # Set Volume
+
+    _playLoop:
+        lw $t1, 0($t0)                  # Load frequency
+        beq $t1, $zero, _endLoop        # Exit if end marker (0, 0)
+
+        addi $t2, $0, 1
+
+        sw $t1, -244($0)                # Store frequency to address
+        sw $t2, -248($0)                # Enable sound
+        
+        addi $t0, $t0, 8                # Go to next note
+        j _playLoop
+    _endLoop:
+    _putBackOGValues:    
+        lw $t0, 0($sp)
+        lw $t1, 4($sp)
+        lw $t2, 8($sp)
+        lw $t3, 12($sp)
+        addi $sp, $sp, 16
+    _endPlay:
+        jr   $k0                        # Return 
 
 _syscallEnd_:
