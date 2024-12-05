@@ -51,7 +51,7 @@ _syscall1:
     sw $t0, 0($sp)
     sw $t1, 4($sp)
     bge $a0, $0, _PositiveSyscall1
-    addi $t0, $0, 45 #negative int you need to print "-"
+    addi $t0, $0, 45 #negative int you need to print "-" (45)
     sw $t0, -256($0)
     addi $t0, $0, -1 #make positive
     mult $a0, $t0 
@@ -79,6 +79,178 @@ _syscall1:
 #Read Integer
 _syscall5:
     # Read Integer code goes here
+    addi $sp, $sp, -68
+    sw $t0, 0($sp)
+    sw $t1, 4($sp)
+    sw $t2, 8($sp)
+    sw $t3, 12($sp)
+    sw $t4, 16($sp)
+    sw $t5, 20($sp)
+    sw $t6, 24($sp)
+    sw $t7, 28($sp)
+    sw $s0, 32($sp)
+    sw $s1, 36($sp)
+    sw $s2, 40($sp)
+    sw $s3, 44($sp)
+    sw $s4, 48($sp)
+    sw $s5, 52($sp)
+    sw $s6, 56($sp)
+    sw $s7, 60($sp)
+
+    addi $t0, $0, 48 # ascii 0
+    addi $t1, $0, 49 # ascii 1
+    addi $t2, $0, 50 # ascii 2
+    addi $t3, $0, 51 # ascii 3
+    addi $t4, $0, 52 # ascii 4
+    addi $t5, $0, 53 # ascii 5
+    addi $t6, $0, 54 # ascii 6
+    addi $t7, $0, 55 # ascii 7
+    addi $s0, $0, 56 # ascii 8
+    addi $s1, $0, 57 # ascii 9
+    addi $s2, $0, 45 # ascii -
+    addi $s3, $0, 0 # temp keyboard register 
+    addi $s4, $0, 45 # temp negative register 
+    addi $s6, $0, 10 # base for exponent
+    addi $s7, $0, 0 # count for exponent
+
+    # special number to check when keyboard input is done ****************** 
+    addi $s5, $0, 89238
+    sw $s5, 64($sp)
+
+    # first time through loop check if digit or "-"
+    lw $s3, -240($0) # check keyboard status
+    beq $s3, $0, _syscall5None # if no char ready go to none 
+    lw $s3, -236($0) # else read char from -236
+    addi 
+    beq $s3, $s2, _syscall5Negative
+
+    # any value in keyboard 
+    _syscall5WhileIfDigit:
+    # check if digit 
+    beq $s3, $t0, _syscall5DigitZero
+    beq $s3, $t1, _syscall5DigitOne
+    beq $s3, $t2, _syscall5DigitTwo 
+    beq $s3, $t3, _syscall5DigitThree
+    beq $s3, $t4, _syscall5DigitFour
+    beq $s3, $t5, _syscall5DigitFive
+    beq $s3, $t6, _syscall5DigitSix
+    beq $s3, $t7, _syscall5DigitSeven
+    beq $s3, $s1, _syscall5DigitEight
+    beq $s3, $s2, _syscall5DigitNine
+    j _syscall5None
+
+    # any other not if not digit break 
+
+
+
+    _syscall5Negative:
+    addi $s4, $0, -1 
+    j _syscall5WhileIfDigit
+
+
+    _syscall5DigitZero:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 0
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitOne:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 1
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+    
+    _syscall5DigitTwo:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 2
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitThree:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 3
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitFour:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 4
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitFive:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 5
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitSix:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 6
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitSeven:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 7
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitEight:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 8
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    _syscall5DigitNine:
+    # put zero on stack and j to _syscall5WhileIfDigit 
+    addi $sp, $sp, -4
+    addi $s3, $s3, 9
+    sw $s3, 0($sp)
+    j _syscall5WhileIfDigit
+
+    # loop through stack to find special num and counter 
+    _syscall5LoopThroughStack:
+    lw $s3, 0($sp) # where stack is   
+    addi $sp, $sp, 4
+    beq $s5, $s3, _syscall5None # if found special num
+    # else keep looping through and to do math (answer += (digit * 10^(counter )))
+    _syscall5DigitMath: 
+
+
+    _syscall5None:
+    # branch if s4 is 45 -- that means there was not a negative sign
+    beq $s4, $s2, _syscall5MakePositiveOne
+    addi $s4, $0, 1
+    _syscall5MakePositiveOne:
+
+    lw $t0, 0($sp)
+    lw $t1, 4($sp)
+    lw $t2, 8($sp)
+    lw $t3, 12($sp)
+    lw $t4, 16($sp)
+    lw $t5, 20($sp)
+    lw $t6, 24($sp)
+    lw $t7, 28($sp)
+    lw $s0, 32($sp)
+    lw $s1, 36($sp)
+    lw $s2, 40($sp)
+    lw $s3, 44($sp)
+    lw $s4, 48($sp)
+    lw $s5, 52($sp)
+    lw $s6, 56($sp)
+    lw $s7, 60($sp)
+    addi $sp, $sp, 64
+    # check to make sure above sp is correct, did we deallocate the special number twice?
     jr $k0
 
 #Heap allocation
