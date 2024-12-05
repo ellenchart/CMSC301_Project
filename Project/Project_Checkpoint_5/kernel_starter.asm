@@ -174,6 +174,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 2
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitThree:
@@ -181,6 +182,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 3
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitFour:
@@ -188,6 +190,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 4
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitFive:
@@ -195,6 +198,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 5
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitSix:
@@ -202,6 +206,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 6
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitSeven:
@@ -209,6 +214,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 7
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitEight:
@@ -216,6 +222,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 8
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     _syscall5DigitNine:
@@ -223,6 +230,7 @@ _syscall5:
     addi $sp, $sp, -4
     addi $s3, $s3, 9
     sw $s3, 0($sp)
+    addi $s5, $s5, 1
     j _syscall5WhileIfDigit
 
     # loop through stack to find special num and counter 
@@ -269,6 +277,9 @@ _syscall5:
     lw $s7, 60($sp)
     lw $v1, 64($sp)
     addi $sp, $sp, 68
+
+    mult $v0, $s4
+    mfhi $v0
 
     # check to make sure above sp is correct, did we deallocate the special number twice?
     jr $k0
