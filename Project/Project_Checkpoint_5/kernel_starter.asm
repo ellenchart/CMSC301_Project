@@ -314,18 +314,8 @@ _syscall12:
     jr $k0
 
 #extra challenge syscalls go here?
-
-#Load Song 
-_syscall13:
-    
-
-
-#needs to load song and return it things into V0
-
 #Start Song
-_syscall14:
-
-
+_syscall13:
 
 
 _syscallEnd_:

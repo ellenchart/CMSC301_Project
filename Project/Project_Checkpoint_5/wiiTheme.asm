@@ -1,7 +1,6 @@
 #According to ChatGPT what it recommends to do; I will go through 
 #later and figure out what's going on
 .data
-    allocateSpace: .space 100        #space for song data
     songData:
         .word 185, 300             # F#, 300ms
         .word 0, 300               # rest, 300ms
@@ -34,18 +33,15 @@
 
 main:
     # Load the song data
-    la $t0, allocateSpace
-
-
-    la $a0, songData            # Address of song data
-    la $a1, allocateSpace       # Amount of space to allocate for songData    
-    li $v0, 0xD                 # Syscall 0xD = Syscall 13: Load song
-    syscall
-
+    la $a0, songData
+    jal syscallLoadSong
+    #return address of songData into $v0
+    add $s0, $v0, $zero             #store songData address into $s0
+    
     # Start Song
-    li   $v0, 0xE               # Syscall 0xE = Syscall 14: Start song
+    addi $v0,$0, 14               # Syscall 14: Start song
     syscall
-
+    
     # Wait for song to complete
     
     wait_loop:
@@ -54,26 +50,39 @@ main:
         bne  $v0, $zero, wait_loop  # Wait until playback is done
 
     end: 
+        addi $sp, $sp, 200      #deallocate memory
         li   $v0, 10               
         syscall
 
+#functions:
 
-
+#a0 = address of songData
+#return $v0 with the address where the song data is stored
 syscallLoadSong:
-    la   $t0, songBuffer        # Load buffer address
-    move $t1, $a0                # Song data address
-    li   $t2, 0                  # Initialize index
+    #allocate space:
+    add $sp, $sp, -200      
+    #-200 because we have 25 words ---> 25 * 4 bits (bc word) * 2 items (duration and frequency)        
+    addi $v0, $0, 9
+    syscall
+    add $t0, $sp, $0        #store stackpointer into $t0
+    add $t1, $a0, $0        #store address of songData into $t1
+    
+    loadLoop:
+    lw $t2, 0($t1)          #load frequency from songData
+    lw $t3, 4($t1)          #load duration from songData
+    sw $t2, 0($t0)          #store frequency to stack 
+    sw $t3, 4($t0)          #store duration to stack
 
-load_loop:
-    lw   $t3, 0($t1)             # Load frequency
-    sw   $t3, 0($t0)             # Store in buffer
-    lw   $t3, 4($t1)             # Load duration
-    sw   $t3, 4($t0)             # Store in buffer
-    addi $t0, $t0, 8             # Advance buffer
-    addi $t1, $t1, 8             # Advance song data
-    bne  $t3, $zero, load_loop   # Continue until end marker (0, 0)
+    addi $t0, $t0, 8
+    addi $t1, $t1, 8  
 
-    jr   $ra                     # Return
+    bne $t3, $zero, loadLoop      
+    add $v0, $sp, $zero     #return the stackpointer of songData on stack
+    jr $ra
+
+
+
+
 
 syscall_play_song:
     la   $t0, song_buffer        # Load buffer address
