@@ -237,10 +237,11 @@ _syscall5:
     _syscall5LoopThroughStack:
     lw $s3, 0($sp) # where stack is   
     addi $sp, $sp, 4
-    beq $s5, $s3, _syscall5None # if found special num
+    beq $s5, $0, _syscall5None # if found special num
     # else keep looping through and to do math (answer += (digit * 10^(counter )))
     addi $v1, $s7, 0
     addi $s7, $s7, 1
+    addi $s5, $s5, -1
     _syscall5DigitMath: 
     # v0 is answer, s6 is 10, s7 is count final, 
     beq $v1, $0, _syscall5DigitMathDone
