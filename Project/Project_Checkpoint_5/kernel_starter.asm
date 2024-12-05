@@ -75,6 +75,10 @@ _syscall10:
 #print character
 _syscall11:
     # print character code goes here
+
+#read character
+_syscall12:
+    # read character code goes here
     addi $sp, $sp, -8 
     sw $k0, 0($sp)
     sw $v0, 4($sp)
@@ -90,11 +94,6 @@ _syscall11:
     lw $v0, 4($sp)
     addi $sp, $sp, 8 
     jr $k0
-
-#read character
-_syscall12:
-    # read character code goes here
-    jr $k0 # return from sys call
 
 #extra challenge syscalls go here?
 
