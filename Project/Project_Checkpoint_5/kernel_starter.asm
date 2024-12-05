@@ -75,6 +75,9 @@ _syscall10:
 #print character
 _syscall11:
     # print character code goes here
+    addi $sp, $sp, -8 
+    sw $k0, 0($sp)
+    sw $v0, 4($sp)
     lw $k1, -240($0) # check keyboard status
     beq $k1, $0, none # if no char ready go to none 
     lw $v0, -236($0) # else read char from -236 
@@ -83,6 +86,9 @@ _syscall11:
     none:
     addi $v0, $0, 0 # if no char return 0 
     done:
+    lw $k0, 0($sp)
+    lw $v0, 4($sp)
+    addi $sp, $sp, 8 
     jr $k0
 
 #read character
