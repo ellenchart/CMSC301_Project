@@ -39,7 +39,7 @@ main:
     add $s0, $v0, $zero             #store songData address into $s0
     
     # Start Song
-    addi $v0,$0, 14               # Syscall 14: Start song
+    addi $v0,$0, 13               # Syscall 13: Start song
     syscall
 
     # Wait for song to complete
@@ -62,8 +62,10 @@ loadSong:
     #allocate space:
     add $sp, $sp, -200      
     #-200 because we have 25 words ---> 25 * 4 bits (bc word) * 2 items (duration and frequency)        
+    
     addi $v0, $0, 9
     syscall
+
     add $t0, $sp, $0        #store stackpointer into $t0
     add $t1, $a0, $0        #store address of songData into $t1
     
@@ -79,7 +81,6 @@ loadSong:
     bne $t3, $zero, loadLoop      
     add $v0, $sp, $zero     #return the stackpointer of songData on stack
     jr $ra
-
 
 
 

@@ -330,6 +330,15 @@ _syscall12:
 #extra challenge syscalls go here?
 #Start Song
 _syscall13:
+    add $t0, $sp, $zero
+    _playLoop:
+        lw   $t1, 0($t0)             # Load frequency
+        lw   $t2, 4($t0)             # Load duration
+        beq  $t1, $zero, _endPlay    # Exit if end marker (0, 0)
+        addi $t0, $t0, 8             # Advance to next note
+        j _playLoop
+    _endPlay:
+        jr   $k0                     # Return
 
 
 _syscallEnd_:
