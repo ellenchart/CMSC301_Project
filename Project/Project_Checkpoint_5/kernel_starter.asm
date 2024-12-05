@@ -79,7 +79,7 @@ _syscall1:
 #Read Integer
 _syscall5:
     # Read Integer code goes here
-    addi $sp, $sp, -68
+    addi $sp, $sp, -72
     sw $t0, 0($sp)
     sw $t1, 4($sp)
     sw $t2, 8($sp)
@@ -96,6 +96,7 @@ _syscall5:
     sw $s5, 52($sp)
     sw $s6, 56($sp)
     sw $s7, 60($sp)
+    sw $v1, 64($sp)
 
     addi $t0, $0, 48 # ascii 0
     addi $t1, $0, 49 # ascii 1
@@ -112,10 +113,13 @@ _syscall5:
     addi $s4, $0, 45 # temp negative register 
     addi $s6, $0, 10 # base for exponent
     addi $s7, $0, 0 # count for exponent
+    addi $v0, $$0, 0 # answer
+    addi $v1, $$0, 0 # inside math counter 
+
 
     # special number to check when keyboard input is done ****************** 
     addi $s5, $0, 89238
-    sw $s5, 64($sp)
+    sw $s5, 68($sp)
 
     # first time through loop check if digit or "-"
     lw $s3, -240($0) # check keyboard status
@@ -224,8 +228,19 @@ _syscall5:
     addi $sp, $sp, 4
     beq $s5, $s3, _syscall5None # if found special num
     # else keep looping through and to do math (answer += (digit * 10^(counter )))
+    addi $v1, $s7, 0
+    addi $s7, $s7, 1
     _syscall5DigitMath: 
+    # v0 is answer, s6 is 10, s7 is count final, 
+    beq $v1, $0, _syscall5DigitMathDone
+    mult $s3, $s6
+    mflo $s3
+    addi $v1, $v1, -1 # increment count 
+    j _syscall5DigitMath
 
+    _syscall5DigitMathDone:
+    add $v0, $v0, $s3
+    j _syscall5LoopThroughStack
 
     _syscall5None:
     # branch if s4 is 45 -- that means there was not a negative sign
@@ -249,7 +264,9 @@ _syscall5:
     lw $s5, 52($sp)
     lw $s6, 56($sp)
     lw $s7, 60($sp)
-    addi $sp, $sp, 64
+    lw $v1, 64($sp)
+    addi $sp, $sp, 68
+
     # check to make sure above sp is correct, did we deallocate the special number twice?
     jr $k0
 
