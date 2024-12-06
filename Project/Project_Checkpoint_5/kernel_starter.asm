@@ -339,18 +339,27 @@ _syscall13:
     sw $t3, 12($sp)
 
     _mainSyscall13:
+    #Sine Values
     add $t0, $sp, $zero                 # t0 = stackpointer
-    add $t3, $0, 200                    # Volume
-    sw $t3, -252($0)                    # Set Volume
+    add $t3, $0, 200                    #Volume for all of the buzzers
+    sw $t3, -252($0)                    # Set Volume for Sine Buzzer
+    sw $t3, -212($0)                    #Set Volume for Triangle Buzzer
+    sw $t3, -200($0)                    #Set Volume for Square Buzzer
 
     _playLoop:
-        lw $t1, 0($t0)                  # Load frequency
+        lw $t1, 0($t0)                  # Load frequency into $t1
         beq $t1, $zero, _endLoop        # Exit if end marker (0, 0)
 
-        addi $t2, $0, 1
+        addi $t2, $0, 1                 #for WE
 
-        sw $t1, -244($0)                # Store frequency to address
-        sw $t2, -248($0)                # Enable sound
+        sw $t1, -244($0)                # Store frequency to address for Sine
+        sw $t2, -248($0)                # Enable sound for Sine
+
+        sw $t1, -232($0)                # store frequency to address for Triangle
+        sw $t2, -228($0)                # enable sound for Triangle
+
+        sw $t1, -208($0)                # store frequency to address for Square
+        sw $t2, -204($0)                # enable sound for Square
         
         addi $t0, $t0, 8                # Go to next note
         j _playLoop
