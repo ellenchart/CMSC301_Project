@@ -10,8 +10,8 @@ _syscallStart_:
     addi $k1, $0, 1
     beq $v0, $k1, _syscall1 #jump to syscall 1
 
-    # addi $k1, $0, 5
-    # beq $v0, $k1, _syscall5 #jump to syscall 5
+    addi $k1, $0, 5
+    beq $v0, $k1, _syscall5 #jump to syscall 5
 
     addi $k1, $0, 9
     beq $v0, $k1, _syscall9 #jump to syscall 9
@@ -26,8 +26,8 @@ _syscallStart_:
     beq $v0, $k1, _syscall12 #jump to syscall 12
 
     # # Add branches to any syscalls required for your stars.
-    # addi $k1, $0, 13
-    # beq $v0, $k1, _syscall13
+    addi $k1, $0, 13
+    beq $v0, $k1, _syscall13
 
     #Error state - this should never happen - treat it like an end program
     j _syscall10
@@ -337,9 +337,14 @@ _syscall11:
 # #read character
 _syscall12:
 #     # read character code goes here
+
+    #k0, k1, v0
+    
+
     addi $sp, $sp, -12 
     sw $k0, 0($sp)
-    sw $k1, 8($sp)
+    sw $k1, 4($sp)
+    sw, $v0, 8($sp)
     lw $k1, -240($0) # check keyboard status
     beq $k1, $0, _syscall12None # if no char ready go to none 
     _syscall12Yes:
@@ -353,7 +358,11 @@ _syscall12:
     
     _syscall12Done:
     lw $k0, 0($sp)
-    lw $k1, 8($sp)
+    lw $k1, 4($sp)
+    sw, $v0, 8($sp)
+
+
+
     addi $sp, $sp, 12 
     jr $k0
 
