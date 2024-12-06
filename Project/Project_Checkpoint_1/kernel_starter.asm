@@ -22,8 +22,8 @@ _syscallStart_:
     addi $k1, $0, 11
     beq $v0, $k1, _syscall11 #jump to syscall 11
 
-    # addi $k1, $0, 12
-    # beq $v0, $k1, _syscall12 #jump to syscall 12
+    addi $k1, $0, 12
+    beq $v0, $k1, _syscall12 #jump to syscall 12
 
     # # Add branches to any syscalls required for your stars.
     # addi $k1, $0, 13
@@ -337,21 +337,25 @@ _syscall11:
 # #read character
 _syscall12:
 #     # read character code goes here
-#     addi $sp, $sp, -8 
-#     sw $k0, 0($sp)
-#     sw $v0, 4($sp)
-#     lw $k1, -240($0) # check keyboard status
-#     beq $k1, $0, _syscall12None # if no char ready go to none 
-#     lw $v0, -236($0) # else read char from -236 
-#     sw $0, -240($0) # reset keyboard status to 0
-#     j _syscall12Done
-#     _syscall12None:
-#     addi $v0, $0, 0 # if no char return 0 
-#     _syscall12Done:
-#     lw $k0, 0($sp)
-#     lw $v0, 4($sp)
-#     addi $sp, $sp, 8 
-#     jr $k0
+    addi $sp, $sp, -12 
+    sw $k0, 0($sp)
+    sw $k1, 8($sp)
+    lw $k1, -240($0) # check keyboard status
+    beq $k1, $0, _syscall12None # if no char ready go to none 
+    _syscall12Yes:
+    lw $v0, -236($0) # else read char from -236 
+    sw $0, -240($0) # reset keyboard status to 0
+    j _syscall12Done
+    _syscall12None: # Loop until yes
+    lw $k1, -240($0) # check keyboard status
+    bne $k1, $0, _syscall12Yes
+    j _syscall12None
+    
+    _syscall12Done:
+    lw $k0, 0($sp)
+    lw $k1, 8($sp)
+    addi $sp, $sp, 12 
+    jr $k0
 
 # #extra challenge syscalls go here?
 # #Start Song
