@@ -367,16 +367,16 @@ _syscall12:
 # #Start Song
 _syscall13:
  _savingOGValuesToStack:
-#     addi $sp, $sp, -16
-#     sw $t0, 0($sp)
-#     sw $t1, 4($sp)
-#     sw $t2, 8($sp)
-#     sw $t3, 12($sp)
+    addi $sp, $sp, -16
+    sw $t0, 0($sp)
+    sw $t1, 4($sp)
+    sw $t2, 8($sp)
+    sw $t3, 12($sp)
 
     _mainSyscall13:
     #Sine Values
     add $t0, $sp, $zero                 # t0 = stackpointer
-    add $t3, $0, 200                    #Volume for all of the buzzers
+    addi $t3, $0, 200                    #Volume for all of the buzzers
     sw $t3, -252($0)                    # Set Volume for Sine Buzzer
     sw $t3, -212($0)                    #Set Volume for Triangle Buzzer
     sw $t3, -200($0)                    #Set Volume for Square Buzzer
@@ -396,23 +396,27 @@ _syscall13:
         sw $t1, -208($0)                # store frequency to address for Square
         sw $t2, -204($0)                # enable sound for Square
         
-#         addi $t0, $t0, 8                # Go to next note
-#         j _playLoop
+        addi $t0, $t0, 8                # Go to next note
+        j _playLoop
 endLoop:
 _putBackOGValues:    
-#         lw $t0, 0($sp)
-#         lw $t1, 4($sp)
-#         lw $t2, 8($sp)
-#         lw $t3, 12($sp)
-#         addi $sp, $sp, 16
+        lw $t0, 0($sp)
+        lw $t1, 4($sp)
+        lw $t2, 8($sp)
+        lw $t3, 12($sp)
+        addi $sp, $sp, 16
  _endPlay:
-#         jr   $k0   # Return 
+        jr   $k0   # Return 
 
 _syscall0:
     # Initialization goes here
     # set initial value of the stack pointer -4096
-    addi $sp, $0, -4096
+    addi $v0, $v0, 0
+    addi $v0, $v0, 0
+
+    
     la $v0, _END_OF_STATIC_MEMORY_ # This is getting 0 -- there was no static memory so this is ok
+    addi $sp, $0, -4096
     sw $v0, -4092($0)
     #j _syscallEnd_
 _syscallEnd_: 

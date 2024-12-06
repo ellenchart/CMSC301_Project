@@ -1,7 +1,6 @@
 .data
     songData: .word 185, 0, 220, 277, 0, 220, 0, 185, 147, 147, 147, 0, 0, 0, 0, 277, 147, 185, 220, 277, 0, 220, 0, 185, 165, 165, 165, 156, 147, 1
 .text
-.align 2
 .globl main
 
 main:
@@ -27,7 +26,7 @@ main:
 #return $v0 with the address where the song data is stored
 loadSong:
     #allocate space:
-    add $sp, $sp, -200      
+    addi $sp, $sp, -200      
     #-200 because we have 25 words ---> 25 * 4 bits (bc word) * 2 items (duration and frequency)        
     
     addi $v0, $0, 9
