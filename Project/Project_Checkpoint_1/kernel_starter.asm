@@ -371,7 +371,6 @@ _syscall13:
 #     sw $t2, 8($sp)
 #     sw $t3, 12($sp)
 
-<<<<<<< HEAD:Project/Project_Checkpoint_5/kernel_starter.asm
     _mainSyscall13:
     #Sine Values
     add $t0, $sp, $zero                 # t0 = stackpointer
@@ -394,21 +393,6 @@ _syscall13:
 
         sw $t1, -208($0)                # store frequency to address for Square
         sw $t2, -204($0)                # enable sound for Square
-=======
-#     _mainSyscall13:
-#     add $t0, $sp, $zero                 # t0 = stackpointer
-#     add $t3, $0, 200                    # Volume
-#     sw $t3, -252($0)                    # Set Volume
-
-#     _playLoop:
-#         lw $t1, 0($t0)                  # Load frequency
-#         beq $t1, $zero, _endLoop        # Exit if end marker (0, 0)
-
-#         addi $t2, $0, 1
-
-#         sw $t1, -244($0)                # Store frequency to address
-#         sw $t2, -248($0)                # Enable sound
->>>>>>> 3c0ba0d529cd3a9b02e4b27fc230e5e02b24447c:Project/Project_Checkpoint_1/kernel_starter.asm
         
 #         addi $t0, $t0, 8                # Go to next note
 #         j _playLoop
