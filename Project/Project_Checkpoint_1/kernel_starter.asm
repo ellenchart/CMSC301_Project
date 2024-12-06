@@ -16,8 +16,8 @@ _syscallStart_:
     addi $k1, $0, 9
     beq $v0, $k1, _syscall9 #jump to syscall 9
 
-    # addi $k1, $0, 10
-    # beq $v0, $k1, _syscall10 #jump to syscall 10
+    addi $k1, $0, 10
+    beq $v0, $k1, _syscall10 #jump to syscall 10
 
     # addi $k1, $0, 11
     # beq $v0, $k1, _syscall11 #jump to syscall 11
@@ -326,7 +326,7 @@ _syscall5:
 
 # #"End" the program
 _syscall10:
-#     j _syscall10
+    j _syscall10
 
 # #print character
 _syscall11:
