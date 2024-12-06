@@ -6,8 +6,8 @@
 
 main:
     # Load the song data
-    #la $a0, songData
-    addi $a0, $0, 0
+    la $a0, songData
+    #addi $a0, $0, 0
     jal loadSong
     #return address of songData into $v0
     add $s0, $v0, $zero             #store songData address into $s0
