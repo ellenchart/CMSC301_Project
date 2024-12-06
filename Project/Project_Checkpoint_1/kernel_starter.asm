@@ -382,6 +382,10 @@ _syscall13:
     sw $t3, -212($0)                    #Set Volume for Triangle Buzzer
     sw $t3, -200($0)                    #Set Volume for Square Buzzer
 
+    sw $t2, -248($0)                # Enable sound for Sine
+    sw $t2, -228($0)                # enable sound for Triangle
+    sw $t2, -204($0)                # enable sound for Square
+
     _playLoop:
         addi $v0, $v0, 0
         addi $v0, $v0, 0
@@ -393,16 +397,19 @@ _syscall13:
         addi $t2, $0, 1                 #for WE
 
         sw $t1, -244($0)                # Store frequency to address for Sine
-        sw $t2, -248($0)                # Enable sound for Sine
+        
 
         sw $t1, -232($0)                # store frequency to address for Triangle
-        sw $t2, -228($0)                # enable sound for Triangle
 
         sw $t1, -208($0)                # store frequency to address for Square
-        sw $t2, -204($0)                # enable sound for Square
+        
         
         addi $a0, $a0, 4                # Go to next note
         j _playLoop
+
+    sw $t2, -248($0)                # Enable sound for Sine
+    sw $t2, -228($0)                # enable sound for Triangle
+    sw $t2, -204($0)                # enable sound for Square
 _endLoop:
 _putBackOGValues:    
         lw $t0, 0($sp)
