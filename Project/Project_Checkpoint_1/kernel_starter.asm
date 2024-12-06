@@ -367,23 +367,28 @@ _syscall12:
 # #Start Song
 _syscall13:
  _savingOGValuesToStack:
-    addi $sp, $sp, -16
+    addi $sp, $sp, -20
     sw $t0, 0($sp)
     sw $t1, 4($sp)
     sw $t2, 8($sp)
     sw $t3, 12($sp)
+    sw $a0, 16($sp)
 
     _mainSyscall13:
     #Sine Values
-    add $t0, $sp, $zero                 # t0 = stackpointer
-    addi $t3, $0, 200                    #Volume for all of the buzzers
+    #add $t0, $sp, $zero                 # t0 = stackpointer
+    addi $t3, $0, 100                    #Volume for all of the buzzers
     sw $t3, -252($0)                    # Set Volume for Sine Buzzer
     sw $t3, -212($0)                    #Set Volume for Triangle Buzzer
     sw $t3, -200($0)                    #Set Volume for Square Buzzer
 
     _playLoop:
-        lw $t1, 0($t0)                  # Load frequency into $t1
-        #beq $t1, $zero, _endLoop        # Exit if end marker (0, 0)
+        addi $v0, $v0, 0
+        addi $v0, $v0, 0
+
+        lw $t1, 0($a0)                  # Load frequency into $t1
+        addi $t3, $0, 1
+        beq $t1, $t3, _endLoop        # Exit if end marker (0, 0)
 
         addi $t2, $0, 1                 #for WE
 
@@ -396,15 +401,16 @@ _syscall13:
         sw $t1, -208($0)                # store frequency to address for Square
         sw $t2, -204($0)                # enable sound for Square
         
-        addi $t0, $t0, 8                # Go to next note
+        addi $a0, $a0, 4                # Go to next note
         j _playLoop
-endLoop:
+_endLoop:
 _putBackOGValues:    
         lw $t0, 0($sp)
         lw $t1, 4($sp)
         lw $t2, 8($sp)
         lw $t3, 12($sp)
-        addi $sp, $sp, 16
+        lw $a0, 16($sp)
+        addi $sp, $sp, 20
  _endPlay:
         jr   $k0   # Return 
 

@@ -7,7 +7,7 @@ main:
     # Load the song data
     la $a0, songData
     #addi $a0, $0, 0
-    jal loadSong
+    #jal loadSong
     #return address of songData into $v0
     add $s0, $v0, $zero             #store songData address into $s0
     
@@ -16,7 +16,7 @@ main:
     syscall
 
     end: 
-        addi $sp, $sp, 200          #deallocate memory
+        #addi $sp, $sp, 124          #deallocate memory
         addi $v0, $zero, 10         #Syscall 10
         syscall
 
@@ -26,24 +26,27 @@ main:
 #return $v0 with the address where the song data is stored
 loadSong:
     #allocate space:
-    addi $sp, $sp, -200      
-    #-200 because we have 25 words ---> 25 * 4 bits (bc word) * 2 items (duration and frequency)        
+    #addi $sp, $sp, -124      
+    #-200 because we have 31 words ---> 31 * 4 bits (bc word)        
     
-    addi $v0, $0, 9
-    syscall
+    #addi $v0, $0, 9
+    #syscall
 
-    add $t0, $sp, $0        #put stackpointer into $t0
-    add $t1, $a0, $0        #put a0 into $t1
-    addi $t3, $0, 1         #set $t3 to end indicator
-    loadLoop:
-    lw $t2, 0($t1)          #load frequency from songData
-    sw $t2, 0($t0)          #store frequency to stack 
+    # add $t0, $sp, $0        #put stackpointer into $t0
+    # add $t1, $a0, $0        #put a0 into $t1
+    # addi $t3, $0, 1         #set $t3 to end indicator
+    # loadLoop:
+    # addi $v0, $v0, 0
+    # addi $v0, $v0, 0
 
-    addi $t0, $t0, 4        #increase stackpointer
-    addi $t1, $t1, 4        #go to next songData note
+    # lw $t2, 0($t1)          #load frequency from songData
+    # sw $t2, 0($t0)          #store frequency to stack 
 
-    bne $t2, $t3, loadLoop
+    # addi $t0, $t0, 4        #increase stackpointer
+    # addi $t1, $t1, 4        #go to next songData note
 
-    add $v0, $sp, $zero     #return the stackpointer of songData on stack
+    #bne $t2, $t3, loadLoop
+
+    #add $v0, $sp, $zero     #return the stackpointer of songData on stack 
     jr $ra
 
