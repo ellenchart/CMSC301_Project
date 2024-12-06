@@ -1,5 +1,5 @@
 .data
-    songData: .word 185, 0, 220, 277, 0, 220, 0, 185, 147, 147, 147, 0, 0, 0, 0, 277, 147, 185, 220, 277, 0, 220, 0, 185, 165, 165, 165, 156, 147, 1
+    songData: .word 370, 0, 440, 554, 0, 440, 0, 370, 294, 294, 294, 0, 0, 0, 0, 554, 294, 370, 440, 554, 0, 440, 0, 370, 659, 659, 659, 622, 587, 0, 1
 .text
 .globl main
 
@@ -16,7 +16,7 @@ main:
     syscall
 
     end: 
-        #addi $sp, $sp, 124          #deallocate memory
+        #addi $sp, $sp, 128          #deallocate memory
         addi $v0, $zero, 10         #Syscall 10
         syscall
 
@@ -26,7 +26,7 @@ main:
 #return $v0 with the address where the song data is stored
 loadSong:
     #allocate space:
-    #addi $sp, $sp, -124      
+    #addi $sp, $sp, -128      
     #-200 because we have 31 words ---> 31 * 4 bits (bc word)        
     
     #addi $v0, $0, 9
