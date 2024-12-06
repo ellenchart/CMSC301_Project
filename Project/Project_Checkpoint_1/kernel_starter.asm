@@ -25,58 +25,84 @@ _syscallStart_:
     addi $k1, $0, 12
     beq $v0, $k1, _syscall12 #jump to syscall 12
 
-    # Add branches to any syscalls required for your stars.
+    # # Add branches to any syscalls required for your stars.
     addi $k1, $0, 13
     beq $v0, $k1, _syscall13
-
-    addi $k1, $0, 14
-    beq $v0, $k1, _sycall14
 
     #Error state - this should never happen - treat it like an end program
     j _syscall10
 
 #Do init stuff
-_syscall0:
-    # Initialization goes here
-    # set initial value of the stack pointer -4096
-    addi $sp, $0, -4096
-    la $v0,_END_OF_STATIC_MEMORY_ 
-    sw $v0, -4092($0)
-    j _syscallEnd_
+
 
 #Print Integer
 _syscall1:
-    # Print Integer code goes here
-    addi $sp, $sp, -8
+    # # Print Integer code goes here
+    addi $sp, $sp, -16
     sw $t0, 0($sp)
     sw $t1, 4($sp)
-    bge $a0, $0, _PositiveSyscall1
+    sw $t2, 8($sp)
+    sw $t3, 12($sp)
+    addi $t3, $0, 0
+    slt $t2, $a0, $0
+    add $t0, $a0, $0
+    beq $t2, $0, _PositiveSyscall1
+    #bge $a0, $0, _PositiveSyscall1
     addi $t0, $0, 45 #negative int you need to print "-" (45)
     sw $t0, -256($0)
     addi $t0, $0, -1 #make positive
     mult $a0, $t0 
-    mflo $t0 
+    mflo $t0
 
     _PositiveSyscall1:
-    add $t0, $a0, $0
-    # while $t0 > 0 
+    # # while $t0 > 0 
     _WhilePositiveSyscall1:
-    ble $t0, $0, _EndWhilePositiveSyscall1
+
+    slt $t2, $0, $t0
+    beq $t2, $0, _EndWhilePositiveSyscall1
+    beq $t0, $0, _EndWhilePositiveSyscall1
+    #ble $t0, $0, _EndWhilePositiveSyscall1
     addi $t1, $0, 10
-    div $a0, $t1 
+    div $t0, $t1 
     # remainder 
     mfhi $t1
-    sw $t1 -256($0)
+    addi $t1, $t1, 48
+
+    # Count++
+    addi $t3, $t3, 1
+    # sp-=4
+    addi $sp, $sp, -4
+    # sw
+    sw $t1, 0($sp)
+
+
+    #sw $t1, -256($0)
     mflo $t0 # floor division 
     j _WhilePositiveSyscall1
 
     _EndWhilePositiveSyscall1:
+    # Remove Nums From Stack
+    #beq count==0
+    beq $t3, $0, _EndWhileReadNums
+    #count--
+    addi $t3, $t3, -1
+    #lw
+    lw $t1, 0($sp)
+    #sw onto terminal
+    sw $t1, -256($0)
+    #sp+=4
+    addi $sp, $sp, 4
+    j _EndWhilePositiveSyscall1
+
+    _EndWhileReadNums:
     lw $t0, 0($sp)
     lw $t1, 4($sp)
-    addi $sp, $sp, 8
+    lw $t2, 8($sp)
+    lw $t3, 12($sp)
+    addi $sp, $sp, 16
     jr $k0
 
-#Read Integer
+# #Read Integer
 _syscall5:
     # Read Integer code goes here
     addi $sp, $sp, -72
@@ -110,12 +136,12 @@ _syscall5:
     addi $s1, $0, 57 # ascii 9
     addi $s2, $0, 45 # ascii -
     addi $s3, $0, 0 # temp keyboard register 
-    addi $s4, $0, 45 # temp negative register 
+    addi $s4, $0, 0 # temp negative register 
     addi $s5, $0, 0 # count of putting inputs on stack
     addi $s6, $0, 10 # base for exponent
     addi $s7, $0, 0 # count for exponent
-    addi $v0, $$0, 0 # answer
-    addi $v1, $$0, 0 # inside math counter 
+    addi $v0, $0, 0 # answer
+    addi $v1, $0, 0 # inside math counter 
 
 
     # special number to check when keyboard input is done ****************** 
@@ -126,7 +152,7 @@ _syscall5:
     lw $s3, -240($0) # check keyboard status
     beq $s3, $0, _syscall5None # if no char ready go to none 
     lw $s3, -236($0) # else read char from -236
-    addi 
+    addi $s4, $0, 1
     beq $s3, $s2, _syscall5Negative
 
     # any value in keyboard 
@@ -142,7 +168,7 @@ _syscall5:
     beq $s3, $t7, _syscall5DigitSeven
     beq $s3, $s1, _syscall5DigitEight
     beq $s3, $s2, _syscall5DigitNine
-    j _syscall5None
+    j _syscall5End
 
     # any other not if not digit break 
 
@@ -235,30 +261,30 @@ _syscall5:
 
     # loop through stack to find special num and counter 
     _syscall5LoopThroughStack:
-    lw $s3, 0($sp) # where stack is   
+    # $v0 = answer, $s5 = count, $s7 = exp count, $s6 = 10
+    beq $s5, $0, _syscall5End
+    lw $s3, 0($sp)
     addi $sp, $sp, 4
-    beq $s5, $0, _syscall5None # if found special num
-    # else keep looping through and to do math (answer += (digit * 10^(counter )))
-    addi $v1, $s7, 0
-    addi $s7, $s7, 1
-    addi $s5, $s5, -1
-    _syscall5DigitMath: 
-    # v0 is answer, s6 is 10, s7 is count final, 
-    beq $v1, $0, _syscall5DigitMathDone
+    addi $s7, $s5, 0
+
+    _syscall5LoopExponent:
+    beq $s7, $0, _syscall5ExponentDone
     mult $s3, $s6
     mflo $s3
-    addi $v1, $v1, -1 # increment count 
-    j _syscall5DigitMath
+    addi $s7, $s7, -1
+    j _syscall5LoopExponent
 
-    _syscall5DigitMathDone:
+    _syscall5ExponentDone:
+
     add $v0, $v0, $s3
     j _syscall5LoopThroughStack
 
     _syscall5None:
-    # branch if s4 is 45 -- that means there was not a negative sign
-    beq $s4, $s2, _syscall5MakePositiveOne
-    addi $s4, $0, 1
-    _syscall5MakePositiveOne:
+    addi $v0, $0, 0
+    _syscall5End:
+
+
+
 
     lw $t0, 0($sp)
     lw $t1, 4($sp)
@@ -280,13 +306,13 @@ _syscall5:
     addi $sp, $sp, 68
 
     mult $v0, $s4
-    mfhi $v0
+    mflo $v0
 
     # check to make sure above sp is correct, did we deallocate the special number twice?
     jr $k0
 
-#Heap allocation
-_syscall9:
+# #Heap allocation
+ _syscall9:
     # Heap allocation code goes here
     # request a number of bytes in register $a0
     addi $sp, $sp, -4
@@ -299,45 +325,53 @@ _syscall9:
     addi $sp, $sp, 4
     jr $k0
 
-#"End" the program
+# #"End" the program
 _syscall10:
     j _syscall10
 
-#print character
+# #print character
 _syscall11:
     # print character code goes here
     sw $a0, -256($0)
     jr $k0
 
-#read character
+# #read character
 _syscall12:
-    # read character code goes here
+#     # read character code goes here
+
+
     addi $sp, $sp, -8 
     sw $k0, 0($sp)
-    sw $v0, 4($sp)
+    sw $k1, 4($sp)
     lw $k1, -240($0) # check keyboard status
     beq $k1, $0, _syscall12None # if no char ready go to none 
+    _syscall12Yes:
     lw $v0, -236($0) # else read char from -236 
     sw $0, -240($0) # reset keyboard status to 0
     j _syscall12Done
-    _syscall12None:
-    addi $v0, $0, 0 # if no char return 0 
+    _syscall12None: # Loop until yes
+    lw $k1, -240($0) # check keyboard status
+    bne $k1, $0, _syscall12Yes
+    j _syscall12None
+    
     _syscall12Done:
     lw $k0, 0($sp)
-    lw $v0, 4($sp)
-    addi $sp, $sp, 8 
+    lw $k1, 4($sp)
+
+    addi $sp, $sp, 8
     jr $k0
 
-#extra challenge syscalls go here?
-#Start Song
+# #extra challenge syscalls go here?
+# #Start Song
 _syscall13:
-    _savingOGValuesToStack:
-    addi $sp, $sp, -16
-    sw $t0, 0($sp)
-    sw $t1, 4($sp)
-    sw $t2, 8($sp)
-    sw $t3, 12($sp)
+#     _savingOGValuesToStack:
+#     addi $sp, $sp, -16
+#     sw $t0, 0($sp)
+#     sw $t1, 4($sp)
+#     sw $t2, 8($sp)
+#     sw $t3, 12($sp)
 
+<<<<<<< HEAD:Project/Project_Checkpoint_5/kernel_starter.asm
     _mainSyscall13:
     #Sine Values
     add $t0, $sp, $zero                 # t0 = stackpointer
@@ -360,17 +394,39 @@ _syscall13:
 
         sw $t1, -208($0)                # store frequency to address for Square
         sw $t2, -204($0)                # enable sound for Square
-        
-        addi $t0, $t0, 8                # Go to next note
-        j _playLoop
-    _endLoop:
-    _putBackOGValues:    
-        lw $t0, 0($sp)
-        lw $t1, 4($sp)
-        lw $t2, 8($sp)
-        lw $t3, 12($sp)
-        addi $sp, $sp, 16
-    _endPlay:
-        jr   $k0                        # Return 
+=======
+#     _mainSyscall13:
+#     add $t0, $sp, $zero                 # t0 = stackpointer
+#     add $t3, $0, 200                    # Volume
+#     sw $t3, -252($0)                    # Set Volume
 
-_syscallEnd_:
+#     _playLoop:
+#         lw $t1, 0($t0)                  # Load frequency
+#         beq $t1, $zero, _endLoop        # Exit if end marker (0, 0)
+
+#         addi $t2, $0, 1
+
+#         sw $t1, -244($0)                # Store frequency to address
+#         sw $t2, -248($0)                # Enable sound
+>>>>>>> 3c0ba0d529cd3a9b02e4b27fc230e5e02b24447c:Project/Project_Checkpoint_1/kernel_starter.asm
+        
+#         addi $t0, $t0, 8                # Go to next note
+#         j _playLoop
+#     _endLoop:
+#     _putBackOGValues:    
+#         lw $t0, 0($sp)
+#         lw $t1, 4($sp)
+#         lw $t2, 8($sp)
+#         lw $t3, 12($sp)
+#         addi $sp, $sp, 16
+#     _endPlay:
+#         jr   $k0   # Return 
+
+_syscall0:
+    # Initialization goes here
+    # set initial value of the stack pointer -4096
+    addi $sp, $0, -4096
+    la $v0, _END_OF_STATIC_MEMORY_ # This is getting 0 -- there was no static memory so this is ok
+    sw $v0, -4092($0)
+    #j _syscallEnd_
+_syscallEnd_: 
