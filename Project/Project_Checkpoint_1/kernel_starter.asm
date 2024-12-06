@@ -37,7 +37,7 @@ _syscallStart_:
 
 #Print Integer
 _syscall1:
-    # # Print Integer code goes here
+    # Print Integer code goes here
     addi $sp, $sp, -16
     sw $t0, 0($sp)
     sw $t1, 4($sp)
@@ -103,6 +103,7 @@ _syscall1:
     jr $k0
 
 # #Read Integer
+# #Read Integer
 _syscall5:
     # Read Integer code goes here
     addi $sp, $sp, -72
@@ -152,6 +153,7 @@ _syscall5:
     lw $s3, -240($0) # check keyboard status
     beq $s3, $0, _syscall5None # if no char ready go to none 
     lw $s3, -236($0) # else read char from -236
+    sw $0, -240($0) # erase digit from keyboard
     addi $s4, $0, 1
     beq $s3, $s2, _syscall5Negative
 
@@ -313,7 +315,7 @@ _syscall5:
 
 # #Heap allocation
  _syscall9:
-    # Heap allocation code goes here
+    Heap allocation code goes here
     # request a number of bytes in register $a0
     addi $sp, $sp, -4
     sw $t0, 0($sp)
@@ -364,7 +366,7 @@ _syscall12:
 # #extra challenge syscalls go here?
 # #Start Song
 _syscall13:
-#     _savingOGValuesToStack:
+ _savingOGValuesToStack:
 #     addi $sp, $sp, -16
 #     sw $t0, 0($sp)
 #     sw $t1, 4($sp)
@@ -381,7 +383,7 @@ _syscall13:
 
     _playLoop:
         lw $t1, 0($t0)                  # Load frequency into $t1
-        beq $t1, $zero, _endLoop        # Exit if end marker (0, 0)
+        #beq $t1, $zero, _endLoop        # Exit if end marker (0, 0)
 
         addi $t2, $0, 1                 #for WE
 
@@ -396,14 +398,14 @@ _syscall13:
         
 #         addi $t0, $t0, 8                # Go to next note
 #         j _playLoop
-#     _endLoop:
-#     _putBackOGValues:    
+endLoop:
+_putBackOGValues:    
 #         lw $t0, 0($sp)
 #         lw $t1, 4($sp)
 #         lw $t2, 8($sp)
 #         lw $t3, 12($sp)
 #         addi $sp, $sp, 16
-#     _endPlay:
+ _endPlay:
 #         jr   $k0   # Return 
 
 _syscall0:
