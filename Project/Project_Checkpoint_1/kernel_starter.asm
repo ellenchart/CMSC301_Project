@@ -106,7 +106,7 @@ _syscall1:
 # #Read Integer
 _syscall5:
     # Read Integer code goes here
-    addi $sp, $sp, -72
+    addi $sp, $sp, -76
     sw $t0, 0($sp)
     sw $t1, 4($sp)
     sw $t2, 8($sp)
@@ -124,6 +124,7 @@ _syscall5:
     sw $s6, 56($sp)
     sw $s7, 60($sp)
     sw $v1, 64($sp)
+    sw $v2, 68($sp)
 
     addi $t0, $0, 48 # ascii 0
     addi $t1, $0, 49 # ascii 1
@@ -142,7 +143,8 @@ _syscall5:
     addi $s6, $0, 10 # base for exponent
     addi $s7, $0, 0 # count for exponent
     addi $v0, $0, 0 # answer
-    addi $v1, $0, 0 # inside math counter 
+    addi $v1, $0, 0 # inside math counter
+    #addi $v0, $0, 0 # num
 
 
     # special number to check when keyboard input is done ****************** 
@@ -152,6 +154,7 @@ _syscall5:
     # first time through loop check if digit or "-"
     lw $s3, -240($0) # check keyboard status
     beq $s3, $0, _syscall5None # if no char ready go to none 
+    _syscall5Found:
     lw $s3, -236($0) # else read char from -236
     sw $0, -240($0) # erase digit from keyboard
     addi $s4, $0, 1
@@ -183,106 +186,133 @@ _syscall5:
 
     _syscall5DigitZero:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 0
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 0
+    mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    # mult $s6, $v2
+    # mflo $v2
+    #sw $s3, 0($sp)
+    #addi $s5, $s5, 1
+    
     j _syscall5WhileIfDigit
 
     _syscall5DigitOne:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 1
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 1
+     mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
     
     _syscall5DigitTwo:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 2
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+   # addi $sp, $sp, -4
+    addi $s3, $0, 2
+     mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     _syscall5DigitThree:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 3
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 3
+     mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     _syscall5DigitFour:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 4
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 4
+     mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     _syscall5DigitFive:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 5
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 5
+     mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     _syscall5DigitSix:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 6
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 6
+     mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     _syscall5DigitSeven:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 7
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 7
+     mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     _syscall5DigitEight:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 8
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 8
+    mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     _syscall5DigitNine:
     # put zero on stack and j to _syscall5WhileIfDigit 
-    addi $sp, $sp, -4
-    addi $s3, $s3, 9
-    sw $s3, 0($sp)
-    addi $s5, $s5, 1
+    #addi $sp, $sp, -4
+    addi $s3, $0, 9
+    mult $v0, $s6
+    mflo $v0
+    add $v0, $v0, $s3
+    #sw $s3, 
     j _syscall5WhileIfDigit
 
     # loop through stack to find special num and counter 
-    _syscall5LoopThroughStack:
-    # $v0 = answer, $s5 = count, $s7 = exp count, $s6 = 10
-    beq $s5, $0, _syscall5End
-    lw $s3, 0($sp)
-    addi $sp, $sp, 4
-    addi $s7, $s5, 0
+    # _syscall5LoopThroughStack:
+    # # $v0 = answer, $s5 = count, $s7 = exp count, $s6 = 10
+    # beq $s5, $0, _syscall5End
+    # lw $s3, 0($sp)
+    # mult $s3, $v2
+    # addi $sp, $sp, 4
+    # addi $s7, $s5, 0
 
-    _syscall5LoopExponent:
-    beq $s7, $0, _syscall5ExponentDone
-    mult $s3, $s6
-    mflo $s3
-    addi $s7, $s7, -1
-    j _syscall5LoopExponent
+    # _syscall5LoopExponent:
+    # beq $s7, $0, _syscall5ExponentDone
+    # mult $s3, $s6
+    # mflo $s3
+    # addi $s7, $s7, -1
+    # j _syscall5LoopExponent
 
-    _syscall5ExponentDone:
+    # _syscall5ExponentDone:
 
-    add $v0, $v0, $s3
-    j _syscall5LoopThroughStack
+    # add $v0, $v0, $s3
+    # j _syscall5LoopThroughStack
 
     _syscall5None:
-    addi $v0, $0, 0
+    lw $s3, -240($0) # check keyboard status
+    beq $s3, $0, _syscall5Found
+    j _syscall5None
     _syscall5End:
 
 
@@ -315,14 +345,14 @@ _syscall5:
 
 # #Heap allocation
  _syscall9:
-    Heap allocation code goes here
+    #Heap allocation code goes here
     # request a number of bytes in register $a0
     addi $sp, $sp, -4
     sw $t0, 0($sp)
-    lw $t0, -4096($0) # heap pointer 
+    lw $v0, -4092($0) # heap pointer 
     # $a0, and you will provide a block of that many bytes returning a pointer in $v0
-    add $v0, $t0, $a0 
-    sw $v0, -4096($0) # updates the adress of heap pointer
+    add $t0, $v0, $a0 
+    sw $t0, -4092($0) # updates the adress of heap pointer
     lw $t0, 0($sp)
     addi $sp, $sp, 4
     jr $k0

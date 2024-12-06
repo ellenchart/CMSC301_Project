@@ -334,6 +334,7 @@ int main(int argc, char *argv[])
 
     }
     staticLabelMap.insert(std::pair<std::string, int>("_END_OF_STATIC_MEMORY_", addressCount));
+    
 
     //  for (const auto &elem : map)
     //     {
