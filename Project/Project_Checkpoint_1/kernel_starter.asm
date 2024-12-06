@@ -19,8 +19,8 @@ _syscallStart_:
     addi $k1, $0, 10
     beq $v0, $k1, _syscall10 #jump to syscall 10
 
-    # addi $k1, $0, 11
-    # beq $v0, $k1, _syscall11 #jump to syscall 11
+    addi $k1, $0, 11
+    beq $v0, $k1, _syscall11 #jump to syscall 11
 
     # addi $k1, $0, 12
     # beq $v0, $k1, _syscall12 #jump to syscall 12
@@ -330,9 +330,9 @@ _syscall10:
 
 # #print character
 _syscall11:
-#     # print character code goes here
-#     sw $a0, -256($0)
-#     jr $k0
+    # print character code goes here
+    sw $a0, -256($0)
+    jr $k0
 
 # #read character
 _syscall12:
