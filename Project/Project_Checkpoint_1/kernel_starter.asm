@@ -13,8 +13,8 @@ _syscallStart_:
     # addi $k1, $0, 5
     # beq $v0, $k1, _syscall5 #jump to syscall 5
 
-    # addi $k1, $0, 9
-    # beq $v0, $k1, _syscall9 #jump to syscall 9
+    addi $k1, $0, 9
+    beq $v0, $k1, _syscall9 #jump to syscall 9
 
     # addi $k1, $0, 10
     # beq $v0, $k1, _syscall10 #jump to syscall 10
@@ -38,10 +38,16 @@ _syscallStart_:
 #Print Integer
 _syscall1:
     # # Print Integer code goes here
-    addi $sp, $sp, -8
+    addi $sp, $sp, -16
     sw $t0, 0($sp)
     sw $t1, 4($sp)
-    bge $a0, $0, _PositiveSyscall1
+    sw $t2, 8($sp)
+    sw $t3, 12($sp)
+    addi $t3, $0, 0
+    slt $t2, $a0, $0
+    add $t0, $a0, $0
+    beq $t2, $0, _PositiveSyscall1
+    #bge $a0, $0, _PositiveSyscall1
     addi $t0, $0, 45 #negative int you need to print "-" (45)
     sw $t0, -256($0)
     addi $t0, $0, -1 #make positive
@@ -49,22 +55,51 @@ _syscall1:
     mflo $t0
 
     _PositiveSyscall1:
-    add $t0, $a0, $0
-    # while $t0 > 0 
+    # # while $t0 > 0 
     _WhilePositiveSyscall1:
-    ble $t0, $0, _EndWhilePositiveSyscall1
+
+    slt $t2, $0, $t0
+    beq $t2, $0, _EndWhilePositiveSyscall1
+    beq $t0, $0, _EndWhilePositiveSyscall1
+    #ble $t0, $0, _EndWhilePositiveSyscall1
     addi $t1, $0, 10
-    div $a0, $t1 
+    div $t0, $t1 
     # remainder 
     mfhi $t1
-    sw $t1 -256($0)
+    addi $t1, $t1, 48
+
+    # Count++
+    addi $t3, $t3, 1
+    # sp-=4
+    addi $sp, $sp, -4
+    # sw
+    sw $t1, 0($sp)
+
+
+    #sw $t1, -256($0)
     mflo $t0 # floor division 
     j _WhilePositiveSyscall1
 
     _EndWhilePositiveSyscall1:
+    # Remove Nums From Stack
+    #beq count==0
+    beq $t3, $0, _EndWhileReadNums
+    #count--
+    addi $t3, $t3, -1
+    #lw
+    lw $t1, 0($sp)
+    #sw onto terminal
+    sw $t1, -256($0)
+    #sp+=4
+    addi $sp, $sp, 4
+    j _EndWhilePositiveSyscall1
+
+    _EndWhileReadNums:
     lw $t0, 0($sp)
     lw $t1, 4($sp)
-    addi $sp, $sp, 8
+    lw $t2, 8($sp)
+    lw $t3, 12($sp)
+    addi $sp, $sp, 16
     jr $k0
 
 # #Read Integer
@@ -279,15 +314,15 @@ _syscall5:
  _syscall9:
 #     # Heap allocation code goes here
 #     # request a number of bytes in register $a0
-#     addi $sp, $sp, -4
-#     sw $t0, 0($sp)
-#     lw $t0, -4096($0) # heap pointer 
-#     # $a0, and you will provide a block of that many bytes returning a pointer in $v0
-#     add $v0, $t0, $a0 
-#     sw $v0, -4096($0) # updates the adress of heap pointer
-#     lw $t0, 0($sp)
-#     addi $sp, $sp, 4
-#     jr $k0
+    addi $sp, $sp, -4
+    sw $t0, 0($sp)
+    lw $t0, -4096($0) # heap pointer 
+    # $a0, and you will provide a block of that many bytes returning a pointer in $v0
+    add $v0, $t0, $a0 
+    sw $v0, -4096($0) # updates the adress of heap pointer
+    lw $t0, 0($sp)
+    addi $sp, $sp, 4
+    jr $k0
 
 # #"End" the program
 _syscall10:
@@ -352,13 +387,13 @@ _syscall13:
 #         lw $t3, 12($sp)
 #         addi $sp, $sp, 16
 #     _endPlay:
-#         jr   $k0                        # Return 
+#         jr   $k0   # Return 
 
 _syscall0:
     # Initialization goes here
     # set initial value of the stack pointer -4096
     addi $sp, $0, -4096
-    la $v0, _END_OF_STATIC_MEMORY_ 
+    la $v0, _END_OF_STATIC_MEMORY_ # This is getting 0 -- there was no static memory so this is ok
     sw $v0, -4092($0)
     #j _syscallEnd_
 _syscallEnd_: 
