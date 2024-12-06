@@ -4,35 +4,35 @@
 #written where each eighth note is one
     songData:
         .word 185            # F#, 1 
-        .word 0              # rest, 1
-        .word 220            # A, 1
-        .word 277            # C#, 1
-        .word 0              # rest, 1
-        .word 220            # A, 1
-        .word 0              # rest, 1
-        .word 185            # F#, 1
-        .word 147            # D, 1
-        .word 147            # D, 1
-        .word 147            # D, 1
-        .word 0              # rest, 4
-        .word 0
-        .word 0
-        .word 0
-        .word 277             # C#, 1
-        .word 147             # D, 1
-        .word 185             # F#, 1
-        .word 220             # A, 1
-        .word 277             # C#, 1
-        .word 0               # rest, 1
-        .word 220             # A, 1
-        .word 0               # rest, 1
-        .word 185             # F#, 1
-        .word 165             # E, 3
-        .word 165
-        .word 165
-        .word 156             # Eb, 1
-        .word 147             # D, 1
-        .word 1                # End 
+        ,0              # rest, 1
+        ,220            # A, 1
+        ,277            # C#, 1
+        ,0              # rest, 1
+        ,220            # A, 1
+        ,0              # rest, 1
+        ,185            # F#, 1
+        ,147            # D, 1
+        ,147            # D, 1
+        ,147            # D, 1
+        ,0              # rest, 4
+        ,0
+        ,0
+        ,0
+        ,277             # C#, 1
+        ,147             # D, 1
+        ,185             # F#, 1
+        ,220             # A, 1
+        ,277             # C#, 1
+        ,0               # rest, 1
+        ,220             # A, 1
+        ,0               # rest, 1
+        ,185             # F#, 1
+        ,165             # E, 3
+        ,165
+        ,165
+        ,156             # Eb, 1
+        ,147             # D, 1
+        ,1                # End 
 .text
 .align 2 
 .globl main
@@ -45,12 +45,12 @@ main:
     add $s0, $v0, $zero             #store songData address into $s0
     
     # Start Song 
-    addi $v0,$0, 13               # Syscall 13: Start song
+    addi $v0,$0, 13                 # Syscall 13: Start song
     syscall
 
     end: 
-        addi $sp, $sp, 200      #deallocate memory
-        addi $v0, $zero, 10     #Syscall 10
+        addi $sp, $sp, 200          #deallocate memory
+        addi $v0, $zero, 10         #Syscall 10
         syscall
 
 #functions:
@@ -76,7 +76,7 @@ loadSong:
     addi $t1, $t1, 4        #go to next songData note
 
     bne $t2, $t3, loadLoop
-          
+
     add $v0, $sp, $zero     #return the stackpointer of songData on stack
     jr $ra
 
