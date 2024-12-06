@@ -1,7 +1,4 @@
-#According to ChatGPT what it recommends to do; I will go through 
-#later and figure out what's going on
 .data
-#written where each eighth note is one
     songData:
         .word 185            # F#, 1 
         .word 0              # rest, 1
@@ -34,12 +31,13 @@
         .word 147             # D, 1
         .word 1                # End 
 .text
-.align 2 
+.align 2
 .globl main
 
 main:
     # Load the song data
-    la $a0, songData
+    #la $a0, songData
+    addi $a0, $0, 0
     jal loadSong
     #return address of songData into $v0
     add $s0, $v0, $zero             #store songData address into $s0
