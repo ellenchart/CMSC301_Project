@@ -32,7 +32,7 @@
         .word 165
         .word 156             # Eb, 1
         .word 147             # D, 1
-        .word 0                 # End 
+        .word 1                # End 
 .text
 .align 2 
 .globl main
@@ -65,15 +65,18 @@ loadSong:
     addi $v0, $0, 9
     syscall
 
-    add $t0, $sp, $0        #store stackpointer into $t0
-    
+    add $t0, $sp, $0        #put stackpointer into $t0
+    add $t1, $a0, $0        #put a0 into $t1
+    addi $t3, $0, 1         #set $t3 to end indicator
     loadLoop:
-    lw $t1, 0($a0)          #load frequency from songData
-    sw $t1, 0($t0)          #store frequency to stack 
+    lw $t2, 0($t1)          #load frequency from songData
+    sw $t2, 0($t0)          #store frequency to stack 
 
-    addi $t0, $t0, 8
+    addi $t0, $t0, 4        #increase stackpointer
+    addi $t1, $t1, 4        #go to next songData note
 
-    bne $t2, $zero, loadLoop      
+    bne $t2, $t3, loadLoop
+          
     add $v0, $sp, $zero     #return the stackpointer of songData on stack
     jr $ra
 
