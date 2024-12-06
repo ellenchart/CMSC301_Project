@@ -171,16 +171,16 @@ int main(int argc, char *argv[])
                 // while(runningString.find(' ') != std::string::npos)
                 // do
                 // bool failsafe = false;
-                std::cout << str << "\n";
+                //std::cout << str << "\n";
                 if (str.find(' ', lastWhitespace - 1) == std::string::npos)
                 {
-                    std::cout << "Inside";
-                    std::cout << tempString << "\n";
+                  //  std::cout << "Inside";
+                    //std::cout << tempString << "\n";
                 }
                 while (str.find(' ', lastWhitespace - 1) != std::string::npos)
                 {
-                    std::cout << "While Loop: ";
-                    std::cout << tempString << "\n";
+                    //std::cout << "While Loop: ";
+                   // std::cout << tempString << "\n";
                     // std::cout <<  str.find(' ', lastWhitespace) << "\n";
                     // std::cout <<  lastWhitespace << "\n";
 
