@@ -461,6 +461,5 @@ _syscall0:
     la $v0, _END_OF_STATIC_MEMORY_ # This is getting 0 -- there was no static memory so this is ok
     addi $sp, $0, -4096
     sw $v0, -4092($0)
-    jr $k0
     #j _syscallEnd_
 _syscallEnd_: 
