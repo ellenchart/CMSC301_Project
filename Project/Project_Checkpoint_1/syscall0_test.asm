@@ -7,7 +7,3 @@ main:
     # Test syscall 0: Initialization
     addi $v0, $zero, 0     # Load syscall code 0 (initialize)
     syscall
-end: 
-    addi $v0, $zero, 10
-    syscall
- 
