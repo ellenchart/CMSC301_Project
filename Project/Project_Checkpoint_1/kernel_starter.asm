@@ -5,6 +5,8 @@
 .data
 .text
 _syscallStart_:
+    addi $t0, $zero, 12
+    
     beq $v0, $0, _syscall0 #jump to syscall 0
 
     addi $k1, $0, 1

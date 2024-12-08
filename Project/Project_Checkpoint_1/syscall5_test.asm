@@ -10,6 +10,6 @@ main:
     syscall
     # Check $v0 for the value read.
     add $t0, $v0, $zero
-    end: 
-        addi $v0, $zero, 10
-        syscall
+end: 
+    addi $v0, $zero, 10
+    syscall
