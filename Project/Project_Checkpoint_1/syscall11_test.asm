@@ -1,4 +1,5 @@
 .data
+    _char_to_print: .word 65
 .text
 .globl main
 
@@ -6,7 +7,7 @@
 main:
     # Test syscall 11: Print Character
     la $a0, _char_to_print     # Load ASCII character into $a0
-    lw $a0, 0($t3)                     
+    # lw $a0, 0($t3)                     
     addi $v0, $zero, 11       # Load syscall code 11 (print character)
     syscall
 
