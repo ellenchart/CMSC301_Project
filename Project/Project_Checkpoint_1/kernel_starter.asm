@@ -176,7 +176,7 @@ _syscall5:
     _syscall5WhileIfDigit:
     # check if digit
     lw $s3, -240($0) # check keyboard status
-    beq $s3, $0, _syscall5NoneinLopp # if no char ready go to none 
+    beq $s3, $0, _syscall5NoneinLoop # if no char ready go to none 
     _syscall5FoundinLoop: 
     lw $s3, -236($0) # else read char from -236
     sw $0, -240($0) # erase digit from keyboard
