@@ -11,5 +11,6 @@ main:
     addi $v0, $zero, 9 # Load syscall code 9 (heap allocation)
     syscall 
 
-    lw $a0, 4($t0)
+    addi $a0, $v0, 0
+    addi $v0, $zero, 9 
     syscall
