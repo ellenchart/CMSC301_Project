@@ -9,5 +9,5 @@ main:
     addi $v0, $zero, 5        # Load syscall code 5 (read integer)
     syscall
 end: 
-    addi $v0, $zero, 10
-    syscall
+    #addi $v0, $zero, 10
+    #syscall

@@ -5,7 +5,7 @@
 .data
 .text
 _syscallStart_:
-    addi $t0, $zero, 12
+    #addi $t0, $zero, 12
     
     beq $v0, $0, _syscall0 #jump to syscall 0
 
@@ -161,10 +161,22 @@ _syscall5:
     sw $0, -240($0) # erase digit from keyboard
     addi $s4, $0, 1
     beq $s3, $s2, _syscall5Negative
+    beq $s3, $t0, _syscall5DigitZero
+    beq $s3, $t1, _syscall5DigitOne
+    beq $s3, $t2, _syscall5DigitTwo 
+    beq $s3, $t3, _syscall5DigitThree
+    beq $s3, $t4, _syscall5DigitFour
+    beq $s3, $t5, _syscall5DigitFive
+    beq $s3, $t6, _syscall5DigitSix
+    beq $s3, $t7, _syscall5DigitSeven
+    beq $s3, $s1, _syscall5DigitEight
+    beq $s3, $s2, _syscall5DigitNine
 
     # any value in keyboard 
     _syscall5WhileIfDigit:
     # check if digit 
+    lw $s3, -236($0) # else read char from -236
+    sw $0, -240($0) # erase digit from keyboard
     beq $s3, $t0, _syscall5DigitZero
     beq $s3, $t1, _syscall5DigitOne
     beq $s3, $t2, _syscall5DigitTwo 
@@ -234,7 +246,7 @@ _syscall5:
     # put zero on stack and j to _syscall5WhileIfDigit 
     #addi $sp, $sp, -4
     addi $s3, $0, 4
-     mult $v0, $s6
+    mult $v0, $s6
     mflo $v0
     add $v0, $v0, $s3
     #sw $s3, 
@@ -254,7 +266,7 @@ _syscall5:
     # put zero on stack and j to _syscall5WhileIfDigit 
     #addi $sp, $sp, -4
     addi $s3, $0, 6
-     mult $v0, $s6
+    mult $v0, $s6
     mflo $v0
     add $v0, $v0, $s3
     #sw $s3, 
@@ -317,7 +329,8 @@ _syscall5:
     j _syscall5None
     _syscall5End:
 
-
+    mult $v0, $s4
+    mflo $v0
 
 
     lw $t0, 0($sp)
@@ -339,9 +352,7 @@ _syscall5:
     lw $v1, 64($sp)
     addi $sp, $sp, 68
 
-    mult $v0, $s4
-    mflo $v0
-
+    
     # check to make sure above sp is correct, did we deallocate the special number twice?
     jr $k0
 
