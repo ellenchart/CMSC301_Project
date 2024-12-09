@@ -325,7 +325,7 @@ _syscall5:
 
     _syscall5None:
     lw $s3, -240($0) # check keyboard status
-    beq $s3, $0, _syscall5Found
+    bne $s3, $0, _syscall5Found
     j _syscall5None
     _syscall5End:
 
