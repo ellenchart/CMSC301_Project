@@ -330,13 +330,15 @@ _syscall5:
     lw $s3, -240($0) # check keyboard status
     bne $s3, $0, _syscall5Found
     j _syscall5None
-    _syscall5End:
 
-    _syscall5NoneinLoop:
+    syscall5NoneinLoop:
     lw $s3, -240($0) # check keyboard status
     bne $s3, $0, _syscall5FoundinLoop
     j _syscall5NoneinLoop
+
     _syscall5End:
+
+
 
     mult $v0, $s4
     mflo $v0
