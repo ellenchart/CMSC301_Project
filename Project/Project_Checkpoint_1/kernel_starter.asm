@@ -174,7 +174,10 @@ _syscall5:
 
     # any value in keyboard 
     _syscall5WhileIfDigit:
-    # check if digit 
+    # check if digit
+    lw $s3, -240($0) # check keyboard status
+    beq $s3, $0, _syscall5NoneinLopp # if no char ready go to none 
+    _syscall5FoundinLoop: 
     lw $s3, -236($0) # else read char from -236
     sw $0, -240($0) # erase digit from keyboard
     beq $s3, $t0, _syscall5DigitZero
@@ -327,6 +330,12 @@ _syscall5:
     lw $s3, -240($0) # check keyboard status
     bne $s3, $0, _syscall5Found
     j _syscall5None
+    _syscall5End:
+
+    _syscall5NoneinLoop:
+    lw $s3, -240($0) # check keyboard status
+    bne $s3, $0, _syscall5FoundinLoop
+    j _syscall5NoneinLoop
     _syscall5End:
 
     mult $v0, $s4
